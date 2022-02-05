@@ -3,7 +3,7 @@ import pika
 
 #create connection to rabbitmq
 connection = pika.BlockingConnection(
-    pika.ConnectionParameters(hosts='localhost'))
+    pika.ConnectionParameters(host='localhost'))
 channel = connection.channel()
 
 #checks if queue exist
