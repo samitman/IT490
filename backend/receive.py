@@ -1,24 +1,23 @@
 #!/usr/bin/env python
 import pika, sys, os
 
-#declare connection
 def main():
-    connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost'))
+    credentials = pika.PlainCredentials(username='test', password='test')
+    connection = pika.BlockingConnection(pika.ConnectionParameters(host='192.68.192.60', credentials=credentials))
+    # host = sam ipv4
+    # added credentials=credentials
     channel = connection.channel()
 
-#declare queue
     channel.queue_declare(queue='hello')
 
-#callback function
     def callback(ch, method, properties, body):
         print(" [x] Received %r" % body)
 
     channel.basic_consume(queue='hello', on_message_callback=callback, auto_ack=True)
 
-    print(' [*] Waiting for messages. To exit press CTRL + C')
-    channel.start_consumiung()
+    print(' [*] Waiting for messages. To exit press CTRL+C')
+    channel.start_consuming()
 
-#invoke main
 if __name__ == '__main__':
     try:
         main()
