@@ -2,7 +2,7 @@
 import pika
 
 #uses rabbitmq site credentials in this case it is sam's
-credentials = pika.PlainCredentials('sam', '1234')
+credentials = pika.PlainCredentials(username='guest', password='guest')
 connection = pika.BlockingConnection(pika.ConnectionParameters(host='192.168.192.60', credentials=credentials))
 
 channel = connection.channel()
