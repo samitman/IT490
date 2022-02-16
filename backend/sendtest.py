@@ -11,6 +11,6 @@ channel.queue_declare(queue='hello')
 
 channel.basic_publish(exchange='',
                   routing_key='hello',
-                  body='Hello World!')
-print(" [x] Sent 'Hello RabbitMQ!'")
+                  body='Hello from Ryan!')
+print(" [x] Sent 'Hello from Ryan!'")
 connection.close()
