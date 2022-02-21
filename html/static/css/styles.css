@@ -1,8 +1,8 @@
 body {
     font-family: "Avenir Next";
     font-size: 1.5em;
-    color: #f9982b;
-    background: #000000;
+    color: #305D00;
+    background: #FFFFFF;
     padding: 10px 10px;
 }
 
@@ -93,13 +93,13 @@ input {
     float: right;
     width: 70%;
     padding: 14px 20px;
-    border: 2px solid #f9982b;
+    border: 2px solid #305D00;
     margin: auto;
     border-radius: 10px;
     font-size: 1.0em;
     background-color: black;
     font-family: "Avenir Next";
-    color: #f9982b;
+    color: #305D00;
     box-sizing: border-box;
 }
 

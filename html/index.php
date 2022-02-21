@@ -2,9 +2,8 @@
 <link rel="stylesheet" href="static/css/styles.css">
 <br>
 <div>
-<div style="text-align: center;">
-	<b>Newark Academy Sample Collection and Tracking System</b><br>
-	<p><img src="images/logo.png" alt="Newark Academy logo" width="419", height="402"></p>
+<div>
+	<p><img src="images/walnuts_header.png" alt="Walnuts logo"></p>
 	Please log in or register to continue.
 </div>
 <br>
@@ -20,7 +19,7 @@
 	</form>
 </div>
 
-<?php
+/*<?php
 if (isset($_POST["login"])) {
     $email = null;
     $password = null;
@@ -83,5 +82,6 @@ if (isset($_POST["login"])) {
         flash("I'm sorry, something is wrong. Please try again.");
     }
 }
-?>
+?>*/
+
 <?php require(__DIR__ . "/partials/flash.php");
