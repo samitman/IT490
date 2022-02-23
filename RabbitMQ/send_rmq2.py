@@ -9,6 +9,6 @@ channel.queue_declare(queue='hello')
 channel.basic_publish(exchange='',
                       routing_key='hello',
                       body='Hello from RMQ2')
-print(" [x] Sent 'Hello world!'")
+print(" [x] Sent 'Hello from RMQ2 =]'")
 
 connection.close()
