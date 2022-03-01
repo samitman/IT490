@@ -6,8 +6,8 @@ import pika, sys, os, mysql.connector
 ##database connection
 mydb = mysql.connector.connect(
   host="localhost",
-  user="yourusername",
-  password="yourpassword"
+  user="test",
+  password="1234"
 )
 
 def main():
