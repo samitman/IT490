@@ -7,7 +7,8 @@ import pika, sys, os, mysql.connector
 mydb = mysql.connector.connect(
   host="localhost",
   user="test",
-  password="1234"
+  password="1234",
+  database='test'
 )
 
 def main():
@@ -19,16 +20,17 @@ def main():
 
     def callback(ch, method, properties, body):
         print(" [x] Received %r" % body)
+        print(type(body))
 
         ##saving body of message as username variable
-        username = str(body)
-    
+        username = body.decode()
+        print(type(username))
         ##lets you execute python as sql statements, cursor init
         mycursor = mydb.cursor()
 
         #If the username doesn't already exist as a key, it will execute the sql statement
-        sql = "IF NOT EXISTS (INSERT INTO users = (username) VALUES (%s))"
-        val = (username)
+        sql = "INSERT INTO accounts (Username) VALUES (%s)"
+        val = [username]
 
         ##executes
         mycursor.execute(sql, val)
