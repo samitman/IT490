@@ -35,10 +35,10 @@ def main():
         mycursor = mydb.cursor()
 
         #If the username doesn't already exist as a key, it will execute the sql statement
-        sql = "INSERT INTO accounts (Username, Password) VALUE (%s)"
+        sql = "INSERT INTO accounts (Username, Password) VALUES (%s, %s)"
         
         
-        for things in credslist: mycursor.execute(sql,things)
+        mycursor.execute(sql, credslist)
 		
         ##executes
         ##mycursor.execute(sql, val)
