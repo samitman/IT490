@@ -23,17 +23,25 @@ def main():
         print(type(body))
 
         ##saving body of message as username variable
-        username = body.decode()
-        print(type(username))
+        messagestring = body.decode()
+        credslist = messagestring.split(',')
+        username = credslist[0]
+        password = credslist[1]
+        
+        print("Split check:" + username +" "+ password)
+
+        print(credslist)
         ##lets you execute python as sql statements, cursor init
         mycursor = mydb.cursor()
 
         #If the username doesn't already exist as a key, it will execute the sql statement
-        sql = "INSERT INTO accounts (Username) VALUES (%s)"
-        val = [username]
-
+        sql = "INSERT INTO accounts (Username, Password) VALUE (%s)"
+        
+        
+	for things in credslist: mycursor.execute(sql,things)
+		
         ##executes
-        mycursor.execute(sql, val)
+        ##mycursor.execute(sql, val)
 
         #writes changes to DB
         mydb.commit()
