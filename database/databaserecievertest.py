@@ -38,7 +38,7 @@ def main():
         sql = "INSERT INTO accounts (Username, Password) VALUE (%s)"
         
         
-	for things in credslist: mycursor.execute(sql,things)
+        for things in credslist: mycursor.execute(sql,things)
 		
         ##executes
         ##mycursor.execute(sql, val)
