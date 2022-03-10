@@ -24,20 +24,18 @@ def main():
 
         ##saving body of message as a list of stock prices
         
-        stocklist[]=body
+        ##stocklist[]=body
 
         print(stocklist)
         ##lets you execute python as sql statements, cursor init
         mycursor = mydb.cursor()
 
         #If the username doesn't already exist as a key, it will execute the sql statement
-        sql = "INSERT INTO stocks (Price1, Price2) VALUES (%s, %s)"
+        sql = "INSERT INTO stocks (Price1, Price2) VALUES (%d, %d)"
         
-        
+        ##executes
         mycursor.execute(sql, stocklist)
 		
-        ##executes
-        ##mycursor.execute(sql, val)
 
         #writes changes to DB
         mydb.commit()
