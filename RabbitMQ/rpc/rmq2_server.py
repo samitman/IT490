@@ -6,6 +6,7 @@ connection = pika.BlockingConnection(
 
 channel = connection.channel()
 
+
 channel.queue_declare(queue='rpc_queue')
  
 
