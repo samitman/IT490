@@ -16,10 +16,17 @@ mydb = mysql.connector.connect(
 mycursor = mydb.cursor()
 mycursor.execute ("SELECT * FROM accounts")
 myresult = mycursor.fetchone()
+print(type(myresult))
+print(myresult)
+
+print(type(myresult[0]))
+myresultstring = (myresult[0])
+
+
 
 channel.basic_publish(exchange='',
                   routing_key='user',
-                  body= myresult)
+                  body= myresultstring)
 print(" [x] Sent username")
 connection.close()
 
