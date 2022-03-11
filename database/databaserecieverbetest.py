@@ -28,12 +28,13 @@ def main():
         
         stocklist= [stock]
 
-        print("List of stocks " + stocklist)
+        print("List of stocks " + str(stocklist[0]))
+        print(type(stocklist[0]))
         ##lets you execute python as sql statements, cursor init
         mycursor = mydb.cursor()
 
         #If the username doesn't already exist as a key, it will execute the sql statement
-        sql = "INSERT INTO stocks (Price1, Price2) VALUES (%d, %d)"
+        sql = "INSERT INTO stocks (Price1) VALUE (%s)"
         
         ##executes
         mycursor.execute(sql, stocklist)
