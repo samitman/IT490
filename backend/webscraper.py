@@ -19,7 +19,7 @@ channel = connection.channel()
 channel.queue_declare(queue='stock')
 
 channel.basic_publish(exchange='',
-                  routing_key='hello',
+                  routing_key='stock',
                   body= stockpricelist)
 print(" [x] Sent 'Webscraping data from yahoo finance'")
 connection.close()
