@@ -22,11 +22,13 @@ def main():
         print(" [x] Received %r" % body)
         print(type(body))
 
-        ##saving body of message as a list of stock prices
-        
-        ##stocklist[]=body
+        stock = float(body.decode())
 
-        print(stocklist)
+        
+        
+        stocklist= [stock]
+
+        print("List of stocks " + stocklist)
         ##lets you execute python as sql statements, cursor init
         mycursor = mydb.cursor()
 
