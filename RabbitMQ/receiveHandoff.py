@@ -3,6 +3,9 @@
 import pika, sys, os
 
 def main():
+
+    #first, I receive a message from the hello queue
+
     connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost'))
     channel = connection.channel()
 
@@ -18,6 +21,7 @@ def main():
 
     connection.close()
 
+    #next, pass a message onto the hello1 queue 
 
     connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost'))
 
