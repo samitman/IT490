@@ -22,15 +22,21 @@ def main():
     #connection.close()
 
     #next, pass a message onto the hello1 queue 
+    for method_frame, properties, body in channel.consume(queue):
 
-    connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost'))
+            # break of the loop after 2 min of inactivity (no new item fetched)
+            if method_frame:
 
-    channel = connection.channel()
+                connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost'))
 
-    channel.queue_declare(queue='hello1')
+                channel = connection.channel()
 
-    channel.basic_publish(exchange='', routing_key='hello1', body='Response message on Hello1 Queue!')
-    print("Sent response")
+                channel.queue_declare(queue='hello1')
+
+                channel.basic_publish(exchange='', routing_key='hello1', body='Response message on Hello1 Queue!')
+                print("Sent response")
+
+                connection.close()
 
     connection.close()
 
