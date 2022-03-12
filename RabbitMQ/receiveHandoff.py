@@ -19,7 +19,7 @@ def main():
     print(' [*] Waiting for messages. To exit press CTRL+C')
     channel.start_consuming()
 
-    connection.close()
+    #connection.close()
 
     #next, pass a message onto the hello1 queue 
 
