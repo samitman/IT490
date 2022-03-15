@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+#This file is for testing purposes on RMQ server
 import pika
 import uuid
 

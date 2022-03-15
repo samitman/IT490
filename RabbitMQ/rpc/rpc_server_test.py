@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+#This file is for RPC server on a non RMQ server machine
 import pika
 
 credentials = pika.PlainCredentials(username='test', password='test')
