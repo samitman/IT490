@@ -9,7 +9,6 @@ def main():
         info = yf.Ticker(stock).info
         marketprice = info.get('regularMarketPrice')
         print(stock, marketprice)
-print(main)
 
 if __name__ == '__main__':
     main()
