@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+#This file is for RPC client on a non RMQ server machine
 import pika
 import uuid
 
