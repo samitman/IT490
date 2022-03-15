@@ -4,9 +4,9 @@ import uuid
 
 class FibonacciRpcClient(object):
 
-    def __init__(self):
+    def init(self):
         credentials = pika.PlainCredentials(username='test', password='test')
-        
+
         self.connection = pika.BlockingConnection(pika.ConnectionParameters(host='192.168.192.60', credentials=credentials))
 
         self.channel = self.connection.channel()
@@ -15,9 +15,7 @@ class FibonacciRpcClient(object):
         self.callback_queue = result.method.queue
 
         self.channel.basic_consume(
-            queue=self.callback_queue,
-            on_message_callback=self.on_response,
-            auto_ack=True)
+            queue=self.callback_queue, consumer_callback=self.on_response)
 
     def on_response(self, ch, method, props, body):
         if self.corr_id == props.correlation_id:
