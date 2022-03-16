@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+from lzma import FORMAT_ALONE
+from turtle import begin_fill
 import pika, sys, os, mysql.connector
 
 
@@ -22,22 +24,26 @@ def main():
         print(" [x] Received %r" % body)
         print(type(body))
 
-        stock = float(body.decode())
+        stockstring = (body.decode())
+        stockslist = stockstring.split('.')
+        ticker = stockslist[0]
+        price = stockslist[1]
+        
+        print("Split check:" + ticker +" "+ price)
+
+
+
+        print(stockslist)
 
         
-        
-        stocklist= [stock]
-
-        print("List of stocks " + str(stocklist[0]))
-        print(type(stocklist[0]))
         ##lets you execute python as sql statements, cursor init
         mycursor = mydb.cursor()
 
         #If the username doesn't already exist as a key, it will execute the sql statement
-        sql = "INSERT INTO stocks (Price1) VALUE (%s)"
+        sql = "INSERT INTO stocks (Ticker, Price) VALUES (%s, %s) ON DUPLICATE KEY UPDATE Price= (%s);"
         
         ##executes
-        mycursor.execute(sql, stocklist)
+        mycursor.execute(sql, stockslist, price)
 		
 
         #writes changes to DB
