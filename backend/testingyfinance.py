@@ -23,3 +23,4 @@ for stock in stocks:
                     body= message)
     print('Sent', message)
     connection.close()
+
