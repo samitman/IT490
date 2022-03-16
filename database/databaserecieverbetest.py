@@ -22,25 +22,24 @@ def main():
         print(type(body))
 
         stockstring = (body.decode())
-        stockslist = stockstring.split('.')
+        stockslist = stockstring.split(',')
         ticker = stockslist[0]
         price = stockslist[1]
         
         print("Split check:" + ticker +" "+ price)
-
-
-
         print(stockslist)
+
+        stocksdict =  {"Tick": ticker,"price": price }
 
         
         ##lets you execute python as sql statements, cursor init
         mycursor = mydb.cursor()
 
         #If the username doesn't already exist as a key, it will execute the sql statement
-        sql = "INSERT INTO stocks (Ticker, Price) VALUES (%s, %s) ON DUPLICATE KEY UPDATE Price= (%s);"
+        sql = "INSERT INTO stocks (Ticker, Price) VALUES (%(Tick)s, %(price)s) ON DUPLICATE KEY UPDATE Price = (%(price)s);"
         
         ##executes
-        mycursor.execute(sql, stockslist, price)
+        mycursor.execute(sql, stocksdict)
 		
 
         #writes changes to DB
