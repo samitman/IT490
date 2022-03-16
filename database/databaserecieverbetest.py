@@ -1,7 +1,4 @@
 #!/usr/bin/env python3
-
-from lzma import FORMAT_ALONE
-from turtle import begin_fill
 import pika, sys, os, mysql.connector
 
 
