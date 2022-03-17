@@ -8,7 +8,7 @@ channel.queue_declare(queue='registration')
 
 channel.basic_publish(exchange='',
                   routing_key='registration',
-                  body= input("Enter test username to enter on the database: "))
+                  body='sam2,123')
 print(" [x] Sent username")
 connection.close()
 
