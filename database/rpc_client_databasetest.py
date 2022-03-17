@@ -7,17 +7,17 @@ class RegistrationClient(object):
     def __init__(self):
         credentials = pika.PlainCredentials(username='test', password='test')
         self.connection = pika.BlockingConnection(
-            pika.ConnectionParameters(host='192.168.192.60', credentials=credentials))
+            pika.ConnectionParameters(host='192.168.192.61', credentials=credentials))
 
         self.channel = self.connection.channel()
 
         result = self.channel.queue_declare(queue='', exclusive=True)
         self.callback_queue = result.method.queue
 
-        self.channel.basic_consume(
-            queue=self.callback_queue,
-            on_message_callback=self.on_response,
-            auto_ack=True)
+        self.channel.basic_consume(queue=self.callback_queue, consumer_callback=self.on_response)
+#            queue=self.callback_queue,
+ #           on_message_callback=self.on_response,
+  #          auto_ack=True)
 
     def on_response(self, ch, method, props, body):
         if self.corr_id == props.correlation_id:
@@ -42,5 +42,5 @@ class RegistrationClient(object):
 userregistration = RegistrationClient()
 
 print(" [x] Requesting to register a new user")
-response = userregistration('Xx_NOSCOPEKING420_xX,password123')
-print('response')
+response = userregistration.call('Xx_NOSCOPEKING420_xX,password123')
+print(response)

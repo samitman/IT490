@@ -10,7 +10,7 @@ mydb = mysql.connector.connect(
 )
 
 credentials = pika.PlainCredentials(username='test', password='test')
-connection = pika.BlockingConnection(pika.ConnectionParameters(host='192.168.192.60', credentials=credentials))
+connection = pika.BlockingConnection(pika.ConnectionParameters(host='192.168.192.61', credentials=credentials))
 
 channel = connection.channel()
 
@@ -19,18 +19,22 @@ channel.queue_declare(queue='rpc_queue')
 
 def dbinsertion(credsdict):
     msg = ''
+    print(credsdict)
     cursor = mydb.cursor()
-    cursor.execute('SELECT * FROM accounts WHERE Username = %(Username)s')
+    select_stmt=('SELECT * FROM accounts WHERE Username = %(Username)s')
+    cursor.execute(select_stmt, credsdict)
     account = cursor.fetchone()
     if account:
         print("Account already exists! Account creation failed!")
         msg = '0'
         return msg
     else:
-        cursor.execute('"INSERT INTO accounts (Username, Password) VALUES (%(Username)s, %(Password)s)"')
-        print("Account successfully created")
-        msg = '1'
-        return msg
+    	insert_stmt=('INSERT INTO accounts (Username, Password) VALUES (%(Username)s, %(Password)s)')
+    	cursor.execute(insert_stmt, credsdict)
+    	print("Account successfully created")
+    	mydb.commit()
+    	msg = '1'
+    	return msg
 
 
 
