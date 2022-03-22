@@ -5,11 +5,12 @@ import sys
 
 username = sys.argv[1]
 password = sys.argv[2]
+creds = str(username)+','+str(password)
 
 class RegistrationClient(object):
 
     def __init__(self):
-        credentials = pika.PlainCredentials(username, password)
+        credentials = pika.PlainCredentials(username='test', password='test')
         self.connection = pika.BlockingConnection(
             pika.ConnectionParameters(host='192.168.192.60', credentials=credentials))
 
@@ -46,5 +47,5 @@ class RegistrationClient(object):
 userregistration = RegistrationClient()
 
 print(" [x] Requesting to login")
-response = userregistration.call('Xx_NOSCOPEKING420_xX,password123')
+response = userregistration.call(creds)
 print(response)
