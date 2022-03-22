@@ -20,7 +20,7 @@
 <?php
 $email = $_POST['email'];
 $password = $_POST['password'];
-$command = escapeshellcommand("python ../database/rpc_client_registrationtest.py $email $password");
+$command = escapeshellcommand("python ../database/rpc_client_logintest.py $email $password");
 shell_exec $command;
 >
 
