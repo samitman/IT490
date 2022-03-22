@@ -1,14 +1,11 @@
 <?php require_once(__DIR__ . "/partials/nav.php"); ?>
 <link rel="stylesheet" href="static/css/styles.css">
-<br>
 <div>
 <div style="text-align: center;">
-	<b>Walnuts Investment Platform</b><br>
-	<p><img src="images/walnuts_header.png" alt="Newark Academy logo" width="760", height="383"></p>
+	<p><img src="images/walnuts_header.png" alt="Walnuts logo" width="760", height="383"></p>
 	Please log in or register to continue.
 </div>
 <br>
-
 <div style="width: 60%; margin:auto;">
 	<form name="login" method="POST">
        	 	<input style="width: 100%" type="text" id="email" name="email" placeholder="Email address or username" required/><br><br><br>
@@ -19,5 +16,14 @@
 		</div>
 	</form>
 </div>
+
+<?php
+$email = $_POST['email'];
+$password = $_POST['password'];
+$command = escapeshellcommand("python ../database/rpc_client_databasetest.py $email $password");
+shell_exec $command;
+>
+
+
 
 <?php require(__DIR__ . "/partials/flash.php");

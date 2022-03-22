@@ -5,7 +5,7 @@
 	<b>Walnuts Investment Platform</b><br>
         New User Registration<br>
 </div>
-
+<br>
 <div style="width: 60%; margin: auto;">
     <form method="POST">
 	<input style="width: 100%" type="text" id="firstName" name="firstName" placeholder="First Name" required/><br><br><br>
@@ -20,4 +20,5 @@
 	</div>
     </form>
 </div>
+
 <?php require(__DIR__ . "/partials/flash.php");

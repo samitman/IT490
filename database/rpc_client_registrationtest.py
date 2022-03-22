@@ -32,7 +32,7 @@ class RegistrationClient(object):
         self.corr_id = str(uuid.uuid4())
         self.channel.basic_publish(
             exchange='',
-            routing_key='rpc_login',
+            routing_key='rpc_queue',
             properties=pika.BasicProperties(
                 reply_to=self.callback_queue,
                 correlation_id=self.corr_id,
@@ -45,6 +45,6 @@ class RegistrationClient(object):
 
 userregistration = RegistrationClient()
 
-print(" [x] Requesting to login")
+print(" [x] Requesting to register a new user")
 response = userregistration.call('Xx_NOSCOPEKING420_xX,password123')
 print(response)
