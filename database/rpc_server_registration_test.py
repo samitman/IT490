@@ -10,7 +10,7 @@ mydb = mysql.connector.connect(
 )
 
 credentials = pika.PlainCredentials(username='test', password='test')
-connection = pika.BlockingConnection(pika.ConnectionParameters(host='192.168.192.61', credentials=credentials))
+connection = pika.BlockingConnection(pika.ConnectionParameters(host='192.168.192.60', credentials=credentials))
 
 channel = connection.channel()
 
