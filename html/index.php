@@ -19,11 +19,11 @@
 
 <?php
 $email = $_POST['email'];
-$password = $_POST['password'];
-$command = escapeshellcommand("python ../database/rpc_client_logintest.py $email $password");
-shell_exec $command;
->
+$password = $_POST['p1'];
+echo $email;
+echo $password;
+$command = "../database/rpc_fe_logintest.py $email, $password";
+shell_exec($command);
+?>
 
-
-
-<?php require(__DIR__ . "/partials/flash.php");
+<?php require(__DIR__ . "/partials/flash.php"); ?>
