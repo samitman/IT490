@@ -1,8 +1,8 @@
 body {
     font-family: "Avenir Next";
     font-size: 1.5em;
-    color: #305D00;
-    background: #FFFFFF;
+    color: #ffb900;
+    background: white;
     padding: 10px 10px;
 }
 
@@ -11,7 +11,7 @@ table, thead {
     border-collapse: separate;
     border-spacing: 0px;
     text-align: left;
-    border: 4px solid #fdc956;
+    border: 4px solid #305d00;
     border-radius: 10px;
 }
 
@@ -20,11 +20,11 @@ table tr th, table tr td {
 }
 
 .search {
-    border: 1px solid $fdc956;
+    border: 1px solid #fdc956;
 }
 
 tr.search:nth-child(even) {
-    background: black;
+    background: white;
 }
 
 tr:nth-child(even) {
@@ -33,7 +33,7 @@ tr:nth-child(even) {
 
 table tr th {
     background-image: linear-gradient(#fdc956, #f9982b);
-    color: #000000;
+    color: #ffffff;
     text-align: left;
 }
 
@@ -93,13 +93,13 @@ input {
     float: right;
     width: 70%;
     padding: 14px 20px;
-    border: 2px solid #305D00;
+    border: 2px solid #305d00;
     margin: auto;
     border-radius: 10px;
     font-size: 1.0em;
-    background-color: black;
+    background-color: white;
     font-family: "Avenir Next";
-    color: #305D00;
+    color: #ffb900;
     box-sizing: border-box;
 }
 
@@ -130,7 +130,7 @@ input[type=submit], .submitButton {
     background-image: linear-gradient($FDC956, #F9982B);
     margin-left: auto;
     margin-right: auto;
-    color: black;
+    color: white;
     text-align: center;
     border: none;
     border-radius: 10px;
