@@ -13,6 +13,7 @@ for category in portfolios:
         message= stock +","+ str(round(marketprice,2))
         print(message)
         message2= category +","+ str(round(sum,2))
+        print(message2)
     #print (category + ": " + str(round(sum,2)))
 
     credentials = pika.PlainCredentials(username='test', password='test')
