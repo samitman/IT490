@@ -12,21 +12,25 @@ portfolios = {'Meme': ['GME', 'AMC', 'DOGE-USD','DWAC','CLOV'],
               }
 
 for category in portfolios:
+    categoryName = "categoryName"
+    categoryPrice = "categoryPrice"
     sum = 0
-    message="" 
+
+    message={}
+    message[categoryName] = category
+    message[categoryPrice] = sum
+
     for stock in portfolios[category]:
         info = yf.Ticker(stock).info
         marketprice = info.get('regularMarketPrice')
         sum += marketprice
-        message+= stock +","+ str(round(marketprice,2))+","
-        #print(message)
-#hidden character before category to parse or dictionary
-    message+= ‎ category +","+ str(round(sum,2))
-    print(message)
-    #print (category + ": " + str(round(sum,2)))
+        message[stock] = str(round(marketprice,2))
 
+    message[categoryPrice] = str(round(sum,2))
 
-#def Messenger : (message)
+    finalmessage = str(message)
+    #print(finalmessage)
+
     credentials = pika.PlainCredentials(username='test', password='test')
     connection = pika.BlockingConnection(pika.ConnectionParameters(host='192.168.192.61', credentials=credentials))
 
@@ -36,6 +40,5 @@ for category in portfolios:
 
     channel.basic_publish(exchange='',
                     routing_key='stock',
-                    body= message)
-    print('Sent', message)
-    connection.close()
+                    body= finalmessage)
+    print('Sent', finalmessage)
