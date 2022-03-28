@@ -21,7 +21,7 @@ for category in portfolios:
         message+= stock +","+ str(round(marketprice,2))+","
         #print(message)
 #hidden character before category to parse or dictionary
-    message+= category +","+ str(round(sum,2))
+    message+= ‎ category +","+ str(round(sum,2))
     print(message)
     #print (category + ": " + str(round(sum,2)))
 
