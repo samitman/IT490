@@ -2,7 +2,14 @@ import requests
 import pika
 import yfinance as yf
 
-portfolios = {'etfMeme': ['AMC', 'DOGE-USD', 'GME'], 'etfMedium': ['TSLA','NIO','NVDA']}
+portfolios = {'etfMeme': ['GME', 'AMC', 'DOGE-USD','DWAC','CLOV'],
+              'etfBoomer': ['WMT','KO','JNJ','T','UNH'],
+              'etfTech': ['AMD','TSLA','MSFT','GOOGL','AAPL'],
+              'etfCrypto': ['BTC-USD','ETH-USD','BNB-USD','XRP-USD','ADA-USD'],
+              'etfModerate': ['AAPL','AMZN','JNJ','SPY','BRK-A'],
+              'etfAggressive': ['GOOGL','TSLA','NVDA','FB','BABA'],
+              'etfGrowth': ['PLTR','AMD','TSLA','UPST','CRM'],
+              }
 
 for category in portfolios:
     sum = 0
@@ -13,7 +20,7 @@ for category in portfolios:
         message= stock +","+ str(round(marketprice,2))
         print(message)
         message2= category +","+ str(round(sum,2))
-        print(message2)
+    print(message2)
     #print (category + ": " + str(round(sum,2)))
 
     credentials = pika.PlainCredentials(username='test', password='test')
