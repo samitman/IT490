@@ -12,7 +12,7 @@ mydb = mysql.connector.connect(
 
 def main():
     credentials = pika.PlainCredentials(username='test', password='test')
-    connection = pika.BlockingConnection(pika.ConnectionParameters('192.168.192.60', credentials=credentials))
+    connection = pika.BlockingConnection(pika.ConnectionParameters('192.168.192.61', credentials=credentials))
     channel = connection.channel()
 
     channel.queue_declare(queue='stock')
