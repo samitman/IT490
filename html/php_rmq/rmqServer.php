@@ -2,7 +2,7 @@
 
 require_once('path.inc');
 require_once('get_host_info.inc');
-require_once('rabbitMQLib.inc');
+require_once('rmq_lib.inc');
 
 function login($user,$pass){
 	//TODO validate user credentials
