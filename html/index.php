@@ -19,9 +19,10 @@
 </div>
 
 <?php
-require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/lib/vendor/autoload.php';
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 use PhpAmqpLib\Message\AMQPMessage;
+
 class RPCtest
 {
     private $connection;
@@ -33,24 +34,24 @@ class RPCtest
     public function __construct()
     {
         $this->connection = new AMQPStreamConnection(
-            '192.168.192.61',
+            '192.168.192.60',
             5672,
             'test',
             'test'
         );
         $this->channel = $this->connection->channel();
         list($this->callback_queue, ,) = $this->channel->queue_declare(
-            "",
+            'login',
             false,
             false,
-            true,
+            false,
             false
         );
         $this->channel->basic_consume(
             $this->callback_queue,
-            '',
+            'login',
             false,
-            true,
+            false,
             false,
             false,
             array(
@@ -79,7 +80,7 @@ class RPCtest
                 'reply_to' => $this->callback_queue
             )
         );
-        $this->channel->basic_publish($msg, '', 'rpc_queue');
+        $this->channel->basic_publish($msg, '', 'login');
         while (!$this->response) {
             $this->channel->wait();
         }
@@ -88,7 +89,8 @@ class RPCtest
 }
 
 $rpc_test = new RPCtest;
-$response = $rpc_test->call("Hello");
+$response = "";;
+$response = $rpc_test->call("Hello");?>
+<p> Response: <?php echo $response; ?></p>
 
-require(__DIR__ . "/partials/flash.php"); 
-?>
+<?php require(__DIR__ . "/partials/flash.php");?>
