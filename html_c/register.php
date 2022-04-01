@@ -23,8 +23,13 @@
     <?php
 	if(array_key_exists('register', $_POST))
 	{
-		$result = exec("/opt/lampp/htdocs/html/sendc.py 2>&1");
-		echo $result;
+		//execute load balancing test
+		//$result1 = exec("/opt/lampp/htdocs/html/sendc.py 2>&1");
+		//execute rpc via php when register is clicked you should get something
+		//back printed on screen
+		$result2 = exec("/opt/lampp/htdocs/html/rpc_client.py 2>&1");
+		//echo $result1; //commented out when testing result2
+		echo $result2;	//commented out when testing result1
 		//echo "hello";
 	} ?>
 </div>
