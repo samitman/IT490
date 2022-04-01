@@ -12,7 +12,7 @@
        	 	<input style="width: 100%" type="text" id="email" name="email" placeholder="Email address or username" required/><br><br><br>
         	<input style="width: 100%" type="password" id="p1" name="password" placeholder="Password" required/><br><br><br>
 		<div style="display:flex;">
-			<a style="text-decoration: none;" href="/register.php" class="submitButton" type="button">Register</a>
+			<a style="text-decoration: none;" href="/registerc.php" class="submitButton" type="button">Register</a>
 			<input class="submitButton" style="float: right;" type="submit" name="login" value="Log In"/>
 		</div>
 	</form>
