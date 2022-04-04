@@ -17,9 +17,11 @@
        <!-- <input style="width: 100%" type="password" id="p2" name="confirm" placeholder="Confirm password" /><br><br><br>-->
 	<div style="display: flex;">
         	<input style="float: right;" class="submitButton" type="submit" id="login" name="login" value="Login"/><br><br>
-			<div style="display: flex;"> <a style="text-decoration: none;" href="index.php" class="submitButton" type="button">Go Back</a> </div>
 	</div>
     </form>
+	<div style="display: flex;"> 
+		<a style="text-decoration: none;" href="index.php" class="submitButton" type="button">Go Back</a> 
+	</div>
     <?php
 	if(array_key_exists('login', $_POST))
 	{
