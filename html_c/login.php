@@ -37,6 +37,13 @@
 		//echo $result1;
 		//echo $result2;
 		echo $result3;
+		
+		//REDIRECT TO HOME PAGE UPON SUCCESSFUL LOGIN
+		if($result3 = "Sucess") {
+			flash("Log in successful");
+            die(header("Location: home.php"));
+		}
+
 		//echo "hello";
 	} ?>
 </div>
