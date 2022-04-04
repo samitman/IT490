@@ -4,8 +4,8 @@
 <div>
 <div style="text-align: center;">
 	<p><img src="images/walnuts_header.png" alt="Walnuts logo" width="760", height="383"></p>
-	Please log in or register to continue.
 </div>
+<!--
 <br>
 <div style="width: 60%; margin:auto;">
 	<form name="login" method="POST">
@@ -17,7 +17,7 @@
 		</div>
 	</form>
 </div>
-
+-->
 <?php
 require_once __DIR__ . '/lib/vendor/autoload.php';
 use PhpAmqpLib\Connection\AMQPStreamConnection;
@@ -91,6 +91,6 @@ class RPCtest
 $rpc_test = new RPCtest;
 $response = "";;
 $response = $rpc_test->call("Hello");?>
-<p> Response: <?php echo $response; ?></p>
+
 
 <?php require(__DIR__ . "/partials/flash.php");?>
