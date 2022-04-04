@@ -2,12 +2,12 @@
 
 import pika, sys, os, mysql.connector
 ##database connection
-mydb = mysql.connector.connect(
-  host="localhost",
-  user="test",
-  password="1234",
-  database='test'
-)
+#mydb = mysql.connector.connect(
+ # host="localhost",
+  #user="test",
+  #password="1234",
+  #database='test'
+#)
 
 credentials = pika.PlainCredentials(username='test', password='test')
 connection = pika.BlockingConnection(pika.ConnectionParameters(host='192.168.192.60', credentials=credentials))
@@ -19,6 +19,12 @@ channel.queue_declare(queue='rpc_login')
 
 
 def dbinsertion(credsdict):
+    mydb = mysql.connector.connect(
+  host="localhost",
+  user="test",
+  password="1234",
+  database='test'
+)
     msg = ''
     print(credsdict)
     cursor = mydb.cursor()
