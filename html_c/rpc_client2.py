@@ -49,8 +49,8 @@ userregistration = RegistrationClient()
 print(" [x] Requesting to register a new user")
 response = userregistration.call(creds)
 Fe_response = response.decode()
-if Fe_response == "1": print("account created")
-else: print("user already exist")
+if Fe_response == "1": print("Account successfully created, please login.")
+else: print("Username Taken")
 
 #print(Fe_response)
 
