@@ -17,7 +17,7 @@
        <!-- <input style="width: 100%" type="password" id="p2" name="confirm" placeholder="Confirm password" /><br><br><br>-->
 	<div style="display: flex;">
         	<input style="float: right;" class="submitButton" type="submit" id="register" name="register" value="Register"/><br><br>
-			<a style="text-decoration: none;" href="index.php" class="submitButton" type="button">Go Back</a>
+			<div style="display: flex;"> <a style="text-decoration: none;" href="index.php" class="submitButton" type="button">Go Back</a> </div>
 	</div>
     </form>
     <?php

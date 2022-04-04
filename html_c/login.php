@@ -16,8 +16,8 @@
         <input style="width: 100%" type="password" id="p1" name="password" placeholder="Password" /><br><br><br>
        <!-- <input style="width: 100%" type="password" id="p2" name="confirm" placeholder="Confirm password" /><br><br><br>-->
 	<div style="display: flex;">
-        	<input style="float: right;" class="submitButton" type="submit" id="login" name="login" value="login"/><br><br>
-			<a style="text-decoration: none;" href="index.php" class="submitButton" type="button">Go Back</a>
+        	<input style="float: right;" class="submitButton" type="submit" id="login" name="login" value="Login"/><br><br>
+			<div style="display: flex;"> <a style="text-decoration: none;" href="index.php" class="submitButton" type="button">Go Back</a> </div>
 	</div>
     </form>
     <?php
