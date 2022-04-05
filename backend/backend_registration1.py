@@ -25,8 +25,8 @@ def on_request(ch, method, props, body):
 
     
     #call "be_reg2.py username password
-    response = main(username,password) #FROM BE TO DB
-    print("Output: " + str(response))
+    #response = main(username,password) #FROM BE TO DB
+    #print("Output: " + str(response))
     #response = output of backend_registration2.py
     #response is the new queue between backend and db
 
@@ -34,7 +34,7 @@ def on_request(ch, method, props, body):
                      routing_key=props.reply_to,
                      properties=pika.BasicProperties(correlation_id = \
                                                          props.correlation_id),
-                     body=response)
+                     body=main(username,password))
     ch.basic_ack(delivery_tag=method.delivery_tag)
 
 channel.basic_qos(prefetch_count=1)
