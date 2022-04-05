@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import pika, sys, os
+import pika, sys, os, uuid
 from backend_registration2 import main
 
 
