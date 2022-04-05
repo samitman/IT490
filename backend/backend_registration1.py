@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import pika, sys, os
-import backend_registration2
+from backend_registration2 import main
 
 
 credentials = pika.PlainCredentials(username='test', password='test')
@@ -25,7 +25,7 @@ def on_request(ch, method, props, body):
 
     
     #call "be_reg2.py username password
-    response = backend_registration2(username,password) #FROM BE TO DB
+    response = main(username,password) #FROM BE TO DB
     print(response)
     #response = output of backend_registration2.py
     #response is the new queue between backend and db
