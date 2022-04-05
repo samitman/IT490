@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="static/css/styles.css">
 <?php
 //Note: this is to resolve cookie issues with port numbers
 $domain = $_SERVER["HTTP_HOST"];
@@ -18,16 +19,12 @@ require_once(__DIR__ . "/../lib/functions.php");
 
 ?>
 
-
-
 <!-- CSS only-->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" -->
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <!-- jQuery 3.6.0 min -->
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-
-
 
 <style>
     nav li
@@ -102,14 +99,13 @@ require_once(__DIR__ . "/../lib/functions.php");
     
 </style>
 
-
 <nav>
     <ul>
         <?php if (is_logged_in()) : ?>
             <li><a href="home.php">Home</a></li>
         <?php endif; ?>
         <?php if (!is_logged_in()) : ?>
-            <li><a href="login.php">Login</a></li>
+            <li><a href="index.php">Login</a></li>
             <li><a href="register.php">Register</a></li>
         <?php endif; ?>
         <div class="dropdown">

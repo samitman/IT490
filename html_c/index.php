@@ -1,96 +1,55 @@
-<?php require_once(__DIR__ . "/partials/nav.php");?>
+<?php require_once(__DIR__ . "/partials/nav.php"); ?>
 
-<link rel="stylesheet" href="static/css/styles.css">
-<div>
-<div style="text-align: center;">
-	<p><img src="images/walnuts_header.png" alt="Walnuts logo" width="760", height="383"></p>
-</div>
-<!--
+
 <br>
-<div style="width: 60%; margin:auto;">
-	<form name="login" method="POST">
-       	 	<input style="width: 100%" type="text" id="email" name="email" placeholder="Email address or username" required/><br><br><br>
-        	<input style="width: 100%" type="password" id="p1" name="password" placeholder="Password" required/><br><br><br>
-		<div style="display:flex;">
-			<a style="text-decoration: none;" href="/register.php" class="submitButton" type="button">Register</a>
-			<input class="submitButton" style="float: right;" type="submit" name="login" value="Log In"/>
-		</div>
-	</form>
+<div style="text-align: center;">
+	<b>Walnuts Investment Platform</b><br>
+        Login Page<br>
 </div>
--->
-<?php
-require_once __DIR__ . '/lib/vendor/autoload.php';
-use PhpAmqpLib\Connection\AMQPStreamConnection;
-use PhpAmqpLib\Message\AMQPMessage;
+<br>
+<div style="width: 60%; margin: auto;">
+    <form method="POST">
+	<!--<input style="width: 100%" type="text" id="firstName" name="firstName" placeholder="First Name" /><br><br><br>
+        <input style="width: 100%" type="text" id="lastName" name="lastName" placeholder="Last Name" /><br><br><br>
+        <input style="width: 100%" type="email" id="email" name="email" placeholder="Email address" /><br><br><br>-->
+        <input style="width: 100%" type="text" id="user" name="username"  maxlength="60" placeholder="Username"/><br><br><br>
+        <input style="width: 100%" type="password" id="p1" name="password" placeholder="Password" /><br><br><br>
+       <!-- <input style="width: 100%" type="password" id="p2" name="confirm" placeholder="Confirm password" /><br><br><br>-->
+	<div style="display: flex;">
+        	<input style="float: right;" class="submitButton" type="submit" id="login" name="login" value="Login"/><br><br>
+	</div>
+    </form>
+	<div style="display: flex;"> 
+		<a style="text-decoration: none;" href="register.php" class="submitButton" type="button">Go Back</a> 
+	</div>
+    <?php
+	if(array_key_exists('login', $_POST))
+	{
+		 if (isset($_POST["username"])) 
+		 {
+        		$username = $_POST["username"];}
+        	 if (isset($_POST["password"])) 
+        	 {
+       		 $password = $_POST["password"];}
+		//$result1 = exec("/opt/lampp/htdocs/html/sendc.py 2>&1");
+		//$result2 = exec("/opt/lampp/htdocs/html/rpc_client.py 2>&1");
+		$result3 = exec("python3 login.py $username $password");
+		//echo $result1;
+		//echo $result2;
+		echo $result3;
+		
+		//REDIRECT TO HOME PAGE UPON SUCCESSFUL LOGIN
+		if($result3 == "1") {
+			print("Log in successful");
+			$_SESSION["user"]=$username;
+           		die(header("Location: home.php"));
+		}else{
+			print("Invalid username or password");
+		}
 
-class RPCtest
-{
-    private $connection;
-    private $channel;
-    private $callback_queue;
-    private $response;
-    private $corr_id;
-
-    public function __construct()
-    {
-        $this->connection = new AMQPStreamConnection(
-            '192.168.192.60',
-            5672,
-            'test',
-            'test'
-        );
-        $this->channel = $this->connection->channel();
-        list($this->callback_queue, ,) = $this->channel->queue_declare(
-            'login',
-            false,
-            false,
-            false,
-            false
-        );
-        $this->channel->basic_consume(
-            $this->callback_queue,
-            'login',
-            false,
-            false,
-            false,
-            false,
-            array(
-                $this,
-                'onResponse'
-            )
-        );
-    }
-
-    public function onResponse($rep)
-    {
-        if ($rep->get('correlation_id') == $this->corr_id) {
-            $this->response = $rep->body;
-        }
-    }
-
-    public function call($n)
-    {
-        $this->response = null;
-        $this->corr_id = uniqid();
-
-        $msg = new AMQPMessage(
-            (string) $n,
-            array(
-                'correlation_id' => $this->corr_id,
-                'reply_to' => $this->callback_queue
-            )
-        );
-        $this->channel->basic_publish($msg, '', 'login');
-        while (!$this->response) {
-            $this->channel->wait();
-        }
-        return intval($this->response);
-    }
-}
-
-$rpc_test = new RPCtest;
-$response = "";;
-$response = $rpc_test->call("Hello");?>
+		//echo "hello";
+	} ?>
+</div>
 
 
-<?php require(__DIR__ . "/partials/flash.php");?>
+<?php require(__DIR__ . "/partials/flash.php");
