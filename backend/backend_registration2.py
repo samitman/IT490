@@ -49,6 +49,7 @@ def main(username,password):
 
     userregistration = RegistrationClient()
 
-    print(" [x] Requesting to login")
+    #print(" [x] Requesting to login")
     response = userregistration.call(creds)
-    print(response)
+    #print(response)
+    return(response)
