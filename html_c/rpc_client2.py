@@ -12,14 +12,14 @@ class RegistrationClient(object):
     def __init__(self):
         credentials = pika.PlainCredentials("test", "test")
         self.connection = pika.BlockingConnection(
-            pika.ConnectionParameters(host='192.168.192.61', credentials=credentials))
+            pika.ConnectionParameters(host='192.168.192.60', credentials=credentials))
 
         self.channel = self.connection.channel()
 
         result = self.channel.queue_declare(queue='', exclusive=True)
         self.callback_queue = result.method.queue
 
-        self.channel.basic_consume(queue=self.callback_queue, on_message_callback=self.on_response)
+        self.channel.basic_consume(queue=self.callback_queue, consumer_callback=self.on_response)
 #            queue=self.callback_queue,
  #           on_message_callback=self.on_response,
   #          auto_ack=True)

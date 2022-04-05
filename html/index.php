@@ -12,7 +12,7 @@
        	 	<input style="width: 100%" type="text" id="email" name="email" placeholder="Email address or username" required/><br><br><br>
         	<input style="width: 100%" type="password" id="p1" name="password" placeholder="Password" required/><br><br><br>
 		<div style="display:flex;">
-			<a style="text-decoration: none;" href="/register.php" class="submitButton" type="button">Register</a>
+			<a style="text-decoration: none;" href="/registerc.php" class="submitButton" type="button">Register</a>
 			<input class="submitButton" style="float: right;" type="submit" name="login" value="Log In"/>
 		</div>
 	</form>
@@ -93,4 +93,9 @@ $response = "";;
 $response = $rpc_test->call("Hello");?>
 <p> Response: <?php echo $response; ?></p>
 
+<<<<<<< HEAD
+require(__DIR__ . "/partials/flash.php"); 
+?>
+=======
 <?php require(__DIR__ . "/partials/flash.php");?>
+>>>>>>> adad94e95ca094d41132b4870a739ed5de58f9a2
