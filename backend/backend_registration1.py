@@ -24,8 +24,8 @@ def on_request(ch, method, props, body):
     credsdict =  {"Username": username,"Password": password }
 
     
-    #call "be_reg2.py username password"
-    response = os.system(backend_registration2 +" "+ username +" "+ password) #FROM BE TO DB
+    #call "be_reg2.py username password
+    response = backend_registration2(username,password) #FROM BE TO DB
     print(response)
     #response = output of backend_registration2.py
     #response is the new queue between backend and db
