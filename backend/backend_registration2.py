@@ -1,25 +1,25 @@
 #!/usr/bin/env python3
 import pika
 import uuid
-import sys, os
+import sys
 
 username = sys.argv[1]
 password = sys.argv[2]
-creds = str(username+","+password)
+creds = str(username)+','+str(password)
 
 class RegistrationClient(object):
 
     def __init__(self):
-        credentials = pika.PlainCredentials("test", "test")
+        credentials = pika.PlainCredentials(username='test', password='test')
         self.connection = pika.BlockingConnection(
-            pika.ConnectionParameters(host='192.168.192.61', credentials=credentials))
+            pika.ConnectionParameters(host='192.168.192.60', credentials=credentials))
 
         self.channel = self.connection.channel()
 
         result = self.channel.queue_declare(queue='', exclusive=True)
         self.callback_queue = result.method.queue
 
-        self.channel.basic_consume(queue=self.callback_queue, on_message_callback=self.on_response)
+        self.channel.basic_consume(queue=self.callback_queue, consumer_callback=self.on_response)
 #            queue=self.callback_queue,
  #           on_message_callback=self.on_response,
   #          auto_ack=True)
@@ -33,7 +33,7 @@ class RegistrationClient(object):
         self.corr_id = str(uuid.uuid4())
         self.channel.basic_publish(
             exchange='',
-            routing_key='rpc_fe_be', #From FE to BE
+            routing_key='rpc_reg_be_db',
             properties=pika.BasicProperties(
                 reply_to=self.callback_queue,
                 correlation_id=self.corr_id,
@@ -46,11 +46,6 @@ class RegistrationClient(object):
 
 userregistration = RegistrationClient()
 
-print(" [x] Requesting to register a new user")
+print(" [x] Requesting to login")
 response = userregistration.call(creds)
-Fe_response = response.decode()
-if Fe_response == "1": print("Account successfully created, please login.")
-else: print("Username Taken")
-
-#print(Fe_response)
-
+print(response)
