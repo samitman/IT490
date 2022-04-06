@@ -19,13 +19,6 @@ require_once(__DIR__ . "/../lib/functions.php");
 
 ?>
 
-<!-- CSS only-->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" -->
-<!-- JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-<!-- jQuery 3.6.0 min -->
-<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-
 <style>
     nav li
     {
@@ -37,18 +30,23 @@ require_once(__DIR__ . "/../lib/functions.php");
     }
     nav
     {
-        background-color: rgb(71, 64, 64);
+	height: 40px;
+	background-image: linear-gradient(#73BC2D, #355600);
+	border-radius: 9px;
     }
     nav   a
     {
+	vertical-align: middle;
         color: white;
-        text-align: auto;
+        text-align: center;
         padding: 10px 18px;
         text-decoration: none;
+	border-radius: 9px;
     }
     nav a:hover 
     {
-        background-color: rgb(42, 126, 74);
+	background-image: linear-gradient(#FDC956, #f9982b);
+        color: #305D00;
     }
     .dropbtn 
     {
@@ -95,8 +93,6 @@ require_once(__DIR__ . "/../lib/functions.php");
     {
         background-color: #3e8e41;
     }
-
-    
 </style>
 
 <nav>

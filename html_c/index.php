@@ -4,7 +4,7 @@
 <br>
 <div style="text-align: center;">
 	<b>Walnuts Investment Platform</b><br>
-        Login Page<br>
+        Login<br>
 </div>
 <br>
 <div style="width: 60%; margin: auto;">
@@ -20,7 +20,7 @@
 	</div>
     </form>
 	<div style="display: flex;"> 
-		<a style="text-decoration: none;" href="register.php" class="submitButton" type="button">Go Back</a> 
+		<!--<a style="text-decoration: none;" href="register.php" class="submitButton" type="button">Go Back</a>--> 
 	</div>
     <?php
 	if(array_key_exists('login', $_POST))

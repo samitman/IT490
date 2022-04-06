@@ -20,7 +20,7 @@
 	</div>
     </form>
 	<div style="display: flex;"> 
-		<a style="text-decoration: none;" href="login.php" class="submitButton" type="button">Go Back</a> 
+		<!--<a style="text-decoration: none;" href="login.php" class="submitButton" type="button">Go Back</a>--> 
 	</div>
     <?php
 	if(array_key_exists('register', $_POST))
