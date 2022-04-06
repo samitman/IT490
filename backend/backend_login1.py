@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import pika, sys, os, uuid
-from backend_login1 import main
+from backend_login2 import main
 
 
 credentials = pika.PlainCredentials(username='test', password='test')
