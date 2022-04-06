@@ -14,7 +14,7 @@ connection = pika.BlockingConnection(pika.ConnectionParameters(host='192.168.192
 
 channel = connection.channel()
 
-channel.queue_declare(queue='rpc_login')
+channel.queue_declare(queue='rpc_log_be_db')
  
 
 
@@ -63,7 +63,7 @@ def on_request(ch, method, props, body):
     ch.basic_ack(delivery_tag=method.delivery_tag)
 
 channel.basic_qos(prefetch_count=1)
-channel.basic_consume(consumer_callback=on_request, queue='rpc_login')
+channel.basic_consume(consumer_callback=on_request, queue='rpc_log_be_db')
 
 print(" [x] Awaiting RPC requests")
 print({on_request})
