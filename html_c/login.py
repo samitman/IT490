@@ -52,4 +52,4 @@ Fe_response = response.decode()
 if Fe_response == "1": print("Success")
 #else: print("Invalid username or password.")
 
-#print(Fe_response)
+print(Fe_response)
