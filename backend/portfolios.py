@@ -11,7 +11,9 @@ def messenger(message):
 
     channel = connection.channel()
 
-    channel.queue_declare(queue='stock')
+    #clustering update
+    #channel.queue_declare(queue='stock')
+    channel.queue_declare(queue='stock', durable=True, arguments={"x-queue-type":"quorum"})
 
     channel.basic_publish(exchange='',
                     routing_key='stock',

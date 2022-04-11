@@ -19,7 +19,9 @@ def main(username,password):
 
             self.channel = self.connection.channel()
 
-            result = self.channel.queue_declare(queue='', exclusive=True)
+            #clustering update
+            #result = self.channel.queue_declare(queue='', exclusive=True)
+            result = self.channel.queue_declare(queue='', exclusive=True, durable=True, arguments={"x-queue-type":"quorum"})
             self.callback_queue = result.method.queue
 
             self.channel.basic_consume(queue=self.callback_queue, consumer_callback=self.on_response)
