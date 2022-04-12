@@ -50,6 +50,6 @@ userregistration = RegistrationClient()
 response = userregistration.call(creds)
 Fe_response = response.decode()
 if Fe_response == "1": print("1")
-else: print("")
+else: print("0")
 
 #print(Fe_response)

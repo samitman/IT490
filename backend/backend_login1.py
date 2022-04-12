@@ -9,9 +9,7 @@ connection = pika.BlockingConnection(pika.ConnectionParameters(host='192.168.192
 
 channel = connection.channel()
 
-#clustering update
-#channel.queue_declare(queue='rpc_log_fe_be') #FROM FE to BE
-channel.queue_declare(queue='rpc_log_fe_be', durable=True, arguments={"x-queue-type":"quorum"})
+channel.queue_declare(queue='rpc_log_fe_be') #FROM FE to BE
  
 def on_request(ch, method, props, body):
     print(" [x] Received %r" % body)
