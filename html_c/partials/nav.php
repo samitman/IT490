@@ -33,6 +33,7 @@ require_once(__DIR__ . "/../lib/functions.php");
 	height: 40px;
 	background-image: linear-gradient(#73BC2D, #355600);
 	border-radius: 9px;
+	box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
     }
     nav   a
     {
@@ -47,6 +48,7 @@ require_once(__DIR__ . "/../lib/functions.php");
     {
 	background-image: linear-gradient(#FDC956, #f9982b);
         color: #305D00;
+	box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
     }
     .dropbtn 
     {
