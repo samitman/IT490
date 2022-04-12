@@ -1,7 +1,7 @@
 # IT490
 IT490 Systems Integration Project
 
-Team Members:
+Team:
 
 Cristofer Caramo
 
@@ -13,6 +13,6 @@ Samuel Itman
 
 Stephen Cronin
 
-Welcome!!!
+
 
 
