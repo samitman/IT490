@@ -9,7 +9,7 @@ if (isset($_SESSION["user"])) {
 }
 else {
     echo "<br>";
-    echo "Welcome, please log in!";
+    echo "You must be logged in to access this page.";
 }
 ?>
 </div>
