@@ -72,7 +72,7 @@ else {
 		if (isset($_POST["depositAmount"])) 
 		 {
 			$depositAmount = $_POST["depositAmount"];
-			echo "You have successfully deposited: $" . $depositAmount; 
+			flash("You have successfully deposited: $" . $depositAmount); 
 		 }
 	} 
 
@@ -82,7 +82,8 @@ else {
 		if (isset($_POST["withdrawAmount"])) 
 		 {
 			$withdrawAmount = $_POST["withdrawAmount"];
-			echo "You have successfully withdrawm: $" . $withdrawAmount; 
+			flash("You have successfully withdrawn: $" . $withdrawAmount); 
 		 }
 	}
 ?>
+<?php require(__DIR__ . "/partials/flash.php"); ?>
