@@ -84,7 +84,7 @@ else {
 		 {
 			$withdrawAmount = $_POST["withdrawAmount"];
 			$flashMsg = "You have successfully withdrawn: $" . $withdrawAmount; 
-			flash(strval($flashMsg));
+			flash($flashMsg);
 		 }
 	}
 ?>

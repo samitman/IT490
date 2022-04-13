@@ -7,7 +7,7 @@
     <?php if ($messages): ?>
         <?php foreach ($messages as $msg): ?>
             <div class="row bg-secondary justify-content-center">
-                <p style="margin-left: auto; margin-right:auto;"><?php echo $msg; ?></p>
+                <p style="margin-left: auto; margin-right:auto;"><?php echo strval($msg); ?></p>
             </div>
         <?php endforeach; ?>
     <?php endif; ?>
