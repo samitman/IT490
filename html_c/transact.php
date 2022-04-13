@@ -1,8 +1,8 @@
 <?php require_once(__DIR__ . "/partials/nav.php");?>
 
 <head>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script type="text/javascript">
 		$("#method").change(function(){
 			stateChange($(this).val());
 		});
