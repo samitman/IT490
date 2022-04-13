@@ -23,15 +23,36 @@ else {
 		<option value="withdraw">Withdraw</option>
 	</select><br><br><br>
 
+	<head>
+		<script>
+			$("#method").change(function(){
+				stateChange($(this).val());
+			});
+
+			function stateChange(stateValue){
+				$("form").hide();
+
+				switch(stateValue){
+				case 'deposit':
+					$("#depositForm").show();
+				;
+				case 'withdraw':
+					$("#withdrawForm").show();
+				;
+				}
+			}
+		</script>
+	</head>
+
 	<form id="despositForm" method="POST">
-		<input style="width: 20%; float: left;" type="number" id="depositAmount" name="depositAmount" placeholder="Amount to Deposit" /><br><br><br>
+		<input style="width: 25%; float: left;" type="number" id="depositAmount" name="depositAmount" placeholder="Amount to Deposit" /><br><br><br>
 		<div>
         	<input style="float: left;" class="submitButton" type="submit" id="submitDeposit" name="submitDeposit" value="Deposit"/><br><br>
 		</div>
     </form>
 
 	<form id="withdrawForm" method="POST">
-		<input style="width: 20%; float: left;" type="number" id="withdrawAmount" name="withdrawAmount" placeholder="Amount to Withdraw" /><br><br><br>
+		<input style="width: 25%; float: left;" type="number" id="withdrawAmount" name="withdrawAmount" placeholder="Amount to Withdraw" /><br><br><br>
 		<div>
         	<input style="float: left;" class="submitButton" type="submit" id="submitWithdraw" name="submitWithdraw" value="Withdraw"/><br><br>
 		</div>
