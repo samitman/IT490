@@ -45,7 +45,7 @@
         	 {
 	       		$password = $_POST["password"];}
 			$hash = password_hash($password, PASSWORD_BCRYPT); 
-			$result3 = exec("python3 rpc_client2.py $username $hash");
+			$result3 = exec("python3 register.py $username $hash");
 			echo $result3;
 		 } ?>
 </div>

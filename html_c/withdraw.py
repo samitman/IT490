@@ -4,10 +4,10 @@ import uuid
 import sys, os
 
 username = sys.argv[1]
-password = sys.argv[2]
-creds = str(username+","+password)
+withdrawAmount = sys.argv[2]
+withdrawInfo = str(username+","+withdrawAmount)
 
-class RegistrationClient(object):
+class withdrawClient(object):
 
     def __init__(self):
         credentials = pika.PlainCredentials("test", "test")
@@ -20,9 +20,6 @@ class RegistrationClient(object):
         self.callback_queue = result.method.queue
 
         self.channel.basic_consume(queue=self.callback_queue, consumer_callback=self.on_response)
-#            queue=self.callback_queue,
- #           on_message_callback=self.on_response,
-  #          auto_ack=True)
 
     def on_response(self, ch, method, props, body):
         if self.corr_id == props.correlation_id:
@@ -33,7 +30,7 @@ class RegistrationClient(object):
         self.corr_id = str(uuid.uuid4())
         self.channel.basic_publish(
             exchange='',
-            routing_key='rpc_fe_be', #From FE to BE
+            routing_key='deposit_fe_be',
             properties=pika.BasicProperties(
                 reply_to=self.callback_queue,
                 correlation_id=self.corr_id,
@@ -44,14 +41,9 @@ class RegistrationClient(object):
         return self.response
 
 
-userregistration = RegistrationClient()
+userDeposit = withdrawClient()
 
-print(" [x] Requesting to register a new user")
-response = userregistration.call(creds)
+response = userDeposit.call(withdrawInfo) #withdraw info is username,withdrawAmount
 Fe_response = response.decode()
-print(Fe_response)
-if Fe_response == "1": print("Account successfully created, please login.")
-else: print("Username Taken")
-
-#print(Fe_response)
-
+if Fe_response == "1": print("1")
+else: print("0")

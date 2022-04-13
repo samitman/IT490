@@ -89,6 +89,11 @@ else {
 			$flashMsg = "You have successfully deposited: $" . $depositAmount; 
 			print($flashMsg);
 			//flash($flashMsg); ARRAY TO STRING CONVERSION ERROR in flash.php line 10
+
+			//RMQ deposit process
+			$username = "test"; //username should be stored in session, see top of page
+			$result = exec("python3 deposit.py $username $depositAmount");
+			echo $result;
 		 }
 	} 
 
@@ -101,6 +106,11 @@ else {
 			$flashMsg = "You have successfully withdrawn: $" . $withdrawAmount; 
 			print($flashMsg);
 			//flash($flashMsg); ARRAY TO STRING CONVERSION ERROR 
+
+			//RMQ withdraw process
+			$username = "test"; //username should be stored in session, see top of page
+			$result = exec("python3 withdraw.py $username $withdrawAmount");
+			echo $result;
 		 }
 	}
 ?>
