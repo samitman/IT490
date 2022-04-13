@@ -66,7 +66,7 @@ else {
 </div>
 
 <?php
-	if(array_key_exists('despositForm', $_POST))
+	if(array_key_exists('submitDeposit', $_POST))
 	{
 		$depositAmount = "";
 		if (isset($_POST["depositAmount"])) 
@@ -76,7 +76,7 @@ else {
 		 }
 	} 
 
-	if(array_key_exists('withdrawForm', $_POST))
+	if(array_key_exists('submitWithdraw', $_POST))
 	{
 		$withdrawAmount = "";
 		if (isset($_POST["withdrawAmount"])) 
