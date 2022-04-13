@@ -21,19 +21,19 @@ else {
 		<option value="" disabled selected>Choose an Option</option>
 		<option value="deposit">Deposit</option>
 		<option value="withdraw">Withdraw</option>
-	</select><br>
+	</select><br><br><br>
 
 	<form id="despositForm" method="POST">
-		<input style="width: 100%" type="number" id="depositAmount" name="depositAmount" placeholder="Amount to Deposit" /><br><br><br>
+		<input style="width: 20%; float: left;" type="number" id="depositAmount" name="depositAmount" placeholder="Amount to Deposit" /><br><br><br>
 		<div>
-        	<input style="float: right;" class="submitButton" type="submit" id="submitDeposit" name="submitDeposit" value="Deposit"/><br><br>
+        	<input style="float: left;" class="submitButton" type="submit" id="submitDeposit" name="submitDeposit" value="Deposit"/><br><br>
 		</div>
     </form>
 
 	<form id="withdrawForm" method="POST">
-		<input style="width: 100%" type="number" id="withdrawAmount" name="withdrawAmount" placeholder="Amount to Withdraw" /><br><br><br>
+		<input style="width: 20%; float: left;" type="number" id="withdrawAmount" name="withdrawAmount" placeholder="Amount to Withdraw" /><br><br><br>
 		<div>
-        	<input style="float: right;" class="submitButton" type="submit" id="submitWithdraw" name="submitWithdraw" value="Withdraw"/><br><br>
+        	<input style="float: left;" class="submitButton" type="submit" id="submitWithdraw" name="submitWithdraw" value="Withdraw"/><br><br>
 		</div>
     </form>
 </div>
