@@ -30,7 +30,7 @@ class withdrawClient(object):
         self.corr_id = str(uuid.uuid4())
         self.channel.basic_publish(
             exchange='',
-            routing_key='deposit_fe_be',
+            routing_key='withdraw_fe_be',
             properties=pika.BasicProperties(
                 reply_to=self.callback_queue,
                 correlation_id=self.corr_id,
