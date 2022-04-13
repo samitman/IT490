@@ -19,6 +19,7 @@ else {
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script>
 		$(document).ready(function(){
+			$("form").hide();
 
 			$("#method").change(function(){
 				stateChange($(this).val());
@@ -49,7 +50,7 @@ else {
 		<option value="withdraw">Withdraw</option>
 	</select><br><br><br>
 
-	<form id="despositForm" method="POST">
+	<form id="depositForm" method="POST">
 		<input style="width: 25%; float: left;" type="number" id="depositAmount" name="depositAmount" placeholder="Amount to Deposit" /><br><br><br>
 		<div>
         	<input style="float: left;" class="submitButton" type="submit" id="submitDeposit" name="submitDeposit" value="Deposit"/><br><br>
