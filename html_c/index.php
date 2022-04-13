@@ -24,6 +24,8 @@
 	</div>
     <?php
 	$username = "";
+	$password = "";
+	$hash = "";
 	if(array_key_exists('login', $_POST))
 	{
 		 if (isset($_POST["username"])) 
@@ -32,7 +34,8 @@
         	 if (isset($_POST["password"])) 
         	 {
        		 	$password = $_POST["password"];}
-			$result3 = exec("python3 login.py $username $password");
+			$hash = password_hash($password, PASSWORD_BCRYPT);
+			$result3 = exec("python3 login.py $username $hash");
 			echo $result3;
 
 		//REDIRECT TO HOME PAGE UPON SUCCESSFUL LOGIN

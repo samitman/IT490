@@ -25,21 +25,29 @@
     <?php
 	if(array_key_exists('register', $_POST))
 	{
+		$firtsname = "";
+		$lastname = "";
+		$email = "";
+		$username = "";
+		$password = "";
+		$hash = "";
+
+		$firstname = $_POST["firstName"];
+		$lastname = $_POST["lastName"];
+		$email = $_POST["email"];
+		$username = $_POST["username"];
+		$passowrd = $_POST["password"];
+
 		 if (isset($_POST["username"])) 
 		 {
         		$username = $_POST["username"];}
         	 if (isset($_POST["password"])) 
         	 {
-       		 $password = $_POST["password"];}
-		//$result1 = exec("/opt/lampp/htdocs/html/sendc.py 2>&1");
-		//$result2 = exec("/opt/lampp/htdocs/html/rpc_client.py 2>&1");
-		$result3 = exec("python3 rpc_client2.py $username $password");
-		//echo $result1;
-		//echo $result2;
-		echo $result3;
-		//echo $username;
-		//echo "hello";
-	} ?>
+	       		$password = $_POST["password"];}
+			$hash = password_hash($password, PASSWORD_BCRYPT); 
+			$result3 = exec("python3 rpc_client2.py $username $hash");
+			echo $result3;
+		 } ?>
 </div>
 
 
