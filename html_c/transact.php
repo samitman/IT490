@@ -3,13 +3,17 @@
 <head>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script type="text/javascript">
+		
+		$(document).ready(function(){
+			$("form").hide();
+		})
+
 		$("#method").change(function(){
 			stateChange($(this).val());
 		});
 
 		function stateChange(stateValue){
-			$("#depositForm").hide();
-			$("#withdrawForm").hide();
+			$("form").hide();
 
 			switch(stateValue){
 			case 'deposit':
