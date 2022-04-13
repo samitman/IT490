@@ -73,7 +73,8 @@ else {
 		 {
 			$depositAmount = $_POST["depositAmount"];
 			$flashMsg = "You have successfully deposited: $" . $depositAmount; 
-			//flash($flashMsg); ARRAY TO STRING CONVERSION ERROR
+			print($flashMsg);
+			//flash($flashMsg); ARRAY TO STRING CONVERSION ERROR in flash.php line 10
 		 }
 	} 
 
@@ -84,7 +85,8 @@ else {
 		 {
 			$withdrawAmount = $_POST["withdrawAmount"];
 			$flashMsg = "You have successfully withdrawn: $" . $withdrawAmount; 
-			flash($flashMsg);
+			print($flashMsg);
+			//flash($flashMsg); ARRAY TO STRING CONVERSION ERROR 
 		 }
 	}
 ?>
