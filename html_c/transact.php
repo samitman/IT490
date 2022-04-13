@@ -18,5 +18,8 @@ else {
 
 <div>
 <div style="text-align: center;">
-	<p><img src="images/walnuts_header.png" alt="Walnuts logo" width="760", height="383"></p>
+<select id="method" name="method">
+        <option value="deposit">Deposit</option>
+        <option value="withdraw">Withdraw</option>
+</select>
 </div>
