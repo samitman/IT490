@@ -1,31 +1,5 @@
 <?php require_once(__DIR__ . "/partials/nav.php");?>
 
-<head>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<script type="text/javascript">
-
-		$(document).ready(function(){
-
-			$("#method").change(function(){
-				stateChange($(this).val());
-			});
-
-			function stateChange(stateValue){
-				$("form").hide();
-
-				switch(stateValue){
-				case 'deposit':
-					$("#depositForm").show();
-				;
-				case 'withdraw':
-					$("#withdrawForm").show();
-				;
-				}
-			}
-		})
-	</script>
-</head>
-
 <div style="text-align: center;">
 <?php
 /* if (isset($_SESSION["user"])) {
@@ -41,10 +15,36 @@ else {
 ?>
 </div>
 
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+
+			$("#method").change(function(){
+				stateChange($(this).val());
+			});
+
+			function stateChange(stateValue){
+				$("form").hide();
+
+				switch(stateValue){
+				case 'deposit':
+					$("#depositForm").show();
+					break;
+				case 'withdraw':
+					$("#withdrawForm").show();
+					break;
+				}
+			}
+		})
+	</script>
+</head>
+
+
 <div>
 	<p>Please Pick a Transaction Type:</p>
 	<select id="method" name="method">
-		<option value="" disabled selected>Choose an Option</option>
+		<option value="">Choose an Option</option>
 		<option value="deposit">Deposit</option>
 		<option value="withdraw">Withdraw</option>
 	</select><br><br><br>
