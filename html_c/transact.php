@@ -1,5 +1,28 @@
 <?php require_once(__DIR__ . "/partials/nav.php");?>
 
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+		$("#method").change(function(){
+			stateChange($(this).val());
+		});
+
+		function stateChange(stateValue){
+			$("#depositForm").hide();
+			$("#withdrawForm").hide();
+
+			switch(stateValue){
+			case 'deposit':
+				$("#depositForm").show();
+			;
+			case 'withdraw':
+				$("#withdrawForm").show();
+			;
+			}
+		}
+	</script>
+</head>
+
 <div style="text-align: center;">
 <?php
 /* if (isset($_SESSION["user"])) {
@@ -16,33 +39,12 @@ else {
 </div>
 
 <div>
-	<p>Please Pick a Transaction Type:</p><br>
+	<p>Please Pick a Transaction Type:</p>
 	<select id="method" name="method">
 		<option value="" disabled selected>Choose an Option</option>
 		<option value="deposit">Deposit</option>
 		<option value="withdraw">Withdraw</option>
 	</select><br><br><br>
-
-	<head>
-		<script>
-			$("#method").change(function(){
-				stateChange($(this).val());
-			});
-
-			function stateChange(stateValue){
-				$("form").hide();
-
-				switch(stateValue){
-				case 'deposit':
-					$("#depositForm").show();
-				;
-				case 'withdraw':
-					$("#withdrawForm").show();
-				;
-				}
-			}
-		</script>
-	</head>
 
 	<form id="despositForm" method="POST">
 		<input style="width: 25%; float: left;" type="number" id="depositAmount" name="depositAmount" placeholder="Amount to Deposit" /><br><br><br>
