@@ -72,7 +72,8 @@ else {
 		if (isset($_POST["depositAmount"])) 
 		 {
 			$depositAmount = $_POST["depositAmount"];
-			flash("You have successfully deposited: $" . $depositAmount); 
+			$flashMsg = "You have successfully deposited: $" . $depositAmount; 
+			flash($flashMsg);
 		 }
 	} 
 
@@ -82,7 +83,8 @@ else {
 		if (isset($_POST["withdrawAmount"])) 
 		 {
 			$withdrawAmount = $_POST["withdrawAmount"];
-			flash("You have successfully withdrawn: $" . $withdrawAmount); 
+			$flashMsg = "You have successfully withdrawn: $" . $withdrawAmount; 
+			flash($flashMsg);
 		 }
 	}
 ?>
