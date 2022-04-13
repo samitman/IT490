@@ -54,7 +54,7 @@ else {
 		<input style="width: 25%; float: left;" type="number" id="depositAmount" name="depositAmount" placeholder="Amount to Deposit" required/><br><br><br>
 		
 		<select id="depositType" name="depositType" required>
-			<option value="">Choose an Deposit Method</option>
+			<option value="">Choose a Deposit Method</option>
 			<option value="bankTransfer">Bank Transfer (2-3 days, No Fee)</option>
 			<option value="cardDeposit">Credit/Debit (Instant, 2% Fee)</option>
 		</select><br><br><br>
@@ -68,7 +68,7 @@ else {
 		<input style="width: 25%; float: left;" type="number" id="withdrawAmount" name="withdrawAmount" placeholder="Amount to Withdraw" required/><br><br><br>
 		
 		<select id="withdrawType" name="withdrawType" required>
-			<option value="">Choose an Withdrawal Method</option>
+			<option value="">Choose a Withdrawal Method</option>
 			<option value="bankTransfer">Wire Transfer (2-3 days, No Fee)</option>
 			<option value="cardDeposit">ACH Transfer (Instant, 2% Fee)</option>
 		</select><br><br><br>
