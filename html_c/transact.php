@@ -51,16 +51,38 @@ else {
 	</select><br><br><br>
 
 	<form id="depositForm" method="POST">
-		<input style="width: 25%; float: left;" type="number" id="depositAmount" name="depositAmount" placeholder="Amount to Deposit" /><br><br><br>
+		<input style="width: 25%; float: left;" type="number" id="depositAmount" name="depositAmount" placeholder="Amount to Deposit" required/><br><br><br>
 		<div>
         	<input style="float: left;" class="submitButton" type="submit" id="submitDeposit" name="submitDeposit" value="Deposit"/><br><br>
 		</div>
     </form>
 
 	<form id="withdrawForm" method="POST">
-		<input style="width: 25%; float: left;" type="number" id="withdrawAmount" name="withdrawAmount" placeholder="Amount to Withdraw" /><br><br><br>
+		<input style="width: 25%; float: left;" type="number" id="withdrawAmount" name="withdrawAmount" placeholder="Amount to Withdraw" required/><br><br><br>
 		<div>
         	<input style="float: left;" class="submitButton" type="submit" id="submitWithdraw" name="submitWithdraw" value="Withdraw"/><br><br>
 		</div>
     </form>
 </div>
+
+<?php
+	if(array_key_exists('despositForm', $_POST))
+	{
+		$depositAmount = "";
+		if (isset($_POST["depositAmount"])) 
+		 {
+			$depositAmount = $_POST["depositAmount"];
+			echo "You have successfully deposited: $" . $depositAmount; 
+		 }
+	} 
+
+	if(array_key_exists('withdrawForm', $_POST))
+	{
+		$withdrawAmount = "";
+		if (isset($_POST["withdrawAmount"])) 
+		 {
+			$withdrawAmount = $_POST["withdrawAmount"];
+			echo "You have successfully withdrawm: $" . $withdrawAmount; 
+		 }
+	}
+?>
