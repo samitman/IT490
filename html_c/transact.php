@@ -3,27 +3,26 @@
 <head>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script type="text/javascript">
-		
+
 		$(document).ready(function(){
-			$("form").hide();
-		})
 
-		$("#method").change(function(){
-			stateChange($(this).val());
-		});
+			$("#method").change(function(){
+				stateChange($(this).val());
+			});
 
-		function stateChange(stateValue){
-			$("form").hide();
+			function stateChange(stateValue){
+				$("form").hide();
 
-			switch(stateValue){
-			case 'deposit':
-				$("#depositForm").show();
-			;
-			case 'withdraw':
-				$("#withdrawForm").show();
-			;
+				switch(stateValue){
+				case 'deposit':
+					$("#depositForm").show();
+				;
+				case 'withdraw':
+					$("#withdrawForm").show();
+				;
+				}
 			}
-		}
+		})
 	</script>
 </head>
 
