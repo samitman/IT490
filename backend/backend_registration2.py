@@ -8,6 +8,7 @@ import sys
 #creds = str(username)+','+str(password)
 
 def main(username,password):
+     
     creds = str(username)+','+str(password)
 
     class RegistrationClient(object):
