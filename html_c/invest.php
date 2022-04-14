@@ -64,7 +64,7 @@ $balance = 20000;
             {
                 $flashMsg = "You have successfully invested: $" . $investAmount . " into the Walnuts™ " . $portfolio . " portfolio!"; 
                 print($flashMsg);
-                print("\n");
+                echo "<br>";
                 //flash($flashMsg); ARRAY TO STRING CONVERSION ERROR in flash.php line 10
 
                 //update balance
