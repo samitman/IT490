@@ -62,7 +62,7 @@ $balance = 20000;
 
             if ($investAmount <= $balance)
             {
-                $flashMsg = "You have successfully invested: $" . $investAmount . "into " . $portfolio . "!"; 
+                $flashMsg = "You have successfully invested: $" . $investAmount . " into the Walnuts™ " . $portfolio . " portfolio!"; 
                 print($flashMsg);
                 //flash($flashMsg); ARRAY TO STRING CONVERSION ERROR in flash.php line 10
 
