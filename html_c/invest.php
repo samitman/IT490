@@ -66,6 +66,11 @@ $balance = 20000;
                 print($flashMsg);
                 //flash($flashMsg); ARRAY TO STRING CONVERSION ERROR in flash.php line 10
 
+                //update balance
+                //$_SESSION["balance"] -= $balance;
+                $newBal = $balance - $investAmount;
+                print("Your available balance is now: $" . $newBal);
+
                 //RMQ investing process
                 $username = "test"; //username should be stored in session, see top of page
                 $result = exec("python3 invest.py $username $investAmount $portfolio");
