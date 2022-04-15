@@ -5,13 +5,13 @@ CREATE TABLE accounts (
 	,Password VARCHAR(100) NOT NULL
     ,FirstName VARCHAR(60) NOT NULL
     ,LastName VARCHAR(60) NOT NULL
-    ,Balance float NOT NULL
-	,eftMeme float NOT NULL
-    ,eftBoomer float NOT NULL
-    ,eftTech float NOT NULL
-    ,eftCrypto float NOT NULL
-    ,eftModerate float NOT NULL
-    ,eftAggressive float NOT NULL
-    ,eftGrowth float NOT NULL
+    ,Balance float NOT NULL DEFAULT 0
+	,eftMeme float NOT NULL DEFAULT 0
+    ,eftBoomer float NOT NULL DEFAULT 0
+    ,eftTech float NOT NULL DEFAULT 0
+    ,eftCrypto float NOT NULL DEFAULT 0
+    ,eftModerate float NOT NULL DEFAULT 0
+    ,eftAggressive float NOT NULL DEFAULT 0
+    ,eftGrowth float NOT NULL DEFAULT 0
 	,PRIMARY KEY (Uid)
 	)ENGINE=NDBCLUSTER;

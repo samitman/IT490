@@ -30,11 +30,11 @@ def dbinsertion(credsdict):
         return msg
     else:
     	insert_stmt=('INSERT INTO accounts (Email, Username, Password, FirstName, LastName) VALUES (%(Email)s, %(Username)s, %(Password)s, %(FirstName)s, %(LastName)s)')
-    	cursor.execute(insert_stmt, credsdict)
-    	print("Account successfully created")
+        cursor.execute(insert_stmt, credsdict)
+        print("Account successfully created")
     	mydb.commit()
     	msg = '1'
-    	return msg
+        return msg
 
 
 

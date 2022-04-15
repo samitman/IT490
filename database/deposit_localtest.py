@@ -17,11 +17,11 @@ def dbinsertion(depositDict):
     if account:
         print("Account found...")
         insert_stmt=('UPDATE accounts SET Balance = Balance+%(Deposit)s WHERE Username = %(Username)s')
-    	cursor.execute(insert_stmt, depositDict)
-    	print("Deposit of: "+str(depositDict[1])+" made")
-    	mydb.commit()
-    	msg = '1'
-    	return msg
+        cursor.execute(insert_stmt, depositDict)
+        print("Deposit of: "+str(depositDict[1])+" made")
+        mydb.commit()
+        msg = '1'
+        return msg
     else:
         print("Deposit failed")
         msg = '0'
