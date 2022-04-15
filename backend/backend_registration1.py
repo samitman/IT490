@@ -18,14 +18,18 @@ def on_request(ch, method, props, body):
     messagestring = body.decode()
     credslist = messagestring.split(',')
     username = credslist[0]
-    password = credslist[1]  
-    print("Split check:" + username +" "+ password)
+    password = credslist[1]
+    email = credslist[2]
+    firstName = credslist[3]
+    lastName = credslist[4]
+      
+    print("Split check:" + username +" "+ password +" "+ email +" "+ firstName +" "+ lastName)
     print(credslist)
-    credsdict =  {"Username": username,"Password": password }
+    credsdict =  {"Username": username,"Password": password, "Email": email, "First Name": firstName, "Last Name": lastName }
 
     
-    #call "be_reg2.py username password
-    response = main(username,password) #FROM BE TO DB
+    #call "be_reg2.py username password email first and last name
+    response = main(username,password,email,firstName,lastName) #FROM BE TO DB
     #print("Output: " + str(response))
     #response = output of backend_registration2.py
     #response is the new queue between backend and db
