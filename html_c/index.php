@@ -34,8 +34,8 @@
         	 if (isset($_POST["password"])) 
         	 {
        		 	$password = $_POST["password"];}
-			$hash = password_hash($password, PASSWORD_BCRYPT);
-			$result3 = exec("python3 login.py $username $hash");
+			//$hash = password_hash($password, PASSWORD_BCRYPT);
+			$result3 = exec("python3 login.py $username $password");
 			echo $result3;
 
 		//REDIRECT TO HOME PAGE UPON SUCCESSFUL LOGIN
