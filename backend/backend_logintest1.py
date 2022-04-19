@@ -37,7 +37,7 @@ def on_request(ch, method, props, body):
 
     
     #call "be_reg2.py username password
-    response = main(uid,username,balance,etfMeme,etfBoomer,etfTech,etfCrypto,etfModerate,etfAggressive,etfGrowth) #FROM BE TO DB
+    response = main(uid,email,username,firstName,lastName,balance,etfMeme,etfBoomer,etfTech,etfCrypto,etfModerate,etfAggressive,etfGrowth) #FROM BE TO DB
     #print("Output: " + str(response))
     #response = output of backend_registration2.py
     #response is the new queue between backend and db
