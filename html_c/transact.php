@@ -102,13 +102,14 @@ else {
 		if (isset($_POST["withdrawAmount"])) 
 		 {
 			$withdrawAmount = $_POST["withdrawAmount"];
+			$withdrawAmount*=-1;
 			$flashMsg = "You have successfully withdrawn: $" . $withdrawAmount; 
 			print($flashMsg);
 			//flash($flashMsg); ARRAY TO STRING CONVERSION ERROR 
 
 			//RMQ withdraw process
 			//username should be stored in session, see top of page
-			$result = exec("python3 withdraw.py $username $withdrawAmount");
+			$result = exec("python3 deposit.py $username $withdrawAmount");
 			echo $result;
 		 }
 	}
