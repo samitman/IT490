@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="static/css/styles.css">
 <?php
-//Note: this is to resolve cookie issues with port numbers
+/*//Note: this is to resolve cookie issues with port numbers
 $domain = $_SERVER["HTTP_HOST"];
 if (strpos($domain, ":")) {
     $domain = explode(":", $domain)[0];
@@ -14,6 +14,7 @@ session_set_cookie_params([
     "httponly" => true,
     "samesite" => "lax"
 ]);
+*/
 session_start();
 require_once(__DIR__ . "/../lib/functions.php");
 
@@ -30,9 +31,11 @@ require_once(__DIR__ . "/../lib/functions.php");
     }
     nav
     {
+	vertical-align: middle;
 	height: 40px;
 	background-image: linear-gradient(#73BC2D, #355600);
 	border-radius: 9px;
+	box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
     }
     nav   a
     {
@@ -47,6 +50,7 @@ require_once(__DIR__ . "/../lib/functions.php");
     {
 	background-image: linear-gradient(#FDC956, #f9982b);
         color: #305D00;
+	box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
     }
     .dropbtn 
     {
@@ -114,9 +118,10 @@ require_once(__DIR__ . "/../lib/functions.php");
         <?php endif; ?>
         </div>
         <?php if (is_logged_in()) : ?>
-            <li><a href="logout.php">Logout</a></>
-            <li><a href="profile.php">Profile</a></li>
             <li><a href="dashboard.php">Dashboard</a></li>
+	        <li><a href="transact.php">Transact</a></li>
+            <li><a href="profile.php">Profile</a></li>
+            <li><a href="logout.php">Logout</a></li>
         <?php endif; ?>
     </ul>
 </nav>

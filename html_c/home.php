@@ -1,6 +1,18 @@
 <?php require_once(__DIR__ . "/partials/nav.php");?>
 
-<!--<link rel="stylesheet" href="static/css/styles.css">-->
+<div style="text-align: center;">
+<?php
+if (isset($_SESSION["user"])) {
+	$username = $_SESSION["user"];
+	echo "<br>";
+	echo "Welcome, ".$username."!";
+}
+else {
+    echo "<br>";
+    echo "Welcome, please log in!";
+}
+?>
+</div>
 
 <div>
 <div style="text-align: center;">

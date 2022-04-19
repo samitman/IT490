@@ -23,6 +23,9 @@
 		<!--<a style="text-decoration: none;" href="register.php" class="submitButton" type="button">Go Back</a>--> 
 	</div>
     <?php
+	$username = "";
+	$password = "";
+	$hash = "";
 	if(array_key_exists('login', $_POST))
 	{
 		 if (isset($_POST["username"])) 
@@ -30,25 +33,23 @@
         		$username = $_POST["username"];}
         	 if (isset($_POST["password"])) 
         	 {
-       		 $password = $_POST["password"];}
-		//$result1 = exec("/opt/lampp/htdocs/html/sendc.py 2>&1");
-		//$result2 = exec("/opt/lampp/htdocs/html/rpc_client.py 2>&1");
-		$result3 = exec("python3 login.py $username $password");
-		//echo $result1;
-		//echo $result2;
-		echo $result3;
-		
+       		 	$password = $_POST["password"];}
+			$hash = password_hash($password, PASSWORD_BCRYPT);
+			$result3 = exec("python3 login.py $username $hash");
+			echo $result3;
+
 		//REDIRECT TO HOME PAGE UPON SUCCESSFUL LOGIN
 		if($result3 == "1") {
 			print("Log in successful");
-			$_SESSION["user"]=$username;
+			$_SESSION["user"] = $username;
            		die(header("Location: home.php"));
-		}else{
+		}
+		else
+		{
 			print("Invalid username or password");
 		}
-
-		//echo "hello";
-	} ?>
+	} 
+    ?>
 </div>
 
 
