@@ -25,7 +25,7 @@ def on_request(ch, method, props, body):
       
     print("Split check:" + username +" "+ password +" "+ email +" "+ firstName +" "+ lastName)
     print(credslist)
-    credsdict =  {"Username": username,"Password": password, "Email": email, "First Name": firstName, "Last Name": lastName }
+    credsdict =  {"Username": username,"Password": password,"Email": email,"First Name": firstName,"Last Name": lastName }
 
     
     #call "be_reg2.py username password email first and last name
