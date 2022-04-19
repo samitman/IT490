@@ -17,18 +17,19 @@ def on_request(ch, method, props, body):
 
     messagestring = body.decode()
     credslist = messagestring.split(',')
-    balance = credslist[0]
-    etfMeme = credslist[1]
-    etfBoomer = credslist[2]
-    etfTech = credslist[3]
-    etfCrypto = credslist[4]
-    etfModerate = credslist[5]
-    etfAggressive = credslist[6]
-    etfGrowth = credslist[7]
+    username = credslist[0]
+    balance = credslist[1]
+    etfMeme = credslist[2]
+    etfBoomer = credslist[3]
+    etfTech = credslist[4]
+    etfCrypto = credslist[5]
+    etfModerate = credslist[6]
+    etfAggressive = credslist[7]
+    etfGrowth = credslist[8]
       
-    print("Split check:" + balance +" "+ etfMeme +" "+ etfBoomer +" "+ etfTech +" "+ etfCrypto +" "+ etfModerate +" "+ etfAggressive+" "+ etfGrowth)
+    print("Split check:" + username +" "+ balance +" "+ etfMeme +" "+ etfBoomer +" "+ etfTech +" "+ etfCrypto +" "+ etfModerate +" "+ etfAggressive+" "+ etfGrowth)
     print(credslist)
-    credsdict =  {"balance": balance,"etfMeme": etfMeme,"etfBoomer": etfBoomer,"etfTech": etfTech,"etfCrypto": etfCrypto,"etfModerate": etfModerate ,"etfAggressive": etfAggressive,"etfGrowth": etfGrowth }
+    credsdict =  {"username": username,"balance": balance,"etfMeme": etfMeme,"etfBoomer": etfBoomer,"etfTech": etfTech,"etfCrypto": etfCrypto,"etfModerate": etfModerate ,"etfAggressive": etfAggressive,"etfGrowth": etfGrowth }
 
     
     #call "backend_userportfolio2.py all user owned portfolio
