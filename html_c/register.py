@@ -3,9 +3,13 @@ import pika
 import uuid
 import sys, os
 
-username = sys.argv[1]
-password = sys.argv[2]
-creds = str(username+","+password)
+fname = sys.argv[1]
+lname = sys.argv[2]
+email = sys.argv[3]
+username = sys.argv[4]
+passwordHash = sys.argv[5]
+
+creds = str(fname+","+lname+","+email+","+username+","+passwordHash)
 
 class RegistrationClient(object):
 
