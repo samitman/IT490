@@ -33,7 +33,7 @@ def on_request(ch, method, props, body):
 
     
     #call "backend_userportfolio2.py all user owned portfolio
-    response = main(balance,etfMeme,etfBoomer,etfTech,etfCrypto,etfModerate,etfAggressive,etfGrowth) #FROM BE TO DB
+    response = main(username,balance,etfMeme,etfBoomer,etfTech,etfCrypto,etfModerate,etfAggressive,etfGrowth) #FROM BE TO DB
     #print("Output: " + str(response))
     #response = output of backend_userportfolio2.py
     #response is the new queue between backend and db
