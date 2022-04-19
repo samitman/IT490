@@ -27,12 +27,12 @@ def dbinsertion(withdrawDict):
         print("Account found...")
         insert_stmt=('UPDATE accounts SET Balance = Balance-%(Withdraw)s WHERE Username = %(Username)s')
         cursor.execute(insert_stmt, withdrawDict)
-        print("Deposit made")
+        print("Withdraw made")
         mydb.commit()
         msg = '1'
         return msg
     else:
-        print("Deposit failed")
+        print("Withdraw failed")
         msg = '0'
         return msg
 
