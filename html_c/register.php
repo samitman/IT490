@@ -46,7 +46,8 @@
 	       		$password = $_POST["password"];}
 			//$hash = password_hash($password, PASSWORD_BCRYPT); 
 			$result3 = exec("python3 register.py $email $username $password $firstname $lastname");
-			echo $result3;
+			//echo $result3;
+			flash ($result3);
 		 } ?>
 </div>
 

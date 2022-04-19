@@ -7,7 +7,7 @@
     <?php if ($result): ?>
         <?php foreach ($result as $row): ?>
             <div class="row bg-secondary justify-content-center">
-                <p style="margin-left: auto; margin-right:auto;"><?php echo $row; ?></p>
+                <p style="margin-left: auto; margin-right:auto;"><?php  ?></p>
             </div>
 	<?php foreach ($row as $value): ?>
             <div class="row bg-secondary justify-content-center">
