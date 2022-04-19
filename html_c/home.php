@@ -3,9 +3,9 @@
 <div style="text-align: center;">
 <?php
 if (isset($_SESSION["user"])) {
-	$username = $_SESSION["user"];
+	$fname = $_SESSION["user"]["fname"];
 	echo "<br>";
-	echo "Welcome, ".$username."!";
+	echo "Welcome, ".$fname."!";
 }
 else {
     echo "<br>";

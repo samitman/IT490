@@ -39,9 +39,39 @@
 			echo $result3;
 
 		//REDIRECT TO HOME PAGE UPON SUCCESSFUL LOGIN
-		if($result3 == "1") {
+		if($result3 != "0") {
 			print("Log in successful");
-			$_SESSION["user"] = $username;
+
+			$userid = "";
+			$email = "";
+			$username = "";
+			$fname = "";
+			$lname = "";
+			$balance = "";
+			$etfMeme = "";
+			$etfBoomer = "";
+			$etfTech = "";
+			$etfCrypto = "";
+			$etfModerate = "";
+			$etfAggressive = "";
+			$etfGrowth = "";
+
+			$splitResult = explode(",", $result3);
+
+			$_SESSION["user"] = $splitResult[0];
+			$_SESSION["user"]["email"] = $splitResult[1];
+			$_SESSION["user"]["username"] = $splitResult[2];
+			$_SESSION["user"]["fname"] = $splitResult[3];
+			$_SESSION["user"]["lname"] = $splitResult[4];
+			$_SESSION["user"]["balance"] = $splitResult[5];
+			$_SESSION["user"]["etfMeme"] = $splitResult[6];
+			$_SESSION["user"]["etfBoomer"] = $splitResult[7];
+			$_SESSION["user"]["etfTech"] = $splitResult[8];
+			$_SESSION["user"]["etfCrypto"] = $splitResult[9];
+			$_SESSION["user"]["etfModerate"] = $splitResult[10];
+			$_SESSION["user"]["etfAggressive"] = $splitResult[11];
+			$_SESSION["user"]["etfGrowth"] = $splitResult[12];
+
            		die(header("Location: home.php"));
 		}
 		else
