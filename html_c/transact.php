@@ -92,7 +92,7 @@ else {
 			//RMQ deposit process
 			//username should be stored in session, see top of page
 			$result = exec("python3 deposit.py $username $depositAmount");
-			echo $result;
+			//echo $result;
 		 }
 	} 
 
@@ -103,14 +103,16 @@ else {
 		 {
 			$withdrawAmount = $_POST["withdrawAmount"];
 			$withdrawAmount*=-1;
-			$flashMsg = "You have successfully withdrawn: $" . $withdrawAmount; 
+
+			$withdrawMsg = $_POST["withdrawAmount"];
+			$flashMsg = "You have successfully withdrawn: $" . $withdrawMsg; 
 			print($flashMsg);
 			//flash($flashMsg); ARRAY TO STRING CONVERSION ERROR 
 
 			//RMQ withdraw process
 			//username should be stored in session, see top of page
 			$result = exec("python3 deposit.py $username $withdrawAmount");
-			echo $result;
+			//echo $result;
 		 }
 	}
 ?>
