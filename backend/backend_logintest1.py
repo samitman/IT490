@@ -17,9 +17,9 @@ def on_request(ch, method, props, body):
 
     messagestring = body.decode()
     credslist = messagestring.split(',')
-    email = credslist[0]
-    username = credslist[1]
-    password = credslist[2]
+    uid = credslist[0]
+    email = credslist[1]
+    username = credslist[2]
     firstName = credslist[3]
     lastName = credslist[4]
     balance = credslist[5]
@@ -31,13 +31,13 @@ def on_request(ch, method, props, body):
     etfAggressive = credslist[11]
     etfGrowth = credslist[12]
 
-    print("Split check:" + email +" "+ username +" "+ password+" "+ firstName +" "+ lastName +" "+ balance +" "+ etfMeme +" "+ etfTech +" "+ etfCrypto +" "+ etfModerate +" "+ etfAggressive+" "+ etfGrowth)
+    print("Split check:" + uid +" "+ email +" "+ username +" "+ firstName +" "+ lastName +" "+ balance +" "+ etfMeme +" "+ etfTech +" "+ etfCrypto +" "+ etfModerate +" "+ etfAggressive+" "+ etfGrowth)
     print(credslist)
-    credsdict =  {"Email": email,"Username": username,"Password": password,"firstName": firstName,"lastName": lastName, "balance": balance,"etfMeme": etfMeme,"etfBoomer": etfBoomer,"etfTech": etfTech,"etfCrypto": etfCrypto,"etfModerate": etfModerate ,"etfAggressive": etfAggressive,"etfGrowth": etfGrowth }
+    credsdict =  {"UserID": uid,"Email": email,"Username": username,"firstName": firstName,"lastName": lastName, "balance": balance,"etfMeme": etfMeme,"etfBoomer": etfBoomer,"etfTech": etfTech,"etfCrypto": etfCrypto,"etfModerate": etfModerate ,"etfAggressive": etfAggressive,"etfGrowth": etfGrowth }
 
     
     #call "be_reg2.py username password
-    response = main(username,password,balance,etfMeme,etfBoomer,etfTech,etfCrypto,etfModerate,etfAggressive,etfGrowth) #FROM BE TO DB
+    response = main(uid,username,balance,etfMeme,etfBoomer,etfTech,etfCrypto,etfModerate,etfAggressive,etfGrowth) #FROM BE TO DB
     #print("Output: " + str(response))
     #response = output of backend_registration2.py
     #response is the new queue between backend and db
