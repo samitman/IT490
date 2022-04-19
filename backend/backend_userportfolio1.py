@@ -17,21 +17,22 @@ def on_request(ch, method, props, body):
 
     messagestring = body.decode()
     credslist = messagestring.split(',')
-    etfMeme = credslist[0]
-    etfBoomer = credslist[1]
-    etfTech = credslist[2]
-    etfCrypto = credslist[3]
-    etfModerate = credslist[4]
-    etfAggressive = credslist[5]
-    etfGrowth = credslist[6]
+    balance = credslist[0]
+    etfMeme = credslist[1]
+    etfBoomer = credslist[2]
+    etfTech = credslist[3]
+    etfCrypto = credslist[4]
+    etfModerate = credslist[5]
+    etfAggressive = credslist[6]
+    etfGrowth = credslist[7]
       
-    print("Split check:" + etfMeme +" "+ etfBoomer +" "+ etfTech +" "+ etfCrypto +" "+ etfModerate +" "+ etfAggressive+" "+ etfGrowth)
+    print("Split check:" + balance +" "+ etfMeme +" "+ etfBoomer +" "+ etfTech +" "+ etfCrypto +" "+ etfModerate +" "+ etfAggressive+" "+ etfGrowth)
     print(credslist)
-    credsdict =  {"etfMeme": etfMeme,"etfBoomer": etfBoomer,"etfTech": etfTech,"etfCrypto": etfCrypto,"etfModerate": etfModerate ,"etfAggressive": etfAggressive,"etfGrowth": etfGrowth }
+    credsdict =  {"balance": balance,"etfMeme": etfMeme,"etfBoomer": etfBoomer,"etfTech": etfTech,"etfCrypto": etfCrypto,"etfModerate": etfModerate ,"etfAggressive": etfAggressive,"etfGrowth": etfGrowth }
 
     
     #call "backend_userportfolio2.py all user owned portfolio
-    response = main(etfMeme,etfBoomer,etfTech,etfCrypto,etfModerate,etfAggressive,etfGrowth) #FROM BE TO DB
+    response = main(balance,etfMeme,etfBoomer,etfTech,etfCrypto,etfModerate,etfAggressive,etfGrowth) #FROM BE TO DB
     #print("Output: " + str(response))
     #response = output of backend_userportfolio2.py
     #response is the new queue between backend and db
