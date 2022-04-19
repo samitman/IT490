@@ -4,8 +4,11 @@ import uuid
 import sys
 
 
-def main(username,portfolioData):
-    portInfo = str(username)+','+str(portfolioData)
+#def main(username,portfolioData):
+#    portInfo = str(username)+','+str(portfolioData)
+
+def main(username,balance,etfMeme,etf,etfBoomer,etfTech,etfCrypto,etfModerate,etfAggressive,etfGrowth):
+    portInfo = str(username)+','+str(balance)+','+str(etfMeme)+','+str(etfBoomer)+','+str(etfTech)+','+str(etfCrypto)+','+str(etfModerate)+','+str(etfAggressive)+','+str(etfGrowth)         
 
     class portfolioClient(object):
 
