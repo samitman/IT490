@@ -20,7 +20,7 @@ def dbinsertion(investDict):
         print("Balance adjusted")
         mydb.commit()
 
-        insert_stmt=('UPDATE accounts SET %(etfName)s = %(etfName)s+%(Shares)s WHERE Username = %(Username)s')
+        insert_stmt=('UPDATE accounts SET {field} = {field}+%(Shares)s WHERE Username = %(Username)s').format(field=investDict["etfName"])
         cursor.execute(insert_stmt, investDict)
         mydb.comiit()
         print("Shares allocated to user account!")
