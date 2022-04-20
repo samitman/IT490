@@ -4,10 +4,13 @@ import uuid
 import sys
 
 
-def main(username,withdrawAmount):
-    withdrawInfo = str(username)+','+str(withdrawAmount)
+#def main(username,portfolioData):
+#    portInfo = str(username)+','+str(portfolioData)
 
-    class withdrawClient(object):
+def main(username,balance,etfMeme,etf,etfBoomer,etfTech,etfCrypto,etfModerate,etfAggressive,etfGrowth):
+    portInfo = str(username)+','+str(balance)+','+str(etfMeme)+','+str(etfBoomer)+','+str(etfTech)+','+str(etfCrypto)+','+str(etfModerate)+','+str(etfAggressive)+','+str(etfGrowth)         
+
+    class portfolioClient(object):
 
         def __init__(self):
             credentials = pika.PlainCredentials(username='test', password='test')
@@ -25,22 +28,22 @@ def main(username,withdrawAmount):
             if self.corr_id == props.correlation_id:
                 self.response = body
 
-        def call(self, withdrawInfo):
+        def call(self, portInfo):
             self.response = None
             self.corr_id = str(uuid.uuid4())
             self.channel.basic_publish(
                 exchange='',
-                routing_key='withdraw_be_db',
+                routing_key='userportfolio_be_db',
                 properties=pika.BasicProperties(
                     reply_to=self.callback_queue,
                     correlation_id=self.corr_id,
                 ),
-                body= withdrawInfo)
+                body= portInfo)
             while self.response is None:
                 self.connection.process_data_events()
             return self.response
 
 
-    userWithdraw = withdrawClient()
-    response = userWithdraw.call(withdrawInfo)
+    userportdata = portfolioClient()
+    response = userportdata.call(portInfo)
     return(response)

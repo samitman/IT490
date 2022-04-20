@@ -2,7 +2,7 @@
 
 <div style="text-align: center;">
 <?php
-/* if (isset($_SESSION["user"])) {
+if (isset($_SESSION["user"])) {
 	$username = $_SESSION["user"];
 	echo "<br>";
 	echo "Welcome, ".$username."!";
@@ -11,7 +11,6 @@ else {
     echo "<br>";
     echo "You must be logged in to access this page.";
 }
-*/
 ?>
 </div>
 
@@ -91,9 +90,9 @@ else {
 			//flash($flashMsg); ARRAY TO STRING CONVERSION ERROR in flash.php line 10
 
 			//RMQ deposit process
-			$username = "test"; //username should be stored in session, see top of page
+			//username should be stored in session, see top of page
 			$result = exec("python3 deposit.py $username $depositAmount");
-			echo $result;
+			//echo $result;
 		 }
 	} 
 
@@ -103,14 +102,17 @@ else {
 		if (isset($_POST["withdrawAmount"])) 
 		 {
 			$withdrawAmount = $_POST["withdrawAmount"];
-			$flashMsg = "You have successfully withdrawn: $" . $withdrawAmount; 
+			$withdrawAmount*=-1;
+
+			$withdrawMsg = $_POST["withdrawAmount"];
+			$flashMsg = "You have successfully withdrawn: $" . $withdrawMsg; 
 			print($flashMsg);
 			//flash($flashMsg); ARRAY TO STRING CONVERSION ERROR 
 
 			//RMQ withdraw process
-			$username = "test"; //username should be stored in session, see top of page
-			$result = exec("python3 withdraw.py $username $withdrawAmount");
-			echo $result;
+			//username should be stored in session, see top of page
+			$result = exec("python3 deposit.py $username $withdrawAmount");
+			//echo $result;
 		 }
 	}
 ?>
