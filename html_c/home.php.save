@@ -2,10 +2,10 @@
 
 <div style="text-align: center;">
 <?php
-if (isset($_SESSION["user"])) {
-	$fname = $_SESSION["fname"];
-	echo "<br>";
-	echo "Welcome, ".$fname."!";
+
+if ($_SESSI) {
+	$username = $_SESSION["user"];
+	echo "Welcome, ".$username;
 }
 else {
     echo "<br>";

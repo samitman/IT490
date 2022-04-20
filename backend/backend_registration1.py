@@ -9,7 +9,7 @@ connection = pika.BlockingConnection(pika.ConnectionParameters(host='192.168.192
 
 channel = connection.channel()
 
-#channel.queue_declare(queue='rpc_fe_be') #FROM FE to BE
+channel.queue_declare(queue='rpc_fe_be') #FROM FE to BE
  
 def on_request(ch, method, props, body):
     print(" [x] Received %r" % body)
@@ -17,19 +17,20 @@ def on_request(ch, method, props, body):
 
     messagestring = body.decode()
     credslist = messagestring.split(',')
-    username = credslist[0]
-    password = credslist[1]
-    email = credslist[2]
+    print(credslist)    
+    email = credslist[0]
+    username = credslist[1]
+    password = credslist[2]
     firstName = credslist[3]
     lastName = credslist[4]
-      
-    print("Split check:" + username +" "+ password +" "+ email +" "+ firstName +" "+ lastName)
+
+    print("Split check:" + email +" "+ username +" "+ password +" "+ firstName +" "+ lastName)
     print(credslist)
-    credsdict =  {"Username": username,"Password": password,"Email": email,"First Name": firstName,"Last Name": lastName }
+    credsdict =  {"Email": email,"Username": username,"Password": password,"First Name": firstName,"Last Name": lastName }
 
     
     #call "be_reg2.py username password email first and last name
-    response = main(username,password,email,firstName,lastName) #FROM BE TO DB
+    response = main(email,username,password,firstName,lastName) #FROM BE TO DB
     #print("Output: " + str(response))
     #response = output of backend_registration2.py
     #response is the new queue between backend and db

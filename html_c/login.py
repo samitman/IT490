@@ -49,7 +49,7 @@ userregistration = RegistrationClient()
 #print(" [x] Requesting to register a new user")
 response = userregistration.call(creds)
 Fe_response = response.decode()
-if Fe_response == "1": print("1")
+if Fe_response != "0": print(Fe_response)
 else: print("0")
 
 #print(Fe_response)

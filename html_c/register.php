@@ -36,7 +36,7 @@
 		$lastname = $_POST["lastName"];
 		$email = $_POST["email"];
 		$username = $_POST["username"];
-		$passowrd = $_POST["password"];
+		$password = $_POST["password"];
 
 		 if (isset($_POST["username"])) 
 		 {
@@ -44,9 +44,10 @@
         	 if (isset($_POST["password"])) 
         	 {
 	       		$password = $_POST["password"];}
-			$hash = password_hash($password, PASSWORD_BCRYPT); 
-			$result3 = exec("python3 register.py $username $hash");
-			echo $result3;
+			//$hash = password_hash($password, PASSWORD_BCRYPT); 
+			$result3 = exec("python3 register.py $email $username $password $firstname $lastname");
+			//echo $result3;
+			flash ($result3);
 		 } ?>
 </div>
 

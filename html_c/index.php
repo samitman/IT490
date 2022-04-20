@@ -34,14 +34,43 @@
         	 if (isset($_POST["password"])) 
         	 {
        		 	$password = $_POST["password"];}
-			$hash = password_hash($password, PASSWORD_BCRYPT);
-			$result3 = exec("python3 login.py $username $hash");
-			echo $result3;
+			//$hash = password_hash($password, PASSWORD_BCRYPT);
+			$result3 = exec("python3 login.py $username $password");
 
 		//REDIRECT TO HOME PAGE UPON SUCCESSFUL LOGIN
-		if($result3 == "1") {
+		if($result3 != "0") {
 			print("Log in successful");
-			$_SESSION["user"] = $username;
+
+			$userid = "";
+			$email = "";
+			$username = "";
+			$fname = "";
+			$lname = "";
+			$balance = "";
+			$etfMeme = "";
+			$etfBoomer = "";
+			$etfTech = "";
+			$etfCrypto = "";
+			$etfModerate = "";
+			$etfAggressive = "";
+			$etfGrowth = "";
+
+			$splitResult = explode(",", $result3);
+
+			$_SESSION["user"] = $splitResult[0];
+			$_SESSION["email"] = $splitResult[1];
+			$_SESSION["username"] = $splitResult[2];
+			$_SESSION["fname"] = $splitResult[3];
+			$_SESSION["lname"] = $splitResult[4];
+			$_SESSION["balance"] = $splitResult[5];
+			$_SESSION["etfMeme"] = $splitResult[6];
+			$_SESSION["etfBoomer"] = $splitResult[7];
+			$_SESSION["etfTech"] = $splitResult[8];
+			$_SESSION["etfCrypto"] = $splitResult[9];
+			$_SESSION["etfModerate"] = $splitResult[10];
+			$_SESSION["etfAggressive"] = $splitResult[11];
+			$_SESSION["etfGrowth"] = $splitResult[12];
+
            		die(header("Location: home.php"));
 		}
 		else

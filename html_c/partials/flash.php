@@ -3,13 +3,19 @@
  populate the flash variable and then display at the proper timing*/
 ?>
 <div class="container" id="flash">
-    <?php $messages = getMessages(); ?>
-    <?php if ($messages): ?>
-        <?php foreach ($messages as $msg): ?>
+    <?php $result = getMessages(); ?>
+    <?php if ($result): ?>
+        <?php foreach ($result as $row): ?>
             <div class="row bg-secondary justify-content-center">
-                <p style="margin-left: auto; margin-right:auto;"><?php echo $msg; ?></p>
+                <p style="margin-left: auto; margin-right:auto;"><?php  ?></p>
+            </div>
+	<?php foreach ($row as $value): ?>
+            <div class="row bg-secondary justify-content-center">
+                <p style="margin-left: auto; margin-right:auto;"><?php echo $value; ?></p>
             </div>
         <?php endforeach; ?>
+	<?php endforeach; ?>
+
     <?php endif; ?>
 </div>
 <script>
