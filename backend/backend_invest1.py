@@ -2,6 +2,7 @@
 
 import pika, sys, os, uuid
 from backend_invest2 import main
+from backend_getprice import main as getPrice
 
 
 credentials = pika.PlainCredentials(username='test', password='test')
@@ -19,15 +20,19 @@ def on_request(ch, method, props, body):
 
     username = investInfo[0]
     portfolio = investInfo[1]
-    amount = investInfo[2]  
+    amount = investInfo[2]  #dollar amount
     print(investInfo)
 
-    credsdict =  {"Username": username, "Portfolio": portfolio, "Amount": amount }
-    #sam,etfMeme,amount
+    #get amount in terms of shares
+    etfPrice = getPrice(portfolio)
+    shares = amount/etfPrice
+
+
+    #sam,etfMeme,shares
 
     
     #call "be_deposit2.py username depositAmount
-    response = main(username,portfolio,amount) #FROM BE TO DB
+    response = main(username,portfolio,shares) #FROM BE TO DB
 
     ch.basic_publish(exchange='',
                      routing_key=props.reply_to,
