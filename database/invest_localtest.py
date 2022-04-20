@@ -15,7 +15,7 @@ def dbinsertion(investDict):
     account = cursor.fetchone()
     if account:
         print("Account found...")
-        insert_stmt=('UPDATE accounts SET Balance = Balance+%(Deposit)s WHERE Username = %(Username)s')
+        insert_stmt=('UPDATE accounts SET Balance = Balance+%(Amount)s WHERE Username = %(Username)s')
         cursor.execute(insert_stmt, investDict)
         print("Balance adjusted")
         mydb.commit()
