@@ -6,12 +6,12 @@ CREATE TABLE accounts (
     ,FirstName VARCHAR(60) NOT NULL
     ,LastName VARCHAR(60) NOT NULL
     ,Balance float NOT NULL DEFAULT 0
-	,eftMeme float NOT NULL DEFAULT 0
-    ,eftBoomer float NOT NULL DEFAULT 0
-    ,eftTech float NOT NULL DEFAULT 0
-    ,eftCrypto float NOT NULL DEFAULT 0
-    ,eftModerate float NOT NULL DEFAULT 0
-    ,eftAggressive float NOT NULL DEFAULT 0
-    ,eftGrowth float NOT NULL DEFAULT 0
+	,etfMeme float NOT NULL DEFAULT 0
+    ,etfBoomer float NOT NULL DEFAULT 0
+    ,etfTech float NOT NULL DEFAULT 0
+    ,etfCrypto float NOT NULL DEFAULT 0
+    ,etfModerate float NOT NULL DEFAULT 0
+    ,etfAggressive float NOT NULL DEFAULT 0
+    ,etfGrowth float NOT NULL DEFAULT 0
 	,PRIMARY KEY (Uid)
 	)ENGINE=NDBCLUSTER;
