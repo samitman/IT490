@@ -9,7 +9,7 @@ connection = pika.BlockingConnection(pika.ConnectionParameters(host='192.168.192
 
 channel = connection.channel()
 
-#channel.queue_declare(queue='rpc_fe_be') #FROM FE to BE
+channel.queue_declare(queue='rpc_fe_be') #FROM FE to BE
  
 def on_request(ch, method, props, body):
     print(" [x] Received %r" % body)
