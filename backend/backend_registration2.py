@@ -7,8 +7,10 @@ import sys
 #password = sys.argv[2]
 #creds = str(username)+','+str(password)
 
+
 def main(email,username,password,firstName,lastName):
     creds = str(email)+','+str(username)+','+str(password)+','+str(firstName)+','+str(lastName)
+
 
     class RegistrationClient(object):
 
