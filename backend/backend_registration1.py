@@ -17,6 +17,7 @@ def on_request(ch, method, props, body):
 
     messagestring = body.decode()
     credslist = messagestring.split(',')
+    print(credslist)    
     email = credslist[0]
     username = credslist[1]
     password = credslist[2]
@@ -29,7 +30,7 @@ def on_request(ch, method, props, body):
 
     
     #call "be_reg2.py username password email first and last name
-    response = main(email,username,password,firstName,lastName) #FROM BE TO DB
+    response = main(username,password) #FROM BE TO DB
     #print("Output: " + str(response))
     #response = output of backend_registration2.py
     #response is the new queue between backend and db
