@@ -20,12 +20,15 @@ def dbinsertion(depositDict):
     msg = ''
     print(depositDict)
     cursor = mydb.cursor()
-    select_stmt=('SELECT * FROM accounts WHERE Username = %(Username)s AND Password = %(Password)s')
-    #UPDATE accounts set balance = balance + %(Deposit)s where Username = %(Username)
+    select_stmt=('SELECT * FROM accounts WHERE Username = %(Username)s')
     cursor.execute(select_stmt, depositDict)
     account = cursor.fetchone()
     if account:
-        print("Account found, depositing cash!")
+        print("Account found...")
+        insert_stmt=('UPDATE accounts SET Balance = Balance+%(Deposit)s WHERE Username = %(Username)s')
+        cursor.execute(insert_stmt, depositDict)
+        print("Deposit made")
+        mydb.commit()
         msg = '1'
         return msg
     else:

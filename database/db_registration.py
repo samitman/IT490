@@ -29,12 +29,12 @@ def dbinsertion(credsdict):
         msg = '0'
         return msg
     else:
-    	insert_stmt=('INSERT INTO accounts (Username, Password) VALUES (%(Username)s, %(Password)s)')
-    	cursor.execute(insert_stmt, credsdict)
-    	print("Account successfully created")
-    	mydb.commit()
-    	msg = '1'
-    	return msg
+        insert_stmt=('INSERT INTO accounts (Email, Username, Password, FirstName, LastName) VALUES (%(Email)s, %(Username)s, %(Password)s, %(FirstName)s, %(LastName)s)') 
+        cursor.execute(insert_stmt, credsdict)
+        print("Account successfully created")
+        mydb.commit()
+        msg = '1'
+        return msg
 
 
 
@@ -44,11 +44,15 @@ def on_request(ch, method, props, body):
 
     messagestring = body.decode()
     credslist = messagestring.split(',')
-    username = credslist[0]
-    password = credslist[1]  
+    email = credslist[0]
+    username = credslist[1]
+    password = credslist[2]
+    first = credslist[3]
+    last = credslist[4]
+
     print("Split check:" + username +" "+ password)
     print(credslist)
-    credsdict =  {"Username": username,"Password": password }
+    credsdict =  {"Email": email, "Username": username,"Password": password, "FirstName": first, "LastName":last }
 
     
     response = dbinsertion(credsdict)
