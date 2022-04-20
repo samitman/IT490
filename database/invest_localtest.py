@@ -21,18 +21,27 @@ def dbinsertion(investDict):
         print("Balance adjusted")
         mydb.commit()
 
-        #inserting share into table
+        #inserting shares into table
         insert_stmt=('UPDATE accounts SET {field} = {field}+%(Shares)s WHERE Username = %(Username)s').format(field=investDict["etfName"])
         cursor.execute(insert_stmt, investDict)
         mydb.commit()
         print("Shares allocated to user account!")
 
+        
+        #constructing final message to be sent to FE
         select_stmt=('SELECT Balance FROM accounts WHERE Username = %(Username)s')
         cursor.execute(select_stmt, investDict)
         account = cursor.fetchone()
-        print(account)
+        newBalance = str(account[0])
+        
+        #grabbing price
+        select_stmt('SELECT Price FROM stocks WHERE Ticker = %(etfName)s')
+        cursor.execute(select_stmt, investDict)
+        price = cursor.fetchone()
+        newPrice = str(price[0])
 
-        msg = '1'
+        
+        msg = str(investDict["Username"]+","+investDict["Shares"]+","+newPrice+","+newBalance)
         return msg
     else:
         print("Investment failed, username not found")
