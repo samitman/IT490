@@ -25,6 +25,8 @@ def on_request(ch, method, props, body):
 
     #get amount in terms of shares
     etfPrice = getPrice(portfolio)
+    print("Price recieved...:"+str(etfPrice))
+    
     shares = amount/etfPrice
 
 

@@ -30,7 +30,7 @@ def dbinsertion(investDict):
         print("Balance adjusted")
         mydb.commit()
 
-        insert_stmt=('UPDATE accounts SET Balance = Balance+%(Deposit)s WHERE Username = %(Username)s'
+        insert_stmt=('UPDATE accounts SET Balance = Balance+%(Deposit)s WHERE Username = %(Username)s')
 
         msg = '1'
         return msg
