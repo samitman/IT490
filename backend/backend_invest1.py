@@ -32,7 +32,7 @@ def on_request(ch, method, props, body):
 
     
     #call "be_deposit2.py username depositAmount
-    response = main(username,portfolio,shares) #FROM BE TO DB
+    response = main(username,portfolio,amount,shares) #FROM BE TO DB
 
     ch.basic_publish(exchange='',
                      routing_key=props.reply_to,

@@ -4,9 +4,9 @@ import uuid
 import sys
 
 
-def main(username,portfolio, shares):
-    investInfo = str(username)+','+str(portfolio)+','+str(shares)
-    #{sam,etfMeme,amount}
+def main(username,portfolio,amount,shares):
+    investInfo = str(username)+','+str(portfolio)+','+str(amount)+','+str(shares)
+    #(sam,etfMeme,dollarAmount,shareAmount)
 
     class investClient(object):
 
