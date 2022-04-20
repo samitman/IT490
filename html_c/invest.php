@@ -2,23 +2,28 @@
 
 <div style="text-align: center;">
 <?php
-/* if (isset($_SESSION["user"])) {
-	$username = $_SESSION["user"];
+    if (isset($_SESSION["username"])) {
+        $username = $_SESSION["username"];
 
-    if (isset($_SESSION["balance"])) {
-        $balance = $_SESSION["balance"];
+        if (isset($_SESSION["balance"])) {
+            $balance = $_SESSION["balance"];
+            $etfMeme = $_SESSION["etfMeme"];
+			$etfBoomer = $_SESSION["etfBoomer"];
+			$etfTech = $_SESSION["etfTech"];
+			$etfCrypto = $_SESSION["etfCrypto"];
+			$etfModerate = $_SESSION["etfModerate"];
+			$etfAggressive = $_SESSION["etfAggressive"];
+			$etfAggressive = $_SESSION["etfGrowth"];
+        }
+        echo "<br>";
+
+        echo "Welcome, ".$username."!";
     }
-	echo "<br>";
-
-	echo "Welcome, ".$username."!";
-}
-else {
-    echo "<br>";
-    echo "You must be logged in to access this page.";
-    die(header("Location: index.php"));
-}
-*/
-$balance = 20000;
+    else {
+        echo "<br>";
+        echo "You must be logged in to access this page.";
+        die(header("Location: index.php"));
+    }
 ?>
 </div>
 
@@ -32,14 +37,20 @@ $balance = 20000;
         <p>Please Choose Your Desired Portfolio:</p>
         <select id="portfolio" name="portfolio" required>
             <option value="">Choose a Portfolio</option>
-            <option value="Aggressive">Aggressive</option>
-            <option value="Boomer">Boomer</option>
-            <option value="Crypto">Crypto</option>
-            <option value="Growth">Growth</option>
-            <option value="Meme">Meme</option>
-            <option value="Moderate">Moderate</option>
-            <option value="Tech">Tech</option>
+            <option value="etfAggressive">Aggressive</option>
+            <option value="etfBoomer">Boomer</option>
+            <option value="etfCrypto">Crypto</option>
+            <option value="etfGrowth">Growth</option>
+            <option value="etfMeme">Meme</option>
+            <option value="etfModerate">Moderate</option>
+            <option value="etfTech">Tech</option>
         </select><br><br><br>
+
+        <p>Please Choose an Action:</p>
+        <select id="action" name="action" required>
+            <option value="">Choose an Option</option>
+            <option value="buy">Buy</option>
+            <option value="sell">Sell</option>
 
 		<input style="width: 25%; float: left;" type="number" id="investAmount" name="investAmount" placeholder="Amount to Invest" required/><br><br><br>
 
@@ -52,33 +63,64 @@ $balance = 20000;
 <?php
 	if(array_key_exists('submitInvest', $_POST))
 	{
+
 		$investAmount = "";
         //$balance = $_SESSION["balance"];
         //balance should be stored in session at the top of page
 
-		if (isset($_POST["investAmount"]) && isset($_POST["portfolio"]))
+		if (isset($_POST["investAmount"]) && isset($_POST["portfolio"]) && isset($_POST["action"]))
 		 {
 			$portfolio = $_POST["portfolio"];
+            $action = $_POST["action"]; #buy or sell
             $investAmount = $_POST["investAmount"];
+
+            if ($action == "sell"){
+                $investAmount *= -1;
+            }
 
             if ($investAmount <= $balance)
             {
-                $flashMsg = "You have successfully invested: $" . $investAmount . " into the Walnuts™ " . $portfolio . " portfolio!"; 
-                print($flashMsg);
-                echo "<br>";
-                //flash($flashMsg); ARRAY TO STRING CONVERSION ERROR in flash.php line 10
+                if($investAmount >0) {
+                    //RMQ investing process
+                    $result = exec("python3 invest.py $username $portfolio $investAmount");
+                    echo $result;
+                    //response should be the share amount of the portfolio and the etf price
+                    //response: (numShares, etfPrice)
+                    //holdings = numShares * etfPrice
+                    //you now have <holdings> of $portfolio
+                    
 
-                //update balance
-                //$_SESSION["balance"] -= $balance;
-                $newBal = $balance - $investAmount;
-                print("Your available balance is now: $" . $newBal);
+                    $flashMsg = "You have successfully purchased: $" . $investAmount . " of the Walnuts™ " . $portfolio . " portfolio!"; 
+                    print($flashMsg);
+                    echo "<br>";
+                    //flash($flashMsg); ARRAY TO STRING CONVERSION ERROR in flash.php line 10
 
-                //RMQ investing process
-                $username = "test"; //username should be stored in session, see top of page
-                $result = exec("python3 invest.py $username $investAmount $portfolio");
-                echo $result;
+                    //update balance
+                    //$_SESSION["balance"] -= $balance;
+                    $balance -= $investAmount;
+                    print("Your available balance is now: $" . $balance);
+                    
+                }
+
+                if($investAmount <0) {
+                    //RMQ investing process
+                    $result = exec("python3 invest.py $username $portfolio $investAmount");
+                    echo $result;
+                    //response should be the share amount of the portfolio and the etf price
+
+                    $flashMsg = "You have successfully sold: $" . $investAmount . " of the Walnuts™ " . $portfolio . " portfolio!"; 
+                    print($flashMsg);
+                    echo "<br>";
+                    //flash($flashMsg); ARRAY TO STRING CONVERSION ERROR in flash.php line 10
+
+                    //update balance
+                    //$_SESSION["balance"] -= $balance;
+                    $balance -= $investAmount;
+                    print("Your available balance is now: $" . $balance);
+                }
+            
             } else {
-                print("Insufficient Balance... get your broke ass outta here.");
+                print("Insufficient Balance.");
             }
 		 }
 	} 
