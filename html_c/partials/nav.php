@@ -52,6 +52,10 @@ require_once(__DIR__ . "/../lib/functions.php");
         color: #305D00;
 	box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
     }
+    nav-right {
+	float: right;
+    }
+
     .dropbtn 
     {
         background-color: #4CAF50;

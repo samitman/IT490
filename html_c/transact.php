@@ -3,13 +3,16 @@
 <div style="text-align: center;">
 <?php
 if (isset($_SESSION["user"])) {
-	$username = $_SESSION["user"];
+	$username = $_SESSION["username"];
+	$balance = $_SESSION["balance"];
 	echo "<br>";
 	echo "Welcome, ".$username."!";
+	echo "Your available balance is: $" .$balance;
 }
 else {
     echo "<br>";
     echo "You must be logged in to access this page.";
+	die(header("Location: index.php"));
 }
 ?>
 </div>
@@ -89,9 +92,17 @@ else {
 			print($flashMsg);
 			//flash($flashMsg); ARRAY TO STRING CONVERSION ERROR in flash.php line 10
 
+
 			//RMQ deposit process
 			//username should be stored in session, see top of page
 			$result = exec("python3 deposit.py $username $depositAmount");
+
+			if ($result == 1){
+				//display updated balance
+				$balance += $depositAmount;
+				flash("Your available balance is now: $".$balance);
+			}
+
 			//echo $result;
 		 }
 	} 
@@ -112,6 +123,13 @@ else {
 			//RMQ withdraw process
 			//username should be stored in session, see top of page
 			$result = exec("python3 deposit.py $username $withdrawAmount");
+
+			if ($result == 1){
+				//display updated balance
+				$balance += $withdrawAmount;
+				flash("Your available balance is now: $".$balance);
+			}
+
 			//echo $result;
 		 }
 	}

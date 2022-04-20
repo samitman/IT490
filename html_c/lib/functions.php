@@ -403,7 +403,7 @@ function paginate($query, $params = [], $per_page = 5,$user_id=0) {
     return $results;
 }
 //flash message system
-function flash($msg = "", $color = "info") {
+function flash($msg = "", $color ="green") {
     $message = ["text" => $msg, "color" => $color];
     if (isset($_SESSION['flash'])) {
         array_push($_SESSION['flash'], $message);
