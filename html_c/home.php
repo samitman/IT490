@@ -10,6 +10,7 @@ if (isset($_SESSION["user"])) {
 else {
     echo "<br>";
     echo "Welcome, please log in!";
+	die(header("Location: index.php"));
 }
 ?>
 </div>

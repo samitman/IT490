@@ -15,6 +15,7 @@
 else {
     echo "<br>";
     echo "You must be logged in to access this page.";
+    die(header("Location: index.php"));
 }
 */
 $balance = 20000;
