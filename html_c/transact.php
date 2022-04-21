@@ -128,7 +128,7 @@ else {
 
 			if ($result == 1){
 				//display updated balance
-				$_SESSION["balance"] += ($withdrawAmount*-1);
+				$_SESSION["balance"] += ($withdrawAmount);
 				$balance = $_SESSION["balance"];
 				flash("Your available balance is now: $".$balance);
 			}
