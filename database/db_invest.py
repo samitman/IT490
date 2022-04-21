@@ -7,7 +7,7 @@ connection = pika.BlockingConnection(pika.ConnectionParameters(host='192.168.192
 
 channel = connection.channel()
 
-channel.queue_declare(queue='deposit_be_db')
+channel.queue_declare(queue='invest_be_db')
  
 
 def dbinsertion(investDict):
@@ -25,17 +25,36 @@ def dbinsertion(investDict):
     account = cursor.fetchone()
     if account:
         print("Account found...")
-        insert_stmt=('UPDATE accounts SET Balance = Balance+%(Deposit)s WHERE Username = %(Username)s')
+        #inserting new balance into table
+        insert_stmt=('UPDATE accounts SET Balance = Balance+%(Amount)s WHERE Username = %(Username)s')
         cursor.execute(insert_stmt, investDict)
         print("Balance adjusted")
         mydb.commit()
 
-        insert_stmt=('UPDATE accounts SET Balance = Balance+%(Deposit)s WHERE Username = %(Username)s')
+        #inserting shares into table
+        insert_stmt=('UPDATE accounts SET {field} = {field}+%(Shares)s WHERE Username = %(Username)s').format(field=investDict["etfName"])
+        cursor.execute(insert_stmt, investDict)
+        mydb.commit()
+        print("Shares allocated to user account!")
 
-        msg = '1'
+        
+        #constructing final message to be sent to FE
+        select_stmt=('SELECT Balance FROM accounts WHERE Username = %(Username)s')
+        cursor.execute(select_stmt, investDict)
+        account = cursor.fetchone()
+        newBalance = str(account[0])
+        
+        #grabbing price
+        select_stmt('SELECT Price FROM stocks WHERE Ticker = %(etfName)s')
+        cursor.execute(select_stmt, investDict)
+        price = cursor.fetchone()
+        newPrice = str(price[0])
+
+        
+        msg = str(investDict["Username"]+","+investDict["Shares"]+","+newPrice+","+newBalance)
         return msg
     else:
-        print("Deposit failed")
+        print("Investment failed, username not found")
         msg = '0'
         return msg
 
@@ -63,7 +82,7 @@ def on_request(ch, method, props, body):
     ch.basic_ack(delivery_tag=method.delivery_tag)
 
 channel.basic_qos(prefetch_count=1)
-channel.basic_consume(consumer_callback=on_request, queue='deposit_be_db')
+channel.basic_consume(consumer_callback=on_request, queue='invest_be_db')
 
 print(" [x] Awaiting RPC requests")
 print({on_request})
