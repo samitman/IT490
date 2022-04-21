@@ -8,7 +8,7 @@ if (isset($_SESSION["user"])) {
 	echo "<br>";
 	echo "Welcome, ".$username."!";
 	echo "<br>";
-	echo "Your available balance is: $" .$balance;
+	#echo "Your available balance is: $" .$balance;
 }
 else {
     echo "<br>";
