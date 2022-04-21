@@ -26,7 +26,7 @@ def dbinsertion(investDict):
     if account:
         print("Account found...")
         #inserting new balance into table
-        insert_stmt=('UPDATE accounts SET Balance = Balance+%(Deposit)s WHERE Username = %(Username)s')
+        insert_stmt=('UPDATE accounts SET Balance = Balance-%(Deposit)s WHERE Username = %(Username)s')
         cursor.execute(insert_stmt, investDict)
         print("Balance adjusted")
         mydb.commit()
@@ -66,10 +66,11 @@ def on_request(ch, method, props, body):
     investList = messagestring.split(',')
     username = investList[0]
     etfName = investList[1]
-    depositAmount = investList[2]  
+    depositAmount = investList[2]
+    sharesAmount = investList[3]  
     print("Split check:" + username +" "+etfName+" "+ depositAmount)
     print(investList)
-    investDict =  {"Username": username, "etfName":etfName, "Deposit": depositAmount }
+    investDict =  {"Username": username, "etfName":etfName, "Deposit": depositAmount, "Shares": sharesAmount }
 
     
     response = dbinsertion(investDict)
