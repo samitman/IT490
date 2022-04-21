@@ -51,6 +51,8 @@
             <option value="">Choose an Option</option>
             <option value="buy">Buy</option>
             <option value="sell">Sell</option>
+        
+            <br><br>
 
 		<input style="width: 25%; float: left;" type="number" id="investAmount" name="investAmount" placeholder="Amount to Invest" required/><br><br><br>
 
