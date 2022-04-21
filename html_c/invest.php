@@ -84,16 +84,23 @@
                 if($investAmount >0) {
                     //RMQ investing process
                     $result = exec("python3 invest.py $username $portfolio $investAmount");
-                    echo $result;
-                    //response should be the share amount of the portfolio and the etf price
-                    //holdings = numShares * etfPrice
+                    //echo $result;
+                    //result = (username, num shares, etf price, avail balance)
+                    
+                    $holdings = $numShares * $etfPrice;
                     //you now have <holdings> of $portfolio
                     //your new balance is <balance>
                     
 
                     $flashMsg = "You have successfully purchased: $" . $investAmount . " of the Walnuts™ " . $portfolio . " portfolio!"; 
-                    echo "<meta http-equiv='refresh' content='0'>";
+                    
                     print($flashMsg);
+
+                    echo"<br>";
+
+                    $holdingsMsg = "Total " .$portfolio . " holdings: $" .$holdings;
+                    print($holdingsMsg);
+                    
                     echo "<br>";
                     //flash($flashMsg); ARRAY TO STRING CONVERSION ERROR in flash.php line 10
 
