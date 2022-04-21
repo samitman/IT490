@@ -28,9 +28,11 @@ def on_request(ch, method, props, body):
     print("Price recieved...:"+str(etfPrice))
     stringPrice = etfPrice.decode()
     floatPrice = float(stringPrice)
-    
-    floatshares = amount/floatPrice
+    floatAmount = float(amount)
+
+    floatshares = floatAmount/floatPrice
     shares = str(floatshares)
+    amount = str(floatAmount)
 
 
 
