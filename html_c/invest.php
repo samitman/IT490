@@ -92,6 +92,7 @@
                     
 
                     $flashMsg = "You have successfully purchased: $" . $investAmount . " of the Walnuts™ " . $portfolio . " portfolio!"; 
+                    echo "<meta http-equiv='refresh' content='0'>";
                     print($flashMsg);
                     echo "<br>";
                     //flash($flashMsg); ARRAY TO STRING CONVERSION ERROR in flash.php line 10
