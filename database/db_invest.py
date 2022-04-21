@@ -7,7 +7,7 @@ connection = pika.BlockingConnection(pika.ConnectionParameters(host='192.168.192
 
 channel = connection.channel()
 
-channel.queue_declare(queue='deposit_be_db')
+channel.queue_declare(queue='invest_be_db')
  
 
 def dbinsertion(investDict):
@@ -82,7 +82,7 @@ def on_request(ch, method, props, body):
     ch.basic_ack(delivery_tag=method.delivery_tag)
 
 channel.basic_qos(prefetch_count=1)
-channel.basic_consume(consumer_callback=on_request, queue='deposit_be_db')
+channel.basic_consume(consumer_callback=on_request, queue='invest_be_db')
 
 print(" [x] Awaiting RPC requests")
 print({on_request})
