@@ -85,9 +85,10 @@
                     $result = exec("python3 invest.py $username $portfolio $investAmount");
                     echo $result;
                     //response should be the share amount of the portfolio and the etf price
-                    //response: (username, numShares, etfPrice, balance)
+                    //response: (numShares, etfPrice, balance)
                     //holdings = numShares * etfPrice
                     //you now have <holdings> of $portfolio
+                    //your new balance is <balance>
                     
 
                     $flashMsg = "You have successfully purchased: $" . $investAmount . " of the Walnuts™ " . $portfolio . " portfolio!"; 

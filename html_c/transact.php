@@ -7,6 +7,7 @@ if (isset($_SESSION["user"])) {
 	$balance = $_SESSION["balance"];
 	echo "<br>";
 	echo "Welcome, ".$username."!";
+	echo "<br>";
 	echo "Your available balance is: $" .$balance;
 }
 else {
@@ -99,7 +100,8 @@ else {
 
 			if ($result == 1){
 				//display updated balance
-				$balance += $depositAmount;
+				$_SESSION["balance"] += $depositAmount;
+				$balance = $_SESSION["balance"];
 				flash("Your available balance is now: $".$balance);
 			}
 
@@ -126,7 +128,8 @@ else {
 
 			if ($result == 1){
 				//display updated balance
-				$balance += $withdrawAmount;
+				$_SESSION["balance"] += ($withdrawAmount*-1);
+				$balance = $_SESSION["balance"];
 				flash("Your available balance is now: $".$balance);
 			}
 
