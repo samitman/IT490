@@ -1,14 +1,4 @@
-#!/usr/bin/env python3
-
-import pika, sys, os, mysql.connector
-
-credentials = pika.PlainCredentials(username='test', password='test')
-connection = pika.BlockingConnection(pika.ConnectionParameters(host='192.168.192.60', credentials=credentials))
-
-channel = connection.channel()
-
-channel.queue_declare(queue='invest_be_db')
- 
+import sys, os, mysql.connector
 
 def dbinsertion(investDict):
     mydb = mysql.connector.connect(
@@ -58,32 +48,12 @@ def dbinsertion(investDict):
         msg = '0'
         return msg
 
-def on_request(ch, method, props, body):
-    print(" [x] Received %r" % body)
-    print(type(body))
+username = 'test'
+etfName = 'etfGrowth'
+Amount = '-4000'
+sharesAmt = '4.20'
 
-    messagestring = body.decode()
-    investList = messagestring.split(',')
-    username = investList[0]
-    etfName = investList[1]
-    depositAmount = investList[2]  
-    print("Split check:" + username +" "+etfName+" "+ depositAmount)
-    print(investList)
-    investDict =  {"Username": username, "etfName":etfName, "Deposit": depositAmount }
+investDict =  {"Username": username, "etfName":etfName, "Amount": Amount, "Shares": sharesAmt }   
+response = dbinsertion(investDict)
 
-    
-    response = dbinsertion(investDict)
-
-    ch.basic_publish(exchange='',
-                     routing_key=props.reply_to,
-                     properties=pika.BasicProperties(correlation_id = \
-                                                         props.correlation_id),
-                     body=str(response))
-    ch.basic_ack(delivery_tag=method.delivery_tag)
-
-channel.basic_qos(prefetch_count=1)
-channel.basic_consume(consumer_callback=on_request, queue='invest_be_db')
-
-print(" [x] Awaiting RPC requests")
-print({on_request})
-channel.start_consuming()
+print(response)
