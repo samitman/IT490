@@ -35,7 +35,7 @@ def dbinsertion(investDict):
         newBalance = str(account[0])
         
         #grabbing price
-        select_stmt('SELECT Price FROM stocks WHERE Ticker = %(etfName)s')
+        select_stmt=('SELECT Price FROM stocks WHERE Ticker = %(etfName)s')
         cursor.execute(select_stmt, investDict)
         price = cursor.fetchone()
         newPrice = str(price[0])
