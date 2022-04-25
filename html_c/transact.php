@@ -26,21 +26,18 @@ $balance = 2000;
 	<script src="transactScript.js"></script>
 	<script>
 
+		function hideBal(event) {
+				targetDiv.style.display = "none";
+	
+		};
+
 		const targetDiv = document.getElementById("balMsg");
-		const btn = document.getElementById("submitDeposit");
-		const btn1 = document.getElementById("submitWithdraw");
+		const dform = document.getElementById('depositForm');
+		const wform = document.getElementById('withdrawForm');
 
-		btn.onclick = function () {
-		if (targetDiv.style.display !== "none") {
-			targetDiv.style.display = "none";
-			}
-		};
+		dform.addEventListener('submit', hideBal);
+		wform.addEventListener('submit', hideBal);
 
-		btn1.onclick = function () {
-		if (targetDiv.style.display !== "none") {
-			targetDiv.style.display = "none";
-			}
-		};
 		
 	</script>
 </head>
