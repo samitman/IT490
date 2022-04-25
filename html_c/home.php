@@ -131,10 +131,10 @@ else {
   <hr/>
   <br/>
   <label>Principle ($)</label>
-  <input type="number" id="principle" value="0" min="0">
+  <input type="number" id="principle" value="" min="0">
     <br/>
   <label>Contribution ($)</label>
-  <input type="number" id="contribution" value="50" min="0">
+  <input type="number" id="contribution" value="" min="0">
     <br/>
   <label>Frequency</label>
   <select id="frequency">
@@ -146,14 +146,13 @@ else {
   </select>
     <br/>  <br/>
   <label>Interest Rate (%)</label>
-  <input type="number" id="interest-rate" value="1.35" min="0">
+  <input type="number" id="interest-rate" value="" min="0">
     <br/>
   <label>Time Period (yrs)</label>
-  <input type="number" id="period" value="1" min="1">
+  <input type="number" id="period" value="" min="1">
     <br/><br/>
   <hr/>
   <div id="calc-result" class="result">
-    $0
   </div>
 </div>
 
