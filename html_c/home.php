@@ -15,8 +15,6 @@ else {
 ?>
 </div>
 
-
-
 <head>
 	<link rel="stylesheet" href="./static/css/calculatorStyle.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -29,9 +27,8 @@ else {
 </div>
 
 <div id="calculator" class="calculator">
-  <label class="title">Future Returns Calculator</label>
+  <label class="title">Growth Calculator</label>
   <hr/>
-  <br/>
   <label>Principle ($)</label>
   <input type="number" id="principle" value="1000" min="0">
     <br/>
@@ -46,13 +43,13 @@ else {
     <option value="91">Quarterly</option>
     <option value="364">Annually</option>
   </select>
-    <br/>  <br/>
+    <br/>
   <label>Interest Rate (%)</label>
   <input type="number" id="interest-rate" value="10" min="0">
     <br/>
   <label>Time Period (yrs)</label>
   <input type="number" id="period" value="10" min="1">
-    <br/><br/>
+    <br/>
   <hr/>
   <div id="calc-result" class="result">
 	  $0
