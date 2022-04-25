@@ -4,8 +4,7 @@
 <?php
 if (isset($_SESSION["user"])) {
 	$username = $_SESSION["username"];
-	#$balance = $_SESSION["balance"];
-	$balance = 2000;
+	$balance = $_SESSION["balance"];
 	echo "<br>";
 	echo "Welcome, ".$username."!";
 	echo "<br>";
@@ -16,6 +15,9 @@ else {
     echo "You must be logged in to access this page.";
 	//die(header("Location: index.php"));
 }
+
+//HARDCODED BALANCE
+$balance = 2000;
 ?>
 </div>
 
@@ -39,7 +41,7 @@ else {
 			targetDiv.style.display = "none";
 			}
 		};
-
+		
 	</script>
 </head>
 
