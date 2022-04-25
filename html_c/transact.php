@@ -16,7 +16,8 @@ else {
 	//die(header("Location: index.php"));
 }
 
-//HARDCODED BALANCE
+//HARDCODED BALANCE & USER
+$username = "SAM";
 $balance = 2000;
 ?>
 </div>
