@@ -132,14 +132,14 @@ else {
 </div>
 
 <div id="calculator" class="calculator">
-  <label class="title">Savings Calulator : Basic Compound Interest</label>
+  <label class="title">Future Returns Calculator</label>
   <hr/>
   <br/>
   <label>Principle ($)</label>
-  <input type="number" id="principle" value="" min="0">
+  <input type="number" id="principle" value="1000" min="0">
     <br/>
   <label>Contribution ($)</label>
-  <input type="number" id="contribution" value="" min="0">
+  <input type="number" id="contribution" value="100" min="0">
     <br/>
   <label>Frequency</label>
   <select id="frequency">
@@ -151,10 +151,10 @@ else {
   </select>
     <br/>  <br/>
   <label>Interest Rate (%)</label>
-  <input type="number" id="interest-rate" value="" min="0">
+  <input type="number" id="interest-rate" value="10" min="0">
     <br/>
   <label>Time Period (yrs)</label>
-  <input type="number" id="period" value="" min="1">
+  <input type="number" id="period" value="10" min="1">
     <br/><br/>
   <hr/>
   <div id="calc-result" class="result">
