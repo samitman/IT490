@@ -113,6 +113,10 @@ else {
 			margin-top: 10px;
 		}
 
+		.result:before{
+      		content:"Result: $";
+    	}
+
 		
 		.title{
 		font-size:30px;
@@ -154,6 +158,7 @@ else {
     <br/><br/>
   <hr/>
   <div id="calc-result" class="result">
+	  $0
   </div>
 </div>
 
