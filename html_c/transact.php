@@ -25,20 +25,21 @@ $balance = 2000;
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="transactScript.js"></script>
 	<script>
+		$(document).ready(function(){
 
-		function hideBal(event) {
-				targetDiv.style.display = "none";
-	
-		};
-
-		const targetDiv = document.getElementById("balMsg");
-		const dform = document.getElementById('depositForm');
-		const wform = document.getElementById('withdrawForm');
-
-		dform.addEventListener('submit', hideBal);
-		wform.addEventListener('submit', hideBal);
-
+			function hideBal(event) {
+					targetDiv.style.display = "none";
 		
+			};
+
+			const targetDiv = document.getElementById("balMsg");
+			const dform = document.getElementById('depositForm');
+			const wform = document.getElementById('withdrawForm');
+
+			dform.addEventListener('submit', hideBal);
+			wform.addEventListener('submit', hideBal);
+		})
+
 	</script>
 </head>
 
