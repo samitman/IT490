@@ -1,0 +1,36 @@
+.calculator {
+    background-color:#dedede;
+    padding: 10px;
+    margin: 20px auto;
+    width: 320px;
+
+    }
+    
+    label,input,select { 
+        width:300px;
+        display: inline-block;
+        margin: 5px 0;
+        font-size:20px;
+        
+    }
+    
+    input,select { 
+        display:inline-block;
+        float:none;
+        font-size:25px;
+    }
+    
+    .result{
+        width:290px;
+        font-size:35px;
+        margin-top: 10px;
+    }
+
+    .result:before{
+          content:"Result: $";
+    }
+    
+    .title{
+    font-size:30px;
+    margin-bottom:5px;
+    }

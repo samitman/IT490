@@ -20,6 +20,7 @@ else {
 
 
 <head>
+	<link rel="stylesheet" href="./static/css/calculatorStyle.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script>
 	$(document).ready(function(){
@@ -80,54 +81,8 @@ else {
 		}(jQuery);
 
 	});
-
 	</script>
 
-	<style>
-		body{
-		font-family:'Century Gothic';
-		background-color:#efefef;
-		}
-
-		.calculator {
-		background-color:#dedede;
-		padding: 10px;
-		margin: 20px auto;
-		width: 320px;
-
-		}
-		
-		label,input,select { 
-			width:300px;
-			display: inline-block;
-			margin: 5px 0;
-			font-size:20px;
-			
-		}
-		
-		input,select { 
-			display:inline-block;
-			float:none;
-			font-size:25px;
-		}
-		
-		.result{
-			width:290px;
-			font-size:35px;
-			margin-top: 10px;
-		}
-
-		.result:before{
-      		content:"Result: $";
-    	}
-
-		
-		.title{
-		font-size:30px;
-		margin-bottom:5px;
-		}
-
-	</style>
 </head>
 
 <div>
