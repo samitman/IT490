@@ -1,4 +1,6 @@
-<?php require_once(__DIR__ . "/partials/nav.php");?>
+<?php require_once(__DIR__ . "/partials/nav.php");
+//source for compound interest feature: https://codepen.io/fixturemedia/pen/mddKjZ
+?>
 
 <div style="text-align: center;">
 <?php
@@ -14,6 +16,8 @@ else {
 }
 ?>
 </div>
+
+
 
 <head>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
