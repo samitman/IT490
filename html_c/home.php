@@ -16,8 +16,6 @@ else {
 </div>
 
 <head>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
 	<script>
 		!function($){
 		var principle = $('#principle'),
@@ -74,6 +72,7 @@ else {
 		update();
 		inputs.on('change keyup', update);
 		}(jQuery);
+		
 	</script>
 
 	<style>
