@@ -16,7 +16,8 @@ else {
 </div>
 
 <head>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.js">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.js"></script>
+	<script>
 		(function () {
     var initial_deposit = document.querySelector('#initial_deposit'),
         contribution_amount = document.querySelector('#contribution_amount'),
