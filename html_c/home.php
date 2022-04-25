@@ -37,6 +37,7 @@ else {
     <br/>
   <label>Frequency</label>
   <select id="frequency">
+    <option value="1">Daily</option>
     <option value="7">Weekly</option>
     <option value="14">Bi-weekly</option>
     <option value="30">Monthly</option>
