@@ -4,7 +4,8 @@
 <?php
 if (isset($_SESSION["user"])) {
 	$username = $_SESSION["username"];
-	$balance = $_SESSION["balance"];
+	#$balance = $_SESSION["balance"];
+	$balance = 2000;
 	echo "<br>";
 	echo "Welcome, ".$username."!";
 	echo "<br>";
@@ -38,7 +39,7 @@ else {
 			targetDiv.style.display = "none";
 			}
 		};
-		
+
 	</script>
 </head>
 
