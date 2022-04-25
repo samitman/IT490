@@ -72,7 +72,7 @@ else {
 		update();
 		inputs.on('change keyup', update);
 		}(jQuery);
-		
+
 	</script>
 
 	<style>
@@ -108,9 +108,7 @@ else {
 			font-size:35px;
 			margin-top: 10px;
 		}
-		.result:before{
-			content:"Result: $";
-			}
+
 		
 		.title{
 		font-size:30px;
