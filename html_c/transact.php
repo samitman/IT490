@@ -13,37 +13,38 @@ if (isset($_SESSION["user"])) {
 else {
     echo "<br>";
     echo "You must be logged in to access this page.";
-	die(header("Location: index.php"));
+	//die(header("Location: index.php"));
 }
 ?>
 </div>
 
 <head>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="transactScript.js"></script>
 	<script>
-		$(document).ready(function(){
-			$("form").hide();
 
-			$("#method").change(function(){
-				stateChange($(this).val());
-			});
+		const targetDiv = document.getElementById("balMsg");
+		const btn = document.getElementById("submitDeposit");
+		const btn1 = document.getElementById("submitWithdraw");
 
-			function stateChange(stateValue){
-				$("form").hide();
-
-				switch(stateValue){
-				case 'deposit':
-					$("#depositForm").show();
-					break;
-				case 'withdraw':
-					$("#withdrawForm").show();
-					break;
-				}
+		btn.onclick = function () {
+		if (targetDiv.style.display !== "none") {
+			targetDiv.style.display = "none";
 			}
-		})
+		};
+
+		btn1.onclick = function () {
+		if (targetDiv.style.display !== "none") {
+			targetDiv.style.display = "none";
+			}
+		};
+		
 	</script>
 </head>
 
+<div id="balMsg">
+	<?php echo "Your available balance is: $" .$balance;?>
+</div>
 
 <div>
 	<p>Please Pick a Transaction Type:</p>
