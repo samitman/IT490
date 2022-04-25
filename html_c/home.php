@@ -29,10 +29,10 @@ else {
 <div id="calculator" class="calculator">
   <label class="title">Growth Calculator</label>
   <hr/>
-  <label>Principle ($)</label>
+  <label>Initial Investment ($)</label>
   <input type="number" id="principle" value="1000" min="0">
     <br/>
-  <label>Contribution ($)</label>
+  <label>Contributions ($)</label>
   <input type="number" id="contribution" value="100" min="0">
     <br/>
   <label>Frequency</label>
@@ -45,7 +45,7 @@ else {
     <option value="364">Annually</option>
   </select>
     <br/>
-  <label>Interest Rate (%)</label>
+  <label>Expected Annual Return (%)</label>
   <input type="number" id="interest-rate" value="10" min="0">
     <br/>
   <label>Time Period (yrs)</label>
