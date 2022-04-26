@@ -22,6 +22,11 @@ $balance = 2000;
 ?>
 </div>
 
+<div id="balMsg"><p>
+	<?php echo "Your available balance is: $" .$balance;?>
+	</p>
+</div>
+
 <head>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="transactScript.js"></script>
@@ -29,7 +34,7 @@ $balance = 2000;
 		$(document).ready(function(){
 
 			function updateBalMsg(event) {
-					targetDiv.innerHTML="<p>Your NEW!! available balance is: $ <?php echo $_SESSION["balance"];?></p>";
+					targetDiv.innerHTML="<p><?php echo "Your NEW!!! available balance is: $" .$balance;?></p>";
 			};
 
 			const targetDiv = document.getElementById("balMsg");
@@ -43,10 +48,6 @@ $balance = 2000;
 	</script>
 </head>
 
-<div id="balMsg"><p>
-	<?php echo "Your available balance is: $" .$balance;?>
-	</p>
-</div>
 
 <div>
 	<p>Please Pick a Transaction Type:</p>
