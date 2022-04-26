@@ -28,9 +28,8 @@ $balance = 2000;
 	<script>
 		$(document).ready(function(){
 
-			function hideBal(event) {
-					targetDiv.style.display = "none";
-		
+			function updateBal(event) {
+					targetDiv.innerHTML="<p>Your available balance is: $ <?php echo $_SESSION["balance"];?></p>";
 			};
 
 			const targetDiv = document.getElementById("balMsg");
@@ -44,8 +43,9 @@ $balance = 2000;
 	</script>
 </head>
 
-<div id="balMsg">
+<div id="balMsg"><p>
 	<?php echo "Your available balance is: $" .$balance;?>
+	</p>
 </div>
 
 <div>
@@ -108,23 +108,7 @@ $balance = 2000;
 				flash("Your available balance is now: $".$balance);
 
 				//hide original balance msg
-				echo '<script type="text/JavaScript">
-					$(document).ready(function(){
-		
-						function hideBal(event) {
-								targetDiv.style.display = "none";
 				
-						};
-			
-						const targetDiv = document.getElementById("balMsg");
-						const dform = document.getElementById("depositForm");
-						const wform = document.getElementById("withdrawForm");
-			
-						dform.addEventListener("submit", hideBal);
-						wform.addEventListener("submit", hideBal);
-					})
-			
-					</script>';
 			}
 
 			//echo $result;
