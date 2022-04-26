@@ -31,6 +31,7 @@ else {
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="transactScript.js"></script>
 	<script>
+		/*
 		$(document).ready(function(){
 
 			function updateBalMsg(event) {
@@ -44,7 +45,7 @@ else {
 			dform.addEventListener('submit', updateBalMsg);
 			wform.addEventListener('submit', updateBalMsg);
 		})
-
+		*/
 	</script>
 </head>
 
