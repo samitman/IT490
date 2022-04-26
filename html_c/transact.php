@@ -29,7 +29,7 @@ $balance = 2000;
 		$(document).ready(function(){
 
 			function updateBal(event) {
-					targetDiv.innerHTML="<p>Your available balance is: $ <?php echo $_SESSION["balance"];?></p>";
+					targetDiv.innerHTML="<p>Your NEW!! available balance is: $ <?php echo $_SESSION["balance"];?></p>";
 			};
 
 			const targetDiv = document.getElementById("balMsg");
