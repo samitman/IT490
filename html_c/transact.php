@@ -35,7 +35,7 @@ else {
 		$(document).ready(function(){
 
 			function updateBalMsg(event) {
-					targetDiv.innerHTML="<p><?php //echo "Your NEW!!! available balance is: $" .$balance;?></p>";
+					targetDiv.innerHTML="<p></p>";
 			};
 
 			const targetDiv = document.getElementById("balMsg");
