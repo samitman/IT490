@@ -13,12 +13,12 @@ if (isset($_SESSION["user"])) {
 else {
     echo "<br>";
     echo "You must be logged in to access this page.";
-	//die(header("Location: index.php"));
+	die(header("Location: index.php"));
 }
 
 //HARDCODED BALANCE & USER
-$username = "SAM";
-$balance = 2000;
+//$username = "SAM";
+//$balance = 2000;
 ?>
 </div>
 
