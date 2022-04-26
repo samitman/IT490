@@ -88,7 +88,7 @@ ul[class="nav"]{
 
 #logoutBtn {
     float: right !important;
-    margin-right: 10px !important;
+    margin-right: 25px !important;
 }
 
 textarea:focus {
