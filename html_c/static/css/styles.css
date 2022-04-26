@@ -86,8 +86,8 @@ ul[class="nav"]{
 }
 
 .logoutBtn {
-    float: right;
-    margin-right: 10px;
+    float: right !important;
+    margin-right: 10px !important;
 }
 
 textarea:focus {
