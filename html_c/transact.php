@@ -108,7 +108,7 @@ $balance = 2000;
 				flash("Your available balance is now: $".$balance);
 
 				//hide original balance msg
-				echo '<script>
+				echo '<script type="text/JavaScript">
 					$(document).ready(function(){
 		
 						function hideBal(event) {
