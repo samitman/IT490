@@ -85,6 +85,11 @@ ul[class="nav"]{
     background-image: linear-gradient(#FDC956, #f9982b);
 }
 
+.logoutBtn {
+    float: right;
+    margin-right: 10px;
+}
+
 textarea:focus {
     color: #ffffff;
 }
