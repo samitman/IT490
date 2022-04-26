@@ -107,6 +107,7 @@ else {
 				$_SESSION["balance"] += $depositAmount;
 				$balance = $_SESSION["balance"];
 				flash("Your available balance is now: $".$balance);
+				die(header("Location: home.php"));
 
 				//hide original balance msg
 				
