@@ -32,8 +32,8 @@ def on_request(ch, method, props, body):
         return bcrypt.hashpw(password, bcrypt.gensalt())
 
     #checks hash / salt saved onto hash
-    def checkhash(password,hashpass):
-        return bcrypt.checkpw(password, hashpass)
+    #def checkhash(password,hashpass):
+    #    return bcrypt.checkpw(password, hashpass)
 
     #salt = uuid.uuid4().bytes
     #hashedpass = hashlib.sha512(password + salt).digest()
