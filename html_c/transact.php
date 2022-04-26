@@ -8,7 +8,7 @@ if (isset($_SESSION["user"])) {
 	echo "<br>";
 	echo "Welcome, ".$username."!";
 	echo "<br>";
-	#echo "Your available balance is: $" .$balance;
+	echo "Your available balance is: $" .$balance;
 }
 else {
     echo "<br>";
@@ -16,16 +16,7 @@ else {
 	die(header("Location: index.php"));
 }
 
-//HARDCODED BALANCE & USER
-//$username = "SAM";
-//$balance = 2000;
 ?>
-</div>
-
-<div id="balMsg"><p>
-	<?php echo "Your available balance is: $" .$balance;?>
-	</p>
-</div>
 
 <head>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
