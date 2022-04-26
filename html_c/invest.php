@@ -75,13 +75,10 @@
             $action = $_POST["action"]; #buy or sell
             $investAmount = $_POST["investAmount"];
 
-            if ($action == "sell"){
-                $investAmount *= -1;
-            }
 
             if ($investAmount <= $balance)
             {
-                if($investAmount >0) {
+                if($action == "buy") {
                     //RMQ investing process
                     $result = exec("python3 invest.py $username $portfolio $investAmount");
                     //echo $result;
@@ -119,9 +116,9 @@
                     
                 }
 
-                if($investAmount <0) {
+                if($action == "sell") {
                     //RMQ investing process
-                    $result = exec("python3 invest.py $username $portfolio $investAmount");
+                    $result = exec("python3 sell.py $username $portfolio $investAmount");
                     echo $result;
                     //response should be the share amount of the portfolio and the etf price
 
