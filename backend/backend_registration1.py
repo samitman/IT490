@@ -3,7 +3,6 @@
 import pika, sys, os, uuid
 from backend_registration2 import main
 
-
 credentials = pika.PlainCredentials(username='test', password='test')
 connection = pika.BlockingConnection(pika.ConnectionParameters(host='192.168.192.60', credentials=credentials))
 

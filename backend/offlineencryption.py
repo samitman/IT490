@@ -23,6 +23,7 @@ def on_request(body):
     hashedpassword = gethashpass(plainpassword)
     print(hashedpassword)
     return hashedpassword
+    
 response = on_request(body)
 print(response)
 
