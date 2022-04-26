@@ -86,7 +86,7 @@ else {
 		 {
 			$depositAmount = $_POST["depositAmount"];
 			$flashMsg = "You have successfully deposited: $" . $depositAmount; 
-			print($flashMsg);
+			//print($flashMsg);
 			//flash($flashMsg); ARRAY TO STRING CONVERSION ERROR in flash.php line 10
 
 
@@ -98,7 +98,7 @@ else {
 				//display updated balance
 				$_SESSION["balance"] += $depositAmount;
 				$balance = $_SESSION["balance"];
-				flash("Your available balance is now: $".$balance);
+				flash($flashMsg . ". Your available balance is now: $".$balance);
 				die(header("Location: home.php"));
 
 				//hide original balance msg
