@@ -106,6 +106,25 @@ $balance = 2000;
 				$_SESSION["balance"] += $depositAmount;
 				$balance = $_SESSION["balance"];
 				flash("Your available balance is now: $".$balance);
+
+				//hide original balance msg
+				echo '<script>
+					$(document).ready(function(){
+		
+						function hideBal(event) {
+								targetDiv.style.display = "none";
+				
+						};
+			
+						const targetDiv = document.getElementById("balMsg");
+						const dform = document.getElementById("depositForm");
+						const wform = document.getElementById("withdrawForm");
+			
+						dform.addEventListener("submit", hideBal);
+						wform.addEventListener("submit", hideBal);
+					})
+			
+					</script>';
 			}
 
 			//echo $result;
@@ -115,7 +134,7 @@ $balance = 2000;
 	if(array_key_exists('submitWithdraw', $_POST))
 	{
 		$withdrawAmount = "";
-		if (isset($_POST["withdrawAmount"])) 
+		if (isset($_POST["withdrawAmount"]) && $_POST["withdrawAmount"] <= $balance) 
 		 {
 			$withdrawAmount = $_POST["withdrawAmount"];
 			$withdrawAmount*=-1;
