@@ -28,7 +28,7 @@ $balance = 2000;
 	<script>
 		$(document).ready(function(){
 
-			function updateBal(event) {
+			function updateBalMsg(event) {
 					targetDiv.innerHTML="<p>Your NEW!! available balance is: $ <?php echo $_SESSION["balance"];?></p>";
 			};
 
@@ -36,8 +36,8 @@ $balance = 2000;
 			const dform = document.getElementById('depositForm');
 			const wform = document.getElementById('withdrawForm');
 
-			dform.addEventListener('submit', hideBal);
-			wform.addEventListener('submit', hideBal);
+			dform.addEventListener('submit', updateBalMsg);
+			wform.addEventListener('submit', updateBalMsg);
 		})
 
 	</script>
