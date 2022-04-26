@@ -24,12 +24,12 @@ def on_request(ch, method, props, body):
     firstName = credslist[3]
     lastName = credslist[4]
 
-    print("Split check:" + email +" "+ username +" "+ password +" "+ firstName +" "+ lastName)
+    print("Split check:" + email +" "+ username +" "+ gethashpass +" "+ firstName +" "+ lastName)
     print(credslist)
-    credsdict =  {"Email": email,"Username": username,"Password": password,"First Name": firstName,"Last Name": lastName }
+    credsdict =  {"Email": email,"Username": username,"Password": gethashpass,"First Name": firstName,"Last Name": lastName }
 
     def gethashpass(password):
-        return bcrypt.hashpw(password, bcrypt.gensalt())
+        return bcrypt.hashpw(password)
 
     #checks hash / salt saved onto hash
     #def checkhash(password,hashpass):
