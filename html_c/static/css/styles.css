@@ -79,6 +79,7 @@ ul[class="nav"]{
     padding: 10px;
     border-radius: 10px;
     text-decoration: bold;
+    margin-left: 10px;
 }
 
 .nav > li a:hover {
