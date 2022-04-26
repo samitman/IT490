@@ -8,8 +8,8 @@ import sys
 #creds = str(username)+','+str(password)
 
 
-def main(email,username,gethashpass,firstName,lastName):
-    creds = str(email)+','+str(username)+','+str(gethashpass)+','+str(firstName)+','+str(lastName)
+def main(email,username,hashedpassword,firstName,lastName):
+    creds = str(email)+','+str(username)+','+str(hashedpassword)+','+str(firstName)+','+str(lastName)
 
 
     class RegistrationClient(object):
