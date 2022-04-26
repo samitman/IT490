@@ -122,11 +122,10 @@ require_once(__DIR__ . "/../lib/functions.php");
         <?php endif; ?>
         </div>
         <?php if (is_logged_in()) : ?>
-            <li><a href="dashboard.php">Dashboard</a></li>
             <li><a href="invest.php">Invest</a></li>
 	        <li><a href="transact.php">Transact</a></li>
             <li><a href="profile.php">Profile</a></li>
-            <li><a href="logout.php">Logout</a></li>
+            <li id="logoutBtn"><a href="logout.php">Logout</a></li>
         <?php endif; ?>
     </ul>
 </nav>

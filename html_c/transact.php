@@ -15,32 +15,36 @@ else {
     echo "You must be logged in to access this page.";
 	die(header("Location: index.php"));
 }
+
+//HARDCODED BALANCE & USER
+//$username = "SAM";
+//$balance = 2000;
 ?>
+</div>
+
+<div id="balMsg"><p>
+	<?php echo "Your available balance is: $" .$balance;?>
+	</p>
 </div>
 
 <head>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="transactScript.js"></script>
 	<script>
 		$(document).ready(function(){
-			$("form").hide();
 
-			$("#method").change(function(){
-				stateChange($(this).val());
-			});
+			function updateBalMsg(event) {
+					targetDiv.innerHTML="<p><?php echo "Your NEW!!! available balance is: $" .$balance;?></p>";
+			};
 
-			function stateChange(stateValue){
-				$("form").hide();
+			const targetDiv = document.getElementById("balMsg");
+			const dform = document.getElementById('depositForm');
+			const wform = document.getElementById('withdrawForm');
 
-				switch(stateValue){
-				case 'deposit':
-					$("#depositForm").show();
-					break;
-				case 'withdraw':
-					$("#withdrawForm").show();
-					break;
-				}
-			}
+			dform.addEventListener('submit', updateBalMsg);
+			wform.addEventListener('submit', updateBalMsg);
 		})
+
 	</script>
 </head>
 
@@ -103,6 +107,9 @@ else {
 				$_SESSION["balance"] += $depositAmount;
 				$balance = $_SESSION["balance"];
 				flash("Your available balance is now: $".$balance);
+
+				//hide original balance msg
+				
 			}
 
 			//echo $result;
@@ -112,7 +119,7 @@ else {
 	if(array_key_exists('submitWithdraw', $_POST))
 	{
 		$withdrawAmount = "";
-		if (isset($_POST["withdrawAmount"])) 
+		if (isset($_POST["withdrawAmount"]) && $_POST["withdrawAmount"] <= $balance) 
 		 {
 			$withdrawAmount = $_POST["withdrawAmount"];
 			$withdrawAmount*=-1;

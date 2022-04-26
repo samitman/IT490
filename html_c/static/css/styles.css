@@ -79,10 +79,16 @@ ul[class="nav"]{
     padding: 10px;
     border-radius: 10px;
     text-decoration: bold;
+    margin-left: 10px;
 }
 
 .nav > li a:hover {
     background-image: linear-gradient(#FDC956, #f9982b);
+}
+
+#logoutBtn {
+    float: right !important;
+    margin-right: 25px !important;
 }
 
 textarea:focus {

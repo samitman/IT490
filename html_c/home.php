@@ -15,7 +15,46 @@ else {
 ?>
 </div>
 
+<head>
+	<link rel="stylesheet" href="./static/css/calculatorStyle.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="calculatorScript.js"></script>
+</head>
+
 <div>
 <div style="text-align: center;">
 	<p><img src="images/walnuts_header.png" alt="Walnuts logo" width="760", height="383"></p>
 </div>
+
+<div id="calculator" class="calculator">
+  <label class="title">Growth Calculator</label>
+  <hr/>
+  <label>Initial Investment ($)</label>
+  <input type="number" id="principle" value="1000" min="0">
+    <br/>
+  <label>Contributions ($)</label>
+  <input type="number" id="contribution" value="100" min="0">
+    <br/>
+  <label>Frequency</label>
+  <select id="frequency">
+    <option value="1">Daily</option>
+    <option value="7">Weekly</option>
+    <option value="14">Bi-weekly</option>
+    <option value="30" selected>Monthly</option>
+    <option value="91">Quarterly</option>
+    <option value="364">Annually</option>
+  </select>
+    <br/>
+  <label>Expected Annual Return (%)</label>
+  <input type="number" id="interest-rate" value="10" min="0">
+    <br/>
+  <label>Time Period (yrs)</label>
+  <input type="number" id="period" value="10" min="1">
+    <br/>
+  <hr/>
+  <div id="calc-result" class="result">
+	  $0
+  </div>
+</div>
+
+
