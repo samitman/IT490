@@ -30,12 +30,12 @@ else {
 <head>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="transactScript.js"></script>
+	<!--
 	<script>
-		/*
 		$(document).ready(function(){
 
 			function updateBalMsg(event) {
-					targetDiv.innerHTML="<p><?php echo "Your NEW!!! available balance is: $" .$balance;?></p>";
+					targetDiv.innerHTML="<p><?php //echo "Your NEW!!! available balance is: $" .$balance;?></p>";
 			};
 
 			const targetDiv = document.getElementById("balMsg");
@@ -45,8 +45,8 @@ else {
 			dform.addEventListener('submit', updateBalMsg);
 			wform.addEventListener('submit', updateBalMsg);
 		})
-		*/
 	</script>
+	-->
 </head>
 
 
