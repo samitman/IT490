@@ -130,17 +130,3 @@ input[type=submit], .submitButton {
     font-family: "Avenir Next Medium";
 }
 
-.deleteButton {
-    display: flex;
-    max-height: 10px;
-    background-image: linear-gradient($FDC956, #F9982B);
-    margin-left: auto;
-    margin-right: auto;
-    color: white;
-    text-align: center;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 1.0em;
-    font-family: "Avenir Next Medium";	
-}

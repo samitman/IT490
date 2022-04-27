@@ -3,49 +3,24 @@
 <div style="text-align: center;">
 <?php
 if (isset($_SESSION["user"])) {
-	$username = $_SESSION["username"];
+	$fname = $_SESSION["fname"];
 	$balance = $_SESSION["balance"];
 	echo "<br>";
-	echo "Welcome, ".$username."!";
+	echo "Welcome, ".$fname."!";
 	echo "<br>";
-	#echo "Your available balance is: $" .$balance;
+	echo "Your available balance is: $" .$balance;
 }
 else {
     echo "<br>";
     echo "You must be logged in to access this page.";
 	die(header("Location: index.php"));
 }
-
-//HARDCODED BALANCE & USER
-//$username = "SAM";
-//$balance = 2000;
 ?>
-</div>
-
-<div id="balMsg"><p>
-	<?php echo "Your available balance is: $" .$balance;?>
-	</p>
 </div>
 
 <head>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="transactScript.js"></script>
-	<script>
-		$(document).ready(function(){
-
-			function updateBalMsg(event) {
-					targetDiv.innerHTML="<p><?php echo "Your NEW!!! available balance is: $" .$balance;?></p>";
-			};
-
-			const targetDiv = document.getElementById("balMsg");
-			const dform = document.getElementById('depositForm');
-			const wform = document.getElementById('withdrawForm');
-
-			dform.addEventListener('submit', updateBalMsg);
-			wform.addEventListener('submit', updateBalMsg);
-		})
-
-	</script>
 </head>
 
 
@@ -93,10 +68,6 @@ else {
 		if (isset($_POST["depositAmount"])) 
 		 {
 			$depositAmount = $_POST["depositAmount"];
-			$flashMsg = "You have successfully deposited: $" . $depositAmount; 
-			print($flashMsg);
-			//flash($flashMsg); ARRAY TO STRING CONVERSION ERROR in flash.php line 10
-
 
 			//RMQ deposit process
 			//username should be stored in session, see top of page
@@ -106,28 +77,27 @@ else {
 				//display updated balance
 				$_SESSION["balance"] += $depositAmount;
 				$balance = $_SESSION["balance"];
-				flash("Your available balance is now: $".$balance);
-
-				//hide original balance msg
+				die(header("Location: home.php"));
 				
 			}
 
-			//echo $result;
 		 }
 	} 
 
 	if(array_key_exists('submitWithdraw', $_POST))
 	{
 		$withdrawAmount = "";
+
+		if (isset($_POST["withdrawAmount"]) && ($_POST["withdrawAmount"] > $balance)) {
+			flash("Error: Insufficient balance!");
+		}
+
 		if (isset($_POST["withdrawAmount"]) && $_POST["withdrawAmount"] <= $balance) 
 		 {
 			$withdrawAmount = $_POST["withdrawAmount"];
 			$withdrawAmount*=-1;
 
-			$withdrawMsg = $_POST["withdrawAmount"];
-			$flashMsg = "You have successfully withdrawn: $" . $withdrawMsg; 
-			print($flashMsg);
-			//flash($flashMsg); ARRAY TO STRING CONVERSION ERROR 
+			$withdrawMsg = $_POST["withdrawAmount"]; 
 
 			//RMQ withdraw process
 			//username should be stored in session, see top of page
@@ -137,10 +107,9 @@ else {
 				//display updated balance
 				$_SESSION["balance"] += ($withdrawAmount);
 				$balance = $_SESSION["balance"];
-				flash("Your available balance is now: $".$balance);
+				die(header("Location: home.php"));
 			}
 
-			//echo $result;
 		 }
 	}
 ?>
