@@ -7,6 +7,7 @@ if (isset($_SESSION["user"])) {
   $balance = $_SESSION["balance"];
 	echo "<br>";
 	echo "Welcome, ".$fname."!";
+  echo "<br>";
   echo "Your available balance is: $" .$balance;
 }
 else {

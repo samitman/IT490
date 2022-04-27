@@ -68,10 +68,6 @@ else {
 		if (isset($_POST["depositAmount"])) 
 		 {
 			$depositAmount = $_POST["depositAmount"];
-			$flashMsg = "You have successfully deposited: $" . $depositAmount; 
-			//print($flashMsg);
-			//flash($flashMsg); ARRAY TO STRING CONVERSION ERROR in flash.php line 10
-
 
 			//RMQ deposit process
 			//username should be stored in session, see top of page
@@ -81,16 +77,10 @@ else {
 				//display updated balance
 				$_SESSION["balance"] += $depositAmount;
 				$balance = $_SESSION["balance"];
-				flash($flashMsg . ". Your available balance is now: $".$balance);
 				die(header("Location: home.php"));
-				
-				
-
-				//hide original balance msg
 				
 			}
 
-			//echo $result;
 		 }
 	} 
 
@@ -102,10 +92,7 @@ else {
 			$withdrawAmount = $_POST["withdrawAmount"];
 			$withdrawAmount*=-1;
 
-			$withdrawMsg = $_POST["withdrawAmount"];
-			$flashMsg = "You have successfully withdrawn: $" . $withdrawMsg; 
-			print($flashMsg);
-			//flash($flashMsg); ARRAY TO STRING CONVERSION ERROR 
+			$withdrawMsg = $_POST["withdrawAmount"]; 
 
 			//RMQ withdraw process
 			//username should be stored in session, see top of page
@@ -115,10 +102,9 @@ else {
 				//display updated balance
 				$_SESSION["balance"] += ($withdrawAmount);
 				$balance = $_SESSION["balance"];
-				flash("Your available balance is now: $".$balance);
+				die(header("Location: home.php"));
 			}
 
-			//echo $result;
 		 }
 	}
 ?>
