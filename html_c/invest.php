@@ -3,7 +3,7 @@
 <div style="text-align: center;">
 <?php
     if (isset($_SESSION["username"])) {
-        $username = $_SESSION["username"];
+        $fname = $_SESSION["fname"];
 
         if (isset($_SESSION["balance"])) {
             $balance = $_SESSION["balance"];
@@ -17,7 +17,7 @@
         }
         echo "<br>";
 
-        echo "Welcome, ".$username."!";
+        echo "Welcome, ".$fname."!";
     }
     else {
         echo "<br>";
