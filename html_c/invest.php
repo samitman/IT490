@@ -22,14 +22,26 @@
     else {
         echo "<br>";
         echo "You must be logged in to access this page.";
-        die(header("Location: index.php"));
+        //die(header("Location: index.php"));
     }
 ?>
 </div>
 
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="investScript.js"></script>
+</head>
+
 <div>
     <t>Welcome to the Investment Center!</t> <br>
     <p>Your available balance is: $<?php print($balance); ?></p>
+
+    <p>Please Choose an Action:</p>
+        <select id="action" name="action" required>
+            <option value="">Choose an Option</option>
+            <option value="buy">Buy</option>
+            <option value="sell">Sell</option>
+        </select><br><br>
 
 
 	<form id="investForm" method="POST">
@@ -46,37 +58,61 @@
             <option value="etfTech">Tech</option>
         </select><br><br>
 
-        <p>Please Choose an Action:</p>
-        <select id="action" name="action" required>
-            <option value="">Choose an Option</option>
-            <option value="buy">Buy</option>
-            <option value="sell">Sell</option>
-        </select><br><br>
-
 		<input style="width: 25%; float: left;" type="number" id="investAmount" name="investAmount" placeholder="Amount to Invest" required/><br><br><br>
 
 		<div>
         	<input style="float: left;" class="submitButton" type="submit" id="submitInvest" name="submitInvest" value="Invest"/><br><br>
 		</div>
     </form>
+
+    <form id="sellForm" method="POST">
+
+        <p>Please Choose Your Desired Portfolio:</p>
+        <select id="portfolio" name="portfolio" required>
+            <option value="">Choose a Portfolio</option>
+            <option value="etfAggressive">Aggressive</option>
+            <option value="etfBoomer">Boomer</option>
+            <option value="etfCrypto">Crypto</option>
+            <option value="etfGrowth">Growth</option>
+            <option value="etfMeme">Meme</option>
+            <option value="etfModerate">Moderate</option>
+            <option value="etfTech">Tech</option>
+        </select><br><br>
+
+		<input style="width: 25%; float: left;" type="number" id="sellAmount" name="sellAmount" placeholder="Amount to Sell" required/><br><br><br>
+
+		<div>
+        	<input style="float: left;" class="submitButton" type="submit" id="submitSell" name="submitSell" value="Sell"/><br><br>
+		</div>
+    </form>
 </div>
 
 <?php
-	if(array_key_exists('submitInvest', $_POST))
+	if(array_key_exists('submitInvest', $_POST) || array_key_exists('submitSell', $_POST))
 	{
 
 		$investAmount = "";
+        $action = "";
+        $sellAmount = "";
         //$balance = $_SESSION["balance"];
         //balance should be stored in session at the top of page
 
-		if (isset($_POST["investAmount"]) && isset($_POST["portfolio"]) && isset($_POST["action"]))
+		if (isset($_POST["investAmount"]) && isset($_POST["portfolio"]))
 		 {
 			$portfolio = $_POST["portfolio"];
-            $action = $_POST["action"]; #buy or sell
-            $investAmount = $_POST["investAmount"];
 
-
-            if ($investAmount <= $balance)
+            //determine if buying or selling
+            if(array_key_exists('submitInvest', $_POST) &&  !array_key_exists('submitSell', $_POST)) {
+                $action = "buy";
+                $investAmount = $_POST["investAmount"];
+            }
+            if(array_key_exists('submitSell', $_POST) &&  !array_key_exists('submitInvest', $_POST)) {
+                $action = "sell";
+                $sellAmount = $_POST["sellAmount"];
+            }
+            
+        
+            if ($investAmount <= $balance) //or sellAmount <= holdings
             {
                 if($action == "buy") {
                     //RMQ investing process
@@ -118,18 +154,18 @@
 
                 if($action == "sell") {
                     //RMQ investing process
-                    $result = exec("python3 sell.py $username $portfolio $investAmount");
+                    $result = exec("python3 sell.py $username $portfolio $sellAmount");
                     echo $result;
                     //response should be the share amount of the portfolio and the etf price
 
-                    $flashMsg = "You have successfully sold: $" . $investAmount . " of the Walnuts™ " . $portfolio . " portfolio!"; 
+                    $flashMsg = "You have successfully sold: $" . $sellAmount . " of the Walnuts™ " . $portfolio . " portfolio!"; 
                     print($flashMsg);
                     echo "<br>";
                     //flash($flashMsg); ARRAY TO STRING CONVERSION ERROR in flash.php line 10
 
                     //update balance
                     //$_SESSION["balance"] -= $balance;
-                    $balance -= $investAmount;
+                    $balance -= $sellAmount;
                     print("Your available balance is now: $" . $balance);
                 }
             
