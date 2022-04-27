@@ -98,8 +98,9 @@ else {
 				//display updated balance
 				$_SESSION["balance"] += $depositAmount;
 				$balance = $_SESSION["balance"];
-				flash($flashMsg . ". Your available balance is now: $".$balance);
 				die(header("Location: home.php"));
+				flash($flashMsg . ". Your available balance is now: $".$balance);
+				
 
 				//hide original balance msg
 				
