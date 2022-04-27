@@ -34,7 +34,7 @@ for category in portfolios:
         info = yf.Ticker(stock).info
         marketprice = info.get('regularMarketPrice')
         sum += marketprice
-        stockstring= stock +","+ str(round(marketprice,2))
-        messenger(stockstring)
+        #stockstring= stock +","+ str(round(marketprice,2))
+        #messenger(stockstring)
     portfoliostring= category +","+ str(round(sum,2))
     messenger(portfoliostring)
