@@ -123,10 +123,11 @@
                     $etfPrice = floatval($result[2]);
                     $balance = floatval($result[3]);
                     
-                    $holdings = $numShares * $etfPrice;
+                    $priceString = $portfolio . "Price"; //etfMemePrice
 
                     $_SESSION["balance"] = $balance;
-                    $_SESSION[$portfolio] = $holdings;
+                    $_SESSION[$portfolio] = $numShares; //session[etfMeme] = numShares
+                    $_SESSION[$priceString] = $etfPrice; //session[etfMemePrice] = etfPrice
                     die(header("Location: home.php"));
                     
                 }
@@ -139,10 +140,11 @@
                     $etfPrice = floatval($result[2]);
                     $balance = floatval($result[3]);
                     
-                    $holdings = $numShares * $etfPrice;
+                    $priceString = $portfolio . "Price"; //etfMemePrice
 
                     $_SESSION["balance"] = $balance;
-                    $_SESSION[$portfolio] = $holdings;
+                    $_SESSION[$portfolio] = $numShares; //session[etfMeme] = numShares
+                    $_SESSION[$priceString] = $etfPrice; //session[etfMemePrice] = etfPrice
                     die(header("Location: home.php"));
 
                 }

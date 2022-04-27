@@ -58,13 +58,13 @@
 			$_SESSION["etfAggressive"] = $splitResult[11];
 			$_SESSION["etfGrowth"] = $splitResult[12];
 
-			$_SESSION["memePrice"] = $splitResult[13];
-			$_SESSION["boomerPrice"] = $splitResult[14];
-			$_SESSION["techPrice"] = $splitResult[15];
-			$_SESSION["cryptoPrice"] = $splitResult[16];
-			$_SESSION["moderatePrice"] = $splitResult[17];
-			$_SESSION["aggressivePrice"] = $splitResult[18];
-			$_SESSION["growthPrice"] = $splitResult[19];
+			$_SESSION["etfMemePrice"] = $splitResult[13];
+			$_SESSION["etfBoomerPrice"] = $splitResult[14];
+			$_SESSION["etfTechPrice"] = $splitResult[15];
+			$_SESSION["etfCryptoPrice"] = $splitResult[16];
+			$_SESSION["etfModeratePrice"] = $splitResult[17];
+			$_SESSION["etfAggressivePrice"] = $splitResult[18];
+			$_SESSION["etfGrowthPrice"] = $splitResult[19];
 
            		die(header("Location: home.php"));
 		}

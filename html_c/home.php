@@ -13,26 +13,26 @@ if (isset($_SESSION["user"])) {
 
   //holdings = numShares + etfPrice
   //memeHoldings = etfMeme * memePrice
-  if(isset($_SESSION["etfMeme"])) {
-    echo "Total etfMeme Holdings: $" . ($_SESSION["etfMeme"] * $_SESSION["memePrice"]);
+  if(isset($_SESSION["etfMeme"]) && $_SESSION["etfMeme"] > 0) {
+    echo "Total etfMeme Holdings: $" . ($_SESSION["etfMeme"] * $_SESSION["etfMemePrice"]);
   }
-  if(isset($_SESSION["etfBoomer"])) {
-    echo "Total etfBoomer Holdings: $" . ($_SESSION["etfBoomer"] * $_SESSION["boomerPrice"]);
+  if(isset($_SESSION["etfBoomer"]) && $_SESSION["etfBoomer"] > 0) {
+    echo "Total etfBoomer Holdings: $" . ($_SESSION["etfBoomer"] * $_SESSION["etfBoomerPrice"]);
   }
-  if(isset($_SESSION["etfTech"])) {
-    echo "Total etfTech Holdings: $" . ($_SESSION["etfTech"] * $_SESSION["techPrice"]);
+  if(isset($_SESSION["etfTech"]) && $_SESSION["etfTech"] > 0) {
+    echo "Total etfTech Holdings: $" . ($_SESSION["etfTech"] * $_SESSION["etfTechPrice"]);
   }
-  if(isset($_SESSION["etfCrypto"])) {
-    echo "Total etfCrypto Holdings: $" . ($_SESSION["etfCrypto"] * $_SESSION["cryptoPrice"]);
+  if(isset($_SESSION["etfCrypto"]) && $_SESSION["etfCrypto"] > 0) {
+    echo "Total etfCrypto Holdings: $" . ($_SESSION["etfCrypto"] * $_SESSION["etfCryptoPrice"]);
   }
-  if(isset($_SESSION["etfModerate"])) {
-    echo "Total etfModerate Holdings: $" . ($_SESSION["etfModerate"] * $_SESSION["moderatePrice"]);
+  if(isset($_SESSION["etfModerate"]) && $_SESSION["etfModerate"] > 0) {
+    echo "Total etfModerate Holdings: $" . ($_SESSION["etfModerate"] * $_SESSION["etfModeratePrice"]);
   }
-  if(isset($_SESSION["etfAggressive"])) {
-    echo "Total etfAggressive Holdings: $" . ($_SESSION["etfAggressive"] * $_SESSION["aggressivePrice"]);
+  if(isset($_SESSION["etfAggressive"]) && $_SESSION["etfAggressive"] > 0) {
+    echo "Total etfAggressive Holdings: $" . ($_SESSION["etfAggressive"] * $_SESSION["etfAggressivePrice"]);
   }
-  if(isset($_SESSION["etfGrowth"])) {
-    echo "Total etfGrowth Holdings: $" . ($_SESSION["etfGrowth"] * $_SESSION["growthPrice"]);
+  if(isset($_SESSION["etfGrowth"]) && $_SESSION["etfGrowth"] > 0) {
+    echo "Total etfGrowth Holdings: $" . ($_SESSION["etfGrowth"] * $_SESSION["etfGrowthPrice"]);
   }
   
 }
