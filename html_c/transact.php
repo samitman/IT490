@@ -87,6 +87,11 @@ else {
 	if(array_key_exists('submitWithdraw', $_POST))
 	{
 		$withdrawAmount = "";
+
+		if (isset($_POST["withdrawAmount"]) && ($_POST["withdrawAmount"] > $balance)) {
+			flash("Error: Insufficient balance!");
+		}
+
 		if (isset($_POST["withdrawAmount"]) && $_POST["withdrawAmount"] <= $balance) 
 		 {
 			$withdrawAmount = $_POST["withdrawAmount"];
