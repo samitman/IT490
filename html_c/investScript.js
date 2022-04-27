@@ -1,7 +1,7 @@
 $(document).ready(function(){
     $("form").hide();
 
-    $("#maction").change(function(){
+    $("#action").change(function(){
         stateChange($(this).val());
     });
 
