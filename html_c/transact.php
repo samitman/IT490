@@ -18,6 +18,12 @@ else {
 ?>
 </div>
 
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="transactScript.js"></script>
+</head>
+
+
 <div>
 	<p>Please Pick a Transaction Type:</p>
 	<select id="method" name="method">
