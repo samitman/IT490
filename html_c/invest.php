@@ -4,6 +4,7 @@
 <?php
     if (isset($_SESSION["username"])) {
         $fname = $_SESSION["fname"];
+        $username = $_SESSION["username"];
 
         if (isset($_SESSION["balance"])) {
             $balance = $_SESSION["balance"];
