@@ -118,56 +118,33 @@
                 if($action == "buy") {
                     //RMQ investing process
                     $result = exec("python3 invest.py $username $portfolio $investAmount");
-                    //echo $result;
                     //result = (username, num shares, etf price, avail balance)
-                    $numShares = $result[1];
-                    $etfPrice = $result[2];
-                    $balance = $result[3];
+                    $numShares = floatval($result[1]);
+                    $etfPrice = floatval($result[2]);
+                    $balance = floatval($result[3]);
                     
-                    $holdings = floatval($numShares) * floatval($etfPrice);
-                    //you now have <holdings> of $portfolio
-                    //your new balance is <balance>
-                    
+                    $holdings = $numShares * $etfPrice;
 
-                    $flashMsg = "You have successfully purchased: $" . $investAmount . " of the Walnuts™ " . $portfolio . " portfolio!"; 
-                    
-                    print($flashMsg);
-
-                    echo"<br>";
-
-                    $holdingsMsg = "Total " .$portfolio . " holdings: $" .$holdings;
-                    print($holdingsMsg);
-
-                    echo "<br>";
-
-                    $balanceMsg = "Your available balance is: $".$balance;
-                    print($balanceMsg);
-
-                    echo "<br>";
-                    //flash($flashMsg); ARRAY TO STRING CONVERSION ERROR in flash.php line 10
-
-                    //update balance
-                    //$_SESSION["balance"] -= $balance;
-                    $balance -= $investAmount;
-                    print("Your available balance is now: $" . $balance);
+                    $_SESSION["balance"] = $balance;
+                    $_SESSION[$portfolio] = $holdings;
+                    die(header("Location: home.php"));
                     
                 }
 
                 if($action == "sell") {
                     //RMQ investing process
                     $result = exec("python3 sell.py $username $portfolio $sellAmount");
-                    echo $result;
-                    //response should be the share amount of the portfolio and the etf price
+                    
+                    $numShares = floatval($result[1]);
+                    $etfPrice = floatval($result[2]);
+                    $balance = floatval($result[3]);
+                    
+                    $holdings = $numShares * $etfPrice;
 
-                    $flashMsg = "You have successfully sold: $" . $sellAmount . " of the Walnuts™ " . $portfolio . " portfolio!"; 
-                    print($flashMsg);
-                    echo "<br>";
-                    //flash($flashMsg); ARRAY TO STRING CONVERSION ERROR in flash.php line 10
+                    $_SESSION["balance"] = $balance;
+                    $_SESSION[$portfolio] = $holdings;
+                    die(header("Location: home.php"));
 
-                    //update balance
-                    //$_SESSION["balance"] -= $balance;
-                    $balance -= $sellAmount;
-                    print("Your available balance is now: $" . $balance);
                 }
             
             } else {

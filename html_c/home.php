@@ -9,6 +9,8 @@ if (isset($_SESSION["user"])) {
 	echo "Welcome, ".$fname."!";
   echo "<br>";
   echo "Your available balance is: $" .$balance;
+  echo "<br>";
+  
 }
 else {
     echo "<br>";
