@@ -18,29 +18,6 @@ else {
 ?>
 </div>
 
-<head>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<script src="transactScript.js"></script>
-	<!--
-	<script>
-		$(document).ready(function(){
-
-			function updateBalMsg(event) {
-					targetDiv.innerHTML="<p></p>";
-			};
-
-			const targetDiv = document.getElementById("balMsg");
-			const dform = document.getElementById('depositForm');
-			const wform = document.getElementById('withdrawForm');
-
-			dform.addEventListener('submit', updateBalMsg);
-			wform.addEventListener('submit', updateBalMsg);
-		})
-	</script>
-	-->
-</head>
-
-
 <div>
 	<p>Please Pick a Transaction Type:</p>
 	<select id="method" name="method">
