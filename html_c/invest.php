@@ -120,11 +120,11 @@
                     $result = exec("python3 invest.py $username $portfolio $investAmount");
                     //echo $result;
                     //result = (username, num shares, etf price, avail balance)
-                    $numshares = $result[1];
+                    $numShares = $result[1];
                     $etfPrice = $result[2];
                     $balance = $result[3];
                     
-                    $holdings = $numShares * $etfPrice;
+                    $holdings = floatval($numShares) * floatval($etfPrice);
                     //you now have <holdings> of $portfolio
                     //your new balance is <balance>
                     
