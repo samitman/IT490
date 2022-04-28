@@ -33,7 +33,7 @@ else {
 <head>
 	<link rel="stylesheet" href="./static/css/calculatorStyle.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<script src="calculatorScript.js"></script>
+	<script src="./js/calculatorScript.js"></script>
 </head>
 
 <div>
