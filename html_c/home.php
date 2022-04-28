@@ -9,18 +9,7 @@ if (isset($_SESSION["user"])) {
 	echo "Welcome, ".$fname."!";
   echo "<br>";
   echo "Your available balance is: $" .$balance;
-  echo "<br>";
-
-  //displays investment holdings in each portfolio if they exist
-  $portfolioList = ["etfMeme","etfBoomer","etfTech", "etfCrypto", "etfModerate", "etfAggressive", "etfGrowth"];
-  foreach ($portfolioList as $portfolio) {
-    if(isset($_SESSION[$portfolio]) && ($_SESSION[$portfolio] > 0) && isset($_SESSION[$portfolio."Price"])) {
-      echo "Total ".$portfolio. " Holdings: $" . ($_SESSION[$portfolio] * $_SESSION[$portfolio."Price"]);
-      echo "<br>";
-    }
-  }
-
-  
+  echo "<br>";  
 }
 else {
     echo "<br>";
@@ -39,6 +28,19 @@ else {
 <div>
 <div style="text-align: center;">
 	<p><img src="images/walnuts_header.png" alt="Walnuts logo" width="760", height="383"></p>
+</div>
+
+<div>
+  <?php
+  //displays investment holdings in each portfolio if they exist
+    $portfolioList = ["etfMeme","etfBoomer","etfTech", "etfCrypto", "etfModerate", "etfAggressive", "etfGrowth"];
+    foreach ($portfolioList as $portfolio) {
+      if(isset($_SESSION[$portfolio]) && ($_SESSION[$portfolio] > 0) && isset($_SESSION[$portfolio."Price"])) {
+        echo "Total ".$portfolio. " Holdings: $" . ($_SESSION[$portfolio] * $_SESSION[$portfolio."Price"]);
+        echo "<br>";
+    }
+  }
+  ?>
 </div>
 
 <div id="calculator" class="calculator">
