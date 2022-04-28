@@ -11,36 +11,15 @@ if (isset($_SESSION["user"])) {
   echo "Your available balance is: $" .$balance;
   echo "<br>";
 
-  //holdings = numShares + etfPrice
-  //memeHoldings = etfMeme * memePrice
-  if(isset($_SESSION["etfMeme"]) && $_SESSION["etfMeme"] > 0) {
-    echo "Total etfMeme Holdings: $" . ($_SESSION["etfMeme"] * $_SESSION["etfMemePrice"]);
-    echo "<br>";
+  //displays investment holdings in each portfolio if they exist
+  $portfolioList = ["etfMeme","etfBoomer","etfTech", "etfCrypto", "etfModerate", "etfAggressive", "etfGrowth"];
+  foreach ($portfolioList as $portfolio) {
+    if(isset($_SESSION[$portfolio]) && ($_SESSION[$portfolio] > 0) && isset($_SESSION[$portfolio."Price"])) {
+      echo "Total ".$portfolio. " Holdings: $" . ($_SESSION[$portfolio] * $_SESSION[$portfolio."Price"]);
+      echo "<br>";
+    }
   }
-  if(isset($_SESSION["etfBoomer"]) && $_SESSION["etfBoomer"] > 0) {
-    echo "Total etfBoomer Holdings: $" . ($_SESSION["etfBoomer"] * $_SESSION["etfBoomerPrice"]);
-    echo "<br>";
-  }
-  if(isset($_SESSION["etfTech"]) && $_SESSION["etfTech"] > 0) {
-    echo "Total etfTech Holdings: $" . ($_SESSION["etfTech"] * $_SESSION["etfTechPrice"]);
-    echo "<br>";
-  }
-  if(isset($_SESSION["etfCrypto"]) && $_SESSION["etfCrypto"] > 0) {
-    echo "Total etfCrypto Holdings: $" . ($_SESSION["etfCrypto"] * $_SESSION["etfCryptoPrice"]);
-    echo "<br>";
-  }
-  if(isset($_SESSION["etfModerate"]) && $_SESSION["etfModerate"] > 0) {
-    echo "Total etfModerate Holdings: $" . ($_SESSION["etfModerate"] * $_SESSION["etfModeratePrice"]);
-    echo "<br>";
-  }
-  if(isset($_SESSION["etfAggressive"]) && $_SESSION["etfAggressive"] > 0) {
-    echo "Total etfAggressive Holdings: $" . ($_SESSION["etfAggressive"] * $_SESSION["etfAggressivePrice"]);
-    echo "<br>";
-  }
-  if(isset($_SESSION["etfGrowth"]) && $_SESSION["etfGrowth"] > 0) {
-    echo "Total etfGrowth Holdings: $" . ($_SESSION["etfGrowth"] * $_SESSION["etfGrowthPrice"]);
-    echo "<br>";
-  }
+
   
 }
 else {
