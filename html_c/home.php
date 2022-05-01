@@ -36,7 +36,7 @@ else {
     $portfolioList = ["etfMeme","etfBoomer","etfTech", "etfCrypto", "etfModerate", "etfAggressive", "etfGrowth"];
     foreach ($portfolioList as $portfolio) {
       if(isset($_SESSION[$portfolio]) && ($_SESSION[$portfolio] > 0) && isset($_SESSION[$portfolio."Price"])) {
-        echo "Total ".$portfolio. " Holdings: $" . ($_SESSION[$portfolio] * $_SESSION[$portfolio."Price"]);
+        echo "Total ".substr($portfolio,3). " Portfolio Holdings: $" . ($_SESSION[$portfolio] * $_SESSION[$portfolio."Price"]);
         echo "<br>";
     }
   }
