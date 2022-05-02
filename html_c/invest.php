@@ -28,6 +28,7 @@
         echo "<br>";
         echo "You must be logged in to access this page.";
         die(header("Location: index.php"));
+        exit;
     }
 ?>
 </div>
@@ -119,6 +120,7 @@
                 $_SESSION[$portfolio] = $numShares; //session[etfMeme] = numShares
                 $_SESSION[$priceString] = $etfPrice; //session[etfMemePrice] = etfPrice
                 die(header("Location: home.php"));
+                exit;
             
             } else {
                 print("Insufficient Balance.");
@@ -152,6 +154,7 @@
             $_SESSION[$portfolio] = $numShares; //session[etfMeme] = numShares
             $_SESSION[$priceString] = $etfPrice; //session[etfMemePrice] = etfPrice
             die(header("Location: home.php"));
+            exit;
 
          } else {
             print("Insufficient Balance.");
