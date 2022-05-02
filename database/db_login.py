@@ -47,6 +47,11 @@ def dbinsertion(credsdict):
         eftAggressive = str(account[12])
         eftGrowth = str(account[13])
         
+        pricefetch =('SELECT Price FROM stocks')
+        cursor.execute(pricefetch)
+        etfprices = cursor.fetchall()
+        print(type(etfprices))
+        print(etfprices)
 
         msg = str(uid+","+email+","+username+","+first+","+last+","+balance+","+eftMeme+","+eftBoomer+","+eftTech+","+eftCrypto+","+eftModerate+","+eftAggressive+","+eftGrowth)
         return msg
