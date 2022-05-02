@@ -111,21 +111,21 @@
                 //RMQ investing process
                 $result = exec("python3 invest.py $username $portfolio $investAmount");
                 $result = explode(",",$result);
-                print($result);
+                //print($result);
                 //result = (username, num shares, etf price, avail balance)
                 $numShares = floatval($result[1]);
-                print("Num shares: ".$numShares);
+                //print("Num shares: ".$numShares);
                 $etfPrice = floatval($result[2]);
-                print("etf price : ".$etfPrice);
+                //print("etf price : ".$etfPrice);
                 $newBalance = floatval($result[3]);
-                print("balance :".$newBalance);
+                //print("balance :".$newBalance);
                 
                 $priceString = $portfolio . "Price"; //etfMemePrice
 
                 $_SESSION["balance"] = $newBalance;
                 $_SESSION[$portfolio] = $numShares; //session[etfMeme] = numShares
                 $_SESSION[$priceString] = $etfPrice; //session[etfMemePrice] = etfPrice
-                //die(header("Location: home.php"));
+                die(header("Location: home.php"));
                 exit;
             
             } else {
@@ -149,6 +149,7 @@
             //RMQ investing process
             $result = exec("python3 sell.py $username $portfolio $sellAmount");
             //print($result);
+            $result = explode(",",$result);
             
             $numShares = floatval($result[1]);
             $etfPrice = floatval($result[2]);
