@@ -19,6 +19,11 @@
 
   .square {
     transition: all .2s ease-in-out;
+    /* center content */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
 
   .square:hover {
