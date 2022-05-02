@@ -21,6 +21,7 @@ else {
 
 <head>
 	<link rel="stylesheet" href="./static/css/calculatorStyle.css">
+  <link rel="stylesheet" href="./static/css/squares.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="./js/calculatorScript.js"></script>
 </head>
@@ -43,74 +44,19 @@ else {
   ?>
 </div>
 
-<div class="square">
-    <div class="content">
-        <div class="table">
-            <div class="table-cell">
-                <ul>This demo shows you can center multiple types of content :
-                    <li>Text</li>
-                    <li>Images</li>
-                    <li>Lists</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="square">
-    <div class="content">
-        <div class="table">
-            <div class="table-cell">
-                    Meme
-            </div>
-        </div>
-    </div>
-</div>
-<div class="square">
-    <div class="content">
-        <div class="table">
-            <div class="table-cell">               
-                Aggressive
-            </div>
-        </div>
-    </div>
+<div class="container">
+  <div> some content here </div>
+  <div>test</div>
+  <div>
+    <h1>a title</h1>
+  </div>
+  <div>more and more content <br>here</div>
+  <div>
+    <h2>another title</h2>
+  </div>
+  <div>test</div>
 </div>
 
-<div class="square">
-   <div class="content">
-        <div class="table">
-            <div class="table-cell">
-                test
-            </div>
-        </div>
-    </div>
-</div>
-<div class="square">
-    <div class="content">
-        <div class="table">
-            <div class="table-cell">
-                test
-            </div>
-        </div>
-    </div>
-</div>
-<div class="square">
-   <div class="content">
-        <div class="table">
-            <div class="table-cell">
-                test
-            </div>
-        </div>
-    </div>
-</div>
-<div class="square">
-   <div class="content">
-        <div class="table">
-            <div class="table-cell">
-                test
-            </div>
-        </div>
-    </div>
-</div>
 
 <div id="calculator" class="calculator">
   <label class="title">Growth Calculator</label>
