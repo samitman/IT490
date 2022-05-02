@@ -132,7 +132,9 @@
                     
                 }
 
-                if($action == "sell" && ($sellAmount <= ($_SESSION[$portfolio] * $_SESSION[$portfolio."Price"]))) {
+                //&& ($sellAmount <= ($_SESSION[$portfolio] * $_SESSION[$portfolio."Price"]))
+
+                if($action == "sell") {
                     //RMQ investing process
                     $result = exec("python3 sell.py $username $portfolio $sellAmount");
                     
