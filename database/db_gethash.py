@@ -28,11 +28,12 @@ def dbinsertion(dict):
     cursor = mydb.cursor()
     select_stmt=('SELECT Password FROM accounts WHERE Username = %(Username)s')
     cursor.execute(select_stmt, dict)
-    hash = cursor.fetchone()
+    accountinfo = cursor.fetchone()
     if hash:
         print("Account found!, Getting hashpass..")
-        print("This is hash: "+hash)
-        hashpass = hash[3]
+        print("This is the account info: ")
+        print(accountinfo)
+        hashpass = accountinfo[3]
         msg = str(hashpass)
         return msg
     else:
