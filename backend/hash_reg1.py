@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import pika, sys, os, uuid
+import pika, sys, os, uuid, bcrypt
 from backend_registration2 import main
 
 credentials = pika.PlainCredentials(username='test', password='test')
