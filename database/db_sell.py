@@ -7,7 +7,7 @@ connection = pika.BlockingConnection(pika.ConnectionParameters(host='192.168.192
 
 channel = connection.channel()
 
-channel.queue_declare(queue='invest_be_db')
+channel.queue_declare(queue='sell_be_db')
  
 
 def dbinsertion(investDict):
