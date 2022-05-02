@@ -7,12 +7,9 @@ import sys
 #password = sys.argv[2]
 #creds = str(username)+','+str(password)
 
+def main(username):
 
-def main(email,username,hashedpassword,firstName,lastName):
-    creds = str(email)+','+str(username)+','+str(hashedpassword)+','+str(firstName)+','+str(lastName)
-
-
-    class RegistrationClient(object):
+    class HashFetch(object):
 
         def __init__(self):
             credentials = pika.PlainCredentials(username='test', password='test')
@@ -33,25 +30,25 @@ def main(email,username,hashedpassword,firstName,lastName):
             if self.corr_id == props.correlation_id:
                 self.response = body
 
-        def call(self, userinfo):
+        def call(self, username):
             self.response = None
             self.corr_id = str(uuid.uuid4())
             self.channel.basic_publish(
                 exchange='',
-                routing_key='rpc_reg_be_db',
+                routing_key='rpc_hash_be_db',
                 properties=pika.BasicProperties(
                     reply_to=self.callback_queue,
                     correlation_id=self.corr_id,
                 ),
-                body= userinfo)
+                body= username)
             while self.response is None:
                 self.connection.process_data_events()
             return self.response
 
 
-    userregistration = RegistrationClient()
+    gethash = HashFetch()
 
     #print(" [x] Requesting to login")
-    response = userregistration.call(creds)
+    response = gethash.call(username)
     #print(response)
     return(response)

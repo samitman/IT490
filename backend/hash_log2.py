@@ -7,10 +7,8 @@ import sys
 #password = sys.argv[2]
 #creds = str(username)+','+str(password)
 
-
-def main(email,username,hashedpassword,firstName,lastName):
-    creds = str(email)+','+str(username)+','+str(hashedpassword)+','+str(firstName)+','+str(lastName)
-
+def main(username):
+    creds = str(username)
 
     class RegistrationClient(object):
 
@@ -38,7 +36,7 @@ def main(email,username,hashedpassword,firstName,lastName):
             self.corr_id = str(uuid.uuid4())
             self.channel.basic_publish(
                 exchange='',
-                routing_key='rpc_reg_be_db',
+                routing_key='rpc_log_be_db',
                 properties=pika.BasicProperties(
                     reply_to=self.callback_queue,
                     correlation_id=self.corr_id,

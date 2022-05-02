@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import pika, sys, os, uuid
+import pika, sys, os, uuid, bcrypt
 from backend_registration2 import main
 
 credentials = pika.PlainCredentials(username='test', password='test')
@@ -19,26 +19,26 @@ def on_request(ch, method, props, body):
     print(credslist)    
     email = credslist[0]
     username = credslist[1]
-    password = credslist[2]
+    plainpassword = credslist[2]
     firstName = credslist[3]
     lastName = credslist[4]
 
-    print("Split check:" + email +" "+ username +" "+ password +" "+ firstName +" "+ lastName)
-    print(credslist)
-    credsdict =  {"Email": email,"Username": username,"Password": password,"First Name": firstName,"Last Name": lastName }
+    #print("Split check:" + email +" "+ username +" "+ plainpassword +" "+ firstName +" "+ lastName)
+    #print(credslist)
+    #credsdict =  {"Email": email,"Username": username,"Password": plainpassword,"First Name": firstName,"Last Name": lastName }
 
-    
-    #call "be_reg2.py username password email first and last name
-    response = main(email,username,password,firstName,lastName) #FROM BE TO DB
-    #print("Output: " + str(response))
-    #response = output of backend_registration2.py
-    #response is the new queue between backend and db
+    def gethashpass(plainpassword):
+        return bcrypt.hashpw(plainpassword,bcrypt.gensalt())
+
+    hashedpassword = gethashpass(plainpassword)
+    print(hashedpassword)
+    response = main(email,username,hashedpassword,firstName,lastName) #FROM BE TO DB
 
     ch.basic_publish(exchange='',
-                     routing_key=props.reply_to,
-                     properties=pika.BasicProperties(correlation_id = \
-                                                         props.correlation_id),
-                     body=response)
+                    routing_key=props.reply_to,
+                    properties=pika.BasicProperties(correlation_id = \
+                                                        props.correlation_id),
+                    body=response)
     ch.basic_ack(delivery_tag=method.delivery_tag)
 
 channel.basic_qos(prefetch_count=1)

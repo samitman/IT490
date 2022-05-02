@@ -28,7 +28,7 @@ def dbinsertion(credsdict):
     msg = ''
     print(credsdict)
     cursor = mydb.cursor()
-    select_stmt=('SELECT * FROM accounts WHERE Username = %(Username)s AND Password = %(Password)s')
+    select_stmt=('SELECT * FROM accounts WHERE Username = %(Username)s')
     cursor.execute(select_stmt, credsdict)
     account = cursor.fetchone()
     if account:
@@ -47,6 +47,11 @@ def dbinsertion(credsdict):
         eftAggressive = str(account[12])
         eftGrowth = str(account[13])
         
+        pricefetch =('SELECT Price FROM stocks')
+        cursor.execute(pricefetch)
+        etfprices = cursor.fetchall()
+        print(type(etfprices))
+        print(etfprices)
 
         msg = str(uid+","+email+","+username+","+first+","+last+","+balance+","+eftMeme+","+eftBoomer+","+eftTech+","+eftCrypto+","+eftModerate+","+eftAggressive+","+eftGrowth)
         return msg
@@ -59,13 +64,8 @@ def on_request(ch, method, props, body):
     print(" [x] Received %r" % body)
     print(type(body))
 
-    messagestring = body.decode()
-    credslist = messagestring.split(',')
-    username = credslist[0]
-    password = credslist[1]  
-    print("Split check:" + username +" "+ password)
-    print(credslist)
-    credsdict =  {"Username": username,"Password": password }
+    username = body.decode()
+    credsdict =  {"Username": username}
 
     
     response = dbinsertion(credsdict)

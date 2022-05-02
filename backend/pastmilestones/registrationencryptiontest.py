@@ -20,26 +20,29 @@ def on_request(ch, method, props, body):
     print(credslist)    
     email = credslist[0]
     username = credslist[1]
-    password = credslist[2]
+    plainpassword = credslist[2]
     firstName = credslist[3]
     lastName = credslist[4]
 
-    print("Split check:" + email +" "+ username +" "+ password +" "+ firstName +" "+ lastName)
+    print("Split check:" + email +" "+ username +" "+ plainpassword +" "+ firstName +" "+ lastName)
     print(credslist)
-    credsdict =  {"Email": email,"Username": username,"Password": password,"First Name": firstName,"Last Name": lastName }
+    credsdict =  {"Email": email,"Username": username,"Password": plainpassword,"First Name": firstName,"Last Name": lastName }
 
-    def gethashpass(password):
-        return bcrypt.hashpw(password, bcrypt.gensalt())
+    def gethashpass(plainpassword):
+        return bcrypt.hashpw(plainpassword, bcrypt.gensalt())
+
+    hashedpassword = gethashpass(plainpassword)
 
     #checks hash / salt saved onto hash
-    def checkhash(password,hashpass):
-        return bcrypt.checkpw(password, hashpass)
+    #def checkhash(password,hashpass):
+    #    return bcrypt.checkpw(password, hashpass)
 
     #salt = uuid.uuid4().bytes
     #hashedpass = hashlib.sha512(password + salt).digest()
 
     #call "be_reg2.py username password email first and last name
-    response = main(email,username,gethashpass,firstName,lastName) #FROM BE TO DB
+
+    response = main(email,username,hashedpassword,firstName,lastName) #FROM BE TO DB
     #print("Output: " + str(response))
     #response = output of backend_registration2.py
     #response is the new queue between backend and db

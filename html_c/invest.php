@@ -2,9 +2,13 @@
 
 <div style="text-align: center;">
 <?php
+    ob_start();
     if (isset($_SESSION["username"])) {
         $fname = $_SESSION["fname"];
         $username = $_SESSION["username"];
+
+        echo "<br>";
+        echo "Welcome to the Investment Center!";
 
         if (isset($_SESSION["balance"])) {
             $balance = $_SESSION["balance"];
@@ -15,15 +19,18 @@
 			$etfModerate = $_SESSION["etfModerate"];
 			$etfAggressive = $_SESSION["etfAggressive"];
 			$etfAggressive = $_SESSION["etfGrowth"];
-        }
-        echo "<br>";
 
-        echo "Welcome, ".$fname."!";
+            echo "<br>";
+            echo "Your available balance is: $".$balance;
+        }
+
     }
     else {
         echo "<br>";
         echo "You must be logged in to access this page.";
         die(header("Location: index.php"));
+        ob_end_flush();
+        exit;
     }
 ?>
 </div>
@@ -34,9 +41,6 @@
 </head>
 
 <div>
-    <t>Welcome to the Investment Center!</t> <br>
-    <p>Your available balance is: $<?php print($balance); ?></p>
-
     <p>Please Choose an Action:</p>
         <select id="action" name="action" required>
             <option value="">Choose an Option</option>
@@ -106,18 +110,23 @@
             {
                 //RMQ investing process
                 $result = exec("python3 invest.py $username $portfolio $investAmount");
-                print($result);
+                $result = explode(",",$result);
+                //print($result);
                 //result = (username, num shares, etf price, avail balance)
                 $numShares = floatval($result[1]);
+                //print("Num shares: ".$numShares);
                 $etfPrice = floatval($result[2]);
-                $balance = floatval($result[3]);
+                //print("etf price : ".$etfPrice);
+                $newBalance = floatval($result[3]);
+                //print("balance :".$newBalance);
                 
                 $priceString = $portfolio . "Price"; //etfMemePrice
 
-                $_SESSION["balance"] = $balance;
+                $_SESSION["balance"] = $newBalance;
                 $_SESSION[$portfolio] = $numShares; //session[etfMeme] = numShares
                 $_SESSION[$priceString] = $etfPrice; //session[etfMemePrice] = etfPrice
                 die(header("Location: home.php"));
+                exit;
             
             } else {
                 print("Insufficient Balance.");
@@ -139,7 +148,8 @@
 
             //RMQ investing process
             $result = exec("python3 sell.py $username $portfolio $sellAmount");
-            print($result);
+            //print($result);
+            $result = explode(",",$result);
             
             $numShares = floatval($result[1]);
             $etfPrice = floatval($result[2]);
@@ -151,6 +161,7 @@
             $_SESSION[$portfolio] = $numShares; //session[etfMeme] = numShares
             $_SESSION[$priceString] = $etfPrice; //session[etfMemePrice] = etfPrice
             die(header("Location: home.php"));
+            exit;
 
          } else {
             print("Insufficient Balance.");
@@ -158,6 +169,5 @@
 
            
     }
-
 ?>
 <?php require(__DIR__ . "/partials/flash.php"); ?>
