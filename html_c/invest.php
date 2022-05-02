@@ -110,6 +110,7 @@
             {
                 //RMQ investing process
                 $result = exec("python3 invest.py $username $portfolio $investAmount");
+                $result = explode(",",$result);
                 print($result);
                 //result = (username, num shares, etf price, avail balance)
                 $numShares = floatval($result[1]);
@@ -124,7 +125,7 @@
                 $_SESSION["balance"] = $newBalance;
                 $_SESSION[$portfolio] = $numShares; //session[etfMeme] = numShares
                 $_SESSION[$priceString] = $etfPrice; //session[etfMemePrice] = etfPrice
-                die(header("Location: home.php"));
+                //die(header("Location: home.php"));
                 exit;
             
             } else {
