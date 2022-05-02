@@ -6,6 +6,9 @@
         $fname = $_SESSION["fname"];
         $username = $_SESSION["username"];
 
+        echo "<br>";
+        echo "Welcome to the Investment Center!";
+
         if (isset($_SESSION["balance"])) {
             $balance = $_SESSION["balance"];
             $etfMeme = $_SESSION["etfMeme"];
@@ -15,10 +18,10 @@
 			$etfModerate = $_SESSION["etfModerate"];
 			$etfAggressive = $_SESSION["etfAggressive"];
 			$etfAggressive = $_SESSION["etfGrowth"];
+
+            echo "<br>";
+            echo "Your available balance is: $".$balance;
         }
-        echo "<br>";
-        echo "Welcome to the Investment Center!";
-        echo "Your available balance is: $".$balance;
 
     }
     else {
@@ -115,7 +118,7 @@
                 $_SESSION["balance"] = $balance;
                 $_SESSION[$portfolio] = $numShares; //session[etfMeme] = numShares
                 $_SESSION[$priceString] = $etfPrice; //session[etfMemePrice] = etfPrice
-                die(header("Location: home.php")); exit;
+                die(header("Location: home.php"));
             
             } else {
                 print("Insufficient Balance.");
@@ -148,7 +151,7 @@
             $_SESSION["balance"] = $balance;
             $_SESSION[$portfolio] = $numShares; //session[etfMeme] = numShares
             $_SESSION[$priceString] = $etfPrice; //session[etfMemePrice] = etfPrice
-            die(header("Location: home.php")); exit;
+            die(header("Location: home.php"));
 
          } else {
             print("Insufficient Balance.");
