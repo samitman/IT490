@@ -2,6 +2,7 @@
 
 import pika, sys, os, uuid
 from backend_gethash import main as getHash
+from hash_log2 import main
 
 credentials = pika.PlainCredentials(username='test', password='test')
 connection = pika.BlockingConnection(pika.ConnectionParameters(host='192.168.192.60', credentials=credentials))
