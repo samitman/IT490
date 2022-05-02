@@ -31,6 +31,7 @@ def dbinsertion(dict):
     hash = cursor.fetchone()
     if hash:
         print("Account found!, Getting hashpass..")
+        print("This is hash: "+hash)
         hashpass = hash[3]
         msg = str(hashpass)
         return msg
