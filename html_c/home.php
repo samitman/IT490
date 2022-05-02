@@ -44,11 +44,12 @@ else {
   ?>
 </div>
 
-<div>
-  Our Featured ETFs:
-</div>
 
 <div class="container">
+    <div>
+      Invest into our featured ETFs!
+    </div>
+
     <div>
       <h2>Meme</h2>
     </div>
