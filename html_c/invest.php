@@ -106,6 +106,7 @@
             {
                 //RMQ investing process
                 $result = exec("python3 invest.py $username $portfolio $investAmount");
+                print($result);
                 //result = (username, num shares, etf price, avail balance)
                 $numShares = floatval($result[1]);
                 $etfPrice = floatval($result[2]);
