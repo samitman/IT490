@@ -46,36 +46,33 @@ else {
 
 
 <div class="container">
+
     <div>
-      Invest into our featured ETFs!
+      Meme
     </div>
 
     <div>
-      <h2>Meme</h2>
+      Boomer
     </div>
 
     <div>
-      <h2>Boomer</h2>
-    </div>
-
-    <div>
-      <h2>Tech</h2>
+      Tech
     </div>
     
     <div>
-      <h2>Crypto</h2>
+      Crypto
     </div>
     
     <div>
-      <h2>Moderate</h2>
+      Moderate
     </div>
     
     <div>
-      <h2>Aggressive</h2>
+      Aggressive
     </div>
 
     <div>
-      <h2>Growth</h2>
+      Growth
     </div>
 </div>
 
