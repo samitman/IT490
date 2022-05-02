@@ -17,6 +17,9 @@
 			$etfAggressive = $_SESSION["etfGrowth"];
         }
         echo "<br>";
+        echo "Welcome to the Investment Center!";
+        echo "Your available balance is: $".$balance;
+
     }
     else {
         echo "<br>";
@@ -32,9 +35,6 @@
 </head>
 
 <div>
-    <t>Welcome to the Investment Center!</t> <br>
-    <p>Your available balance is: $<?php print($balance); ?></p>
-
     <p>Please Choose an Action:</p>
         <select id="action" name="action" required>
             <option value="">Choose an Option</option>
@@ -104,7 +104,7 @@
             {
                 //RMQ investing process
                 $result = exec("python3 invest.py $username $portfolio $investAmount");
-                print($result);
+                //print($result);
                 //result = (username, num shares, etf price, avail balance)
                 $numShares = floatval($result[1]);
                 $etfPrice = floatval($result[2]);
@@ -115,7 +115,7 @@
                 $_SESSION["balance"] = $balance;
                 $_SESSION[$portfolio] = $numShares; //session[etfMeme] = numShares
                 $_SESSION[$priceString] = $etfPrice; //session[etfMemePrice] = etfPrice
-                die(header("Location: home.php"));
+                die(header("Location: home.php")); exit;
             
             } else {
                 print("Insufficient Balance.");
@@ -137,7 +137,7 @@
 
             //RMQ investing process
             $result = exec("python3 sell.py $username $portfolio $sellAmount");
-            print($result);
+            //print($result);
             
             $numShares = floatval($result[1]);
             $etfPrice = floatval($result[2]);
@@ -148,7 +148,7 @@
             $_SESSION["balance"] = $balance;
             $_SESSION[$portfolio] = $numShares; //session[etfMeme] = numShares
             $_SESSION[$priceString] = $etfPrice; //session[etfMemePrice] = etfPrice
-            die(header("Location: home.php"));
+            die(header("Location: home.php")); exit;
 
          } else {
             print("Insufficient Balance.");
