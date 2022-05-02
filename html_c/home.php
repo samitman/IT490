@@ -14,13 +14,14 @@ if (isset($_SESSION["user"])) {
 else {
     echo "<br>";
     echo "Welcome, please log in!";
-	die(header("Location: index.php"));
+	//die(header("Location: index.php"));
 }
 ?>
 </div>
 
 <head>
 	<link rel="stylesheet" href="./static/css/calculatorStyle.css">
+  <link rel="stylesheet" hred="./static/css/squares.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="./js/calculatorScript.js"></script>
 </head>
@@ -41,6 +42,76 @@ else {
     }
   }
   ?>
+</div>
+
+
+<div class="square">
+    <div class="content">
+        <div class="table">
+            <div class="table-cell">
+                <ul>This demo shows you can center multiple types of content :
+                    <li>Text</li>
+                    <li>Images</li>
+                    <li>Lists</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="square">
+    <div class="content">
+        <div class="table">
+            <div class="table-cell">
+                    Meme
+            </div>
+        </div>
+    </div>
+</div>
+<div class="square">
+    <div class="content">
+        <div class="table">
+            <div class="table-cell">               
+                Aggressive
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="square">
+   <div class="content">
+        <div class="table">
+            <div class="table-cell">
+                test
+            </div>
+        </div>
+    </div>
+</div>
+<div class="square">
+    <div class="content">
+        <div class="table">
+            <div class="table-cell">
+                test
+            </div>
+        </div>
+    </div>
+</div>
+<div class="square">
+   <div class="content">
+        <div class="table">
+            <div class="table-cell">
+                test
+            </div>
+        </div>
+    </div>
+</div>
+<div class="square">
+   <div class="content">
+        <div class="table">
+            <div class="table-cell">
+                test
+            </div>
+        </div>
+    </div>
 </div>
 
 <div id="calculator" class="calculator">
