@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 import pika, sys, os, uuid
-from hash_log1 import main
 from backend_gethash import main as getHash
 
 credentials = pika.PlainCredentials(username='test', password='test')
