@@ -31,7 +31,7 @@ def dbinsertion(dict):
     hash = cursor.fetchone()
     if hash:
         print("Account found!, Getting hashpass..")
-        hashpass = hash[1]
+        hashpass = hash[3]
         msg = str(hashpass)
         return msg
     else:
@@ -57,7 +57,7 @@ def on_request(ch, method, props, body):
     ch.basic_ack(delivery_tag=method.delivery_tag)
 
 channel.basic_qos(prefetch_count=1)
-channel.basic_consume(consumer_callback=on_request, queue='rpc_price_be_db')
+channel.basic_consume(consumer_callback=on_request, queue='rpc_hash_be_db')
 
 print(" [x] Awaiting RPC requests")
 print({on_request})
