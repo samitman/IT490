@@ -44,7 +44,7 @@ else {
   ?>
 </div>
 
-
+<div><h3>Explore our curated portfolios:</h3></div><br>
 <div class="container">
 
     <div>
@@ -74,7 +74,7 @@ else {
     <div>
       Growth
     </div>
-</div>
+</div><br><br>
 
 
 
