@@ -9,27 +9,75 @@ if (isset($_SESSION["user"])) {
 	echo "Welcome, ".$fname."!";
   echo "<br>";
   echo "Your available balance is: $" .$balance;
-  echo "<br>";
-  
+  echo "<br>";  
 }
 else {
     echo "<br>";
     echo "Welcome, please log in!";
-	die(header("Location: index.php"));
+	//die(header("Location: index.php"));
 }
 ?>
 </div>
 
 <head>
 	<link rel="stylesheet" href="./static/css/calculatorStyle.css">
+  <link rel="stylesheet" href="./static/css/squares.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<script src="calculatorScript.js"></script>
+	<script src="./js/calculatorScript.js"></script>
 </head>
 
 <div>
 <div style="text-align: center;">
 	<p><img src="images/walnuts_header.png" alt="Walnuts logo" width="760", height="383"></p>
 </div>
+
+<div>
+  <?php
+  //displays investment holdings in each portfolio if they exist
+    $portfolioList = ["etfMeme","etfBoomer","etfTech", "etfCrypto", "etfModerate", "etfAggressive", "etfGrowth"];
+    foreach ($portfolioList as $portfolio) {
+      if(isset($_SESSION[$portfolio]) && ($_SESSION[$portfolio] > 0) && isset($_SESSION[$portfolio."Price"])) {
+        echo "Total ".substr($portfolio,3). " Portfolio Holdings: $" . ($_SESSION[$portfolio] * $_SESSION[$portfolio."Price"]);
+        echo "<br>";
+    }
+  }
+  ?>
+</div>
+
+
+<div class="container">
+
+    <div>
+      Meme
+    </div>
+
+    <div>
+      Boomer
+    </div>
+
+    <div>
+      Tech
+    </div>
+    
+    <div>
+      Crypto
+    </div>
+    
+    <div>
+      Moderate
+    </div>
+    
+    <div>
+      Aggressive
+    </div>
+
+    <div>
+      Growth
+    </div>
+</div>
+
+
+
 
 <div id="calculator" class="calculator">
   <label class="title">Growth Calculator</label>

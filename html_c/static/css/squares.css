@@ -1,0 +1,19 @@
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-gap: 20px;
+  }
+  
+  .container>* {
+    aspect-ratio: 1 / 1; /* a square ratio */
+    border: 1px solid;
+    border-radius: 25px;
+    
+    /* center content */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  

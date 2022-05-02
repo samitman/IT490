@@ -30,7 +30,7 @@
 
 <head>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<script src="investScript.js"></script>
+	<script src="./js/investScript.js"></script>
 </head>
 
 <div>
@@ -89,69 +89,75 @@
 </div>
 
 <?php
-	if(array_key_exists('submitInvest', $_POST) || array_key_exists('submitSell', $_POST))
+	if(array_key_exists('submitInvest', $_POST))
 	{
 
 		$investAmount = "";
-        $action = "";
-        $sellAmount = "";
+        $portfolio = "";
         //$balance = $_SESSION["balance"];
         //balance should be stored in session at the top of page
 
 		if (isset($_POST["investAmount"]) && isset($_POST["portfolio"]))
 		 {
-			$portfolio = $_POST["portfolio"];
+			$investAmount = $_POST["investAmount"];
+            $portfolio = $_POST["portfolio"];
 
-            //determine if buying or selling
-            if(array_key_exists('submitInvest', $_POST) &&  !array_key_exists('submitSell', $_POST)) {
-                $action = "buy";
-                $investAmount = $_POST["investAmount"];
-            }
-            if(array_key_exists('submitSell', $_POST) &&  !array_key_exists('submitInvest', $_POST)) {
-                $action = "sell";
-                $sellAmount = $_POST["sellAmount"];
-            }
-            
-        
             if ($investAmount <= $balance) //or sellAmount <= holdings
             {
-                if($action == "buy") {
-                    //RMQ investing process
-                    $result = exec("python3 invest.py $username $portfolio $investAmount");
-                    //result = (username, num shares, etf price, avail balance)
-                    $numShares = floatval($result[1]);
-                    $etfPrice = floatval($result[2]);
-                    $balance = floatval($result[3]);
-                    
-                    $holdings = $numShares * $etfPrice;
+                //RMQ investing process
+                $result = exec("python3 invest.py $username $portfolio $investAmount");
+                print($result);
+                //result = (username, num shares, etf price, avail balance)
+                $numShares = floatval($result[1]);
+                $etfPrice = floatval($result[2]);
+                $balance = floatval($result[3]);
+                
+                $priceString = $portfolio . "Price"; //etfMemePrice
 
-                    $_SESSION["balance"] = $balance;
-                    $_SESSION[$portfolio] = $holdings;
-                    die(header("Location: home.php"));
-                    
-                }
-
-                if($action == "sell") {
-                    //RMQ investing process
-                    $result = exec("python3 sell.py $username $portfolio $sellAmount");
-                    
-                    $numShares = floatval($result[1]);
-                    $etfPrice = floatval($result[2]);
-                    $balance = floatval($result[3]);
-                    
-                    $holdings = $numShares * $etfPrice;
-
-                    $_SESSION["balance"] = $balance;
-                    $_SESSION[$portfolio] = $holdings;
-                    die(header("Location: home.php"));
-
-                }
+                $_SESSION["balance"] = $balance;
+                $_SESSION[$portfolio] = $numShares; //session[etfMeme] = numShares
+                $_SESSION[$priceString] = $etfPrice; //session[etfMemePrice] = etfPrice
+                die(header("Location: home.php"));
             
             } else {
                 print("Insufficient Balance.");
             }
 		 }
-	} 
+	}
+?>
+
+<?php
+
+    if(array_key_exists('submitSell', $_POST)) {
+        $sellAmount = "";
+        $portfolio = "";
+
+        if (isset($_POST["sellAmount"]) && isset($_POST["portfolio"]))
+		 {
+			$portfolio = $_POST["portfolio"];
+            $sellAmount = $_POST["sellAmount"];
+
+            //RMQ investing process
+            $result = exec("python3 sell.py $username $portfolio $sellAmount");
+            print($result);
+            
+            $numShares = floatval($result[1]);
+            $etfPrice = floatval($result[2]);
+            $balance = floatval($result[3]);
+            
+            $priceString = $portfolio . "Price"; //etfMemePrice
+
+            $_SESSION["balance"] = $balance;
+            $_SESSION[$portfolio] = $numShares; //session[etfMeme] = numShares
+            $_SESSION[$priceString] = $etfPrice; //session[etfMemePrice] = etfPrice
+            die(header("Location: home.php"));
+
+         } else {
+            print("Insufficient Balance.");
+         }
+
+           
+    }
 
 ?>
 <?php require(__DIR__ . "/partials/flash.php"); ?>
