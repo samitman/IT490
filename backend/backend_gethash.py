@@ -35,7 +35,7 @@ def main(username):
             self.corr_id = str(uuid.uuid4())
             self.channel.basic_publish(
                 exchange='',
-                routing_key='rpc_price_be_db',
+                routing_key='rpc_hash_be_db',
                 properties=pika.BasicProperties(
                     reply_to=self.callback_queue,
                     correlation_id=self.corr_id,
