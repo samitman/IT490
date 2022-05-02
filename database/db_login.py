@@ -47,8 +47,21 @@ def dbinsertion(credsdict):
         eftAggressive = str(account[12])
         eftGrowth = str(account[13])
         
+        pricefetch =('SELECT Price FROM stocks')
+        cursor.execute(pricefetch)
+        etfprices = cursor.fetchall()
+        
+        eftMemePrice = str(etfprices[0][0])
+        eftBoomerPrice = str(etfprices[1][0])
+        eftTechPrice = str(etfprices[2][0])
+        eftCryptoPrice = str(etfprices[3][0])
+        eftModeratePrice = str(etfprices[4][0])
+        eftAggressivePrice = str(etfprices[5][0])
+        eftGrowthPrice = str(etfprices[6][0])
 
-        msg = str(uid+","+email+","+username+","+first+","+last+","+balance+","+eftMeme+","+eftBoomer+","+eftTech+","+eftCrypto+","+eftModerate+","+eftAggressive+","+eftGrowth)
+
+        
+        msg = str(uid+","+email+","+username+","+first+","+last+","+balance+","+eftMeme+","+eftBoomer+","+eftTech+","+eftCrypto+","+eftModerate+","+eftAggressive+","+eftGrowth+","+eftMemePrice+","+eftBoomerPrice+","+eftTechPrice+","+eftCryptoPrice+","+eftModeratePrice+","+eftAggressivePrice+","+eftGrowthPrice)
         return msg
     else:
         print("Account doesn't exist or username/password incorrect")
