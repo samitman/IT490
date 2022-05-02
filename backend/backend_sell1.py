@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import pika, sys, os, uuid
-from backend_invest2 import main
+from backend_sell2 import main
 from backend_getprice import main as getPrice
 
 
