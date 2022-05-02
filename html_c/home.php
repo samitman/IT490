@@ -45,39 +45,39 @@ else {
 </div>
 
 <div>
-  <h1>Our Featured ETFs:</h1>
+  Our Featured ETFs:
 </div>
 
 <div class="container">
     <div>
-      <h1>Meme</h1>
+      <h2>Meme</h2>
     </div>
 
     <div>
-      <h1>Boomer</h1>
+      <h2>Boomer</h2>
     </div>
 
     <div>
-      <h1>Tech</h1>
+      <h2>Tech</h2>
     </div>
     
     <div>
-      <h1>Crypto</h1>
+      <h2>Crypto</h2>
     </div>
     
     <div>
-      <h1>Moderate</h1>
+      <h2>Moderate</h2>
     </div>
     
     <div>
-      <h1>Aggressive</h1>
+      <h2>Aggressive</h2>
     </div>
-    
+
     <div>
-      <h1>Growth</h1>
+      <h2>Growth</h2>
     </div>
-  
 </div>
+
 
 
 <div id="calculator" class="calculator">
