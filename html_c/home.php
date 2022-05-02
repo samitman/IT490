@@ -36,11 +36,80 @@ else {
     $portfolioList = ["etfMeme","etfBoomer","etfTech", "etfCrypto", "etfModerate", "etfAggressive", "etfGrowth"];
     foreach ($portfolioList as $portfolio) {
       if(isset($_SESSION[$portfolio]) && ($_SESSION[$portfolio] > 0) && isset($_SESSION[$portfolio."Price"])) {
-        echo "Total ".$portfolio. " Holdings: $" . ($_SESSION[$portfolio] * $_SESSION[$portfolio."Price"]);
+        echo "Total ".substr($portfolio,3). " Portfolio Holdings: $" . ($_SESSION[$portfolio] * $_SESSION[$portfolio."Price"]);
         echo "<br>";
     }
   }
   ?>
+</div>
+
+<div class="square">
+    <div class="content">
+        <div class="table">
+            <div class="table-cell">
+                <ul>This demo shows you can center multiple types of content :
+                    <li>Text</li>
+                    <li>Images</li>
+                    <li>Lists</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="square">
+    <div class="content">
+        <div class="table">
+            <div class="table-cell">
+                    Meme
+            </div>
+        </div>
+    </div>
+</div>
+<div class="square">
+    <div class="content">
+        <div class="table">
+            <div class="table-cell">               
+                Aggressive
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="square">
+   <div class="content">
+        <div class="table">
+            <div class="table-cell">
+                test
+            </div>
+        </div>
+    </div>
+</div>
+<div class="square">
+    <div class="content">
+        <div class="table">
+            <div class="table-cell">
+                test
+            </div>
+        </div>
+    </div>
+</div>
+<div class="square">
+   <div class="content">
+        <div class="table">
+            <div class="table-cell">
+                test
+            </div>
+        </div>
+    </div>
+</div>
+<div class="square">
+   <div class="content">
+        <div class="table">
+            <div class="table-cell">
+                test
+            </div>
+        </div>
+    </div>
 </div>
 
 <div id="calculator" class="calculator">
