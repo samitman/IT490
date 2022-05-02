@@ -44,17 +44,39 @@ else {
   ?>
 </div>
 
+<div>
+  <h1>Our Featured ETFs:</h1>
+</div>
+
 <div class="container">
-  <div> some content here </div>
-  <div>test</div>
-  <div>
-    <h1>a title</h1>
-  </div>
-  <div>more and more content <br>here</div>
-  <div>
-    <h2>another title</h2>
-  </div>
-  <div>test</div>
+    <div>
+      <h1>Meme</h1>
+    </div>
+
+    <div>
+      <h1>Boomer</h1>
+    </div>
+
+    <div>
+      <h1>Tech</h1>
+    </div>
+    
+    <div>
+      <h1>Crypto</h1>
+    </div>
+    
+    <div>
+      <h1>Moderate</h1>
+    </div>
+    
+    <div>
+      <h1>Aggressive</h1>
+    </div>
+    
+    <div>
+      <h1>Growth</h1>
+    </div>
+  
 </div>
 
 
