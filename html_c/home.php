@@ -46,33 +46,61 @@ else {
 
 <div><h3>Explore our curated portfolios:</h3></div><br>
 <div class="container">
-
-    <div>
-      Meme
+    <div class="square">
+      <h4>Boomer</h4>
+      <p>WMT</p>
+      <p>KO</p>
+      <p>JNJ</p>
+      <p>T</p>
+      <p>UNH</p>
     </div>
-
-    <div>
-      Boomer
+    <div class="square">
+      <h4>Moderate</h4>
+      <p>AAPL</p>
+      <p>AMZN</p>
+      <p>JNJ</p>
+      <p>SPY</p>
+      <p>BRK-A</p>
     </div>
-
-    <div>
-      Tech
+    <div class="square">
+      <h4>Aggressive</h4>
+      <p>GOOGL</p>
+      <p>TSLA</p>
+      <p>NVDA</p>
+      <p>FB</p>
+      <p>BABA</p>
     </div>
-    
-    <div>
-      Crypto
+    <div class="square">
+      <h4>Growth</h4>
+      <p>PLTR</p>
+      <p>AMD</p>
+      <p>TSLA</p>
+      <p>UPST</p>
+      <p>CRM</p>
     </div>
-    
-    <div>
-      Moderate
+    <div class="square">
+      <h4>Tech</h4>
+      <p>AMD</p>
+      <p>TSLA</p>
+      <p>MSFT</p>
+      <p>GOOGL</p>
+      <p>AAPL</p>
     </div>
-    
-    <div>
-      Aggressive
+    <div class="square">
+      <h4>Crypto</h4>
+      <p>BTC</p>
+      <p>ETH</p>
+      <p>BNB</p>
+      <p>XRP</p>
+      <p>ADA</p>
     </div>
-
-    <div>
-      Growth
+    <div class="square">
+      <h4>Meme</h4>
+      <p>GME</p>
+      <p>AMC</p>
+      <p>DOGE</p>
+      <p>DWAC</p>
+      <p>CLOV</p>
     </div>
 </div><br><br>
 

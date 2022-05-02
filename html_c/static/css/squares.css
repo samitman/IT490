@@ -15,10 +15,13 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+  }
+
+  .square {
     transition: all .2s ease-in-out;
   }
 
-  .container>*:hover {
+  .square:hover {
     transform: scale(1.1);
   }
   
