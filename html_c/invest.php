@@ -17,8 +17,6 @@
 			$etfAggressive = $_SESSION["etfGrowth"];
         }
         echo "<br>";
-
-        echo "Welcome, ".$fname."!";
     }
     else {
         echo "<br>";
