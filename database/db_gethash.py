@@ -33,7 +33,7 @@ def dbinsertion(dict):
         print("Account found!, Getting hashpass..")
         print("This is the account info: ")
         print(accountinfo)
-        hashpass = accountinfo[3]
+        hashpass = accountinfo[0]
         msg = str(hashpass)
         return msg
     else:
