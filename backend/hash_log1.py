@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 
 import pika, sys, os, uuid
-from backend_registration2 import main
+from hash_log1 import main
+from backend_gethash import main as getHash
 
 credentials = pika.PlainCredentials(username='test', password='test')
 connection = pika.BlockingConnection(pika.ConnectionParameters(host='192.168.192.60', credentials=credentials))
@@ -16,26 +17,21 @@ def on_request(ch, method, props, body):
 
     messagestring = body.decode()
     credslist = messagestring.split(',')
-    print(credslist)    
-    email = credslist[0]
-    username = credslist[1]
-    plainpassword = credslist[2]
-    firstName = credslist[3]
-    lastName = credslist[4]
-
-    print("Split check:" + email +" "+ username +" "+ plainpassword +" "+ firstName +" "+ lastName)
-    print(credslist)
-    credsdict =  {"Email": email,"Username": username,"Password": plainpassword,"First Name": firstName,"Last Name": lastName }
-
+    username = credslist[0]
+    password = credslist[1]  
+    
+    
     def checkhash(password,storedhashpass):
         return bcrypt.checkpw(password, storedhashpass)
+    
+    storedhash = getHash(username)
+    hashstring = storedhash.decode()
+    answer = checkhash(password, hashstring)
+    if answer == True:
+        response = main(username)
+    else:
+        response = '0'
 
-    password = 'password123'
-    storedhash = '$2a$12$izKi4jESEOHVIjGP4LmjK.Zqv/RiT9mnSxFgTj8Wj4./jwtn0PxDa'
-    answer = checkhash(password, storedhash)
-    print(answer)
-
-    response = main(email,username,storedhash,firstName,lastName) #FROM BE TO DB
 
     ch.basic_publish(exchange='',
                     routing_key=props.reply_to,

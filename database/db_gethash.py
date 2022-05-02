@@ -30,12 +30,12 @@ def dbinsertion(dict):
     cursor.execute(select_stmt, dict)
     hash = cursor.fetchone()
     if hash:
-        print("Stock found!, Getting hashpass..")
+        print("Account found!, Getting hashpass..")
         hashpass = hash[1]
         msg = str(hashpass)
         return msg
     else:
-        print("Ticker does not exist")
+        print("Account does not exist")
         msg = '0'
         return msg
 
