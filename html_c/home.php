@@ -82,7 +82,7 @@ else {
     <div><b>Tech</b></div>
       <div>AMD</div>
       <div>TSLA</div>
-      <div>MSFt</div>
+      <div>MSFT</div>
       <div>GOOGL</div>
       <div>AAPL</div>
     </div>
