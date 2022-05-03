@@ -1,2 +1,10 @@
-gnome-terminal --tab --title="deposit" --command="bash -c 'python3 db_deposit.py; $SHELL'"
-gnome-terminal --tab --title="getHash" --command="bash -c 'python3 db_gethash.py; $SHELL'"
+#!/bin/bash
+gnome-terminal -- "./db_invest.py" $SHELL;
+gnome-terminal -- "./db_deposit.py" $SHELL;
+gnome-terminal -- "./db_gethash.py" $SHELL;
+gnome-terminal -- "./db_getprice.py" $SHELL;
+gnome-terminal -- "./db_login.py" $SHELL;
+gnome-terminal -- "./db_registration.py" $SHELL;
+gnome-terminal -- "./db_sell.py" $SHELL;
+gnome-terminal -- "./db_stocks.py" $SHELL;
+gnome-terminal -- "./db_withdraw.py" $SHELL;
