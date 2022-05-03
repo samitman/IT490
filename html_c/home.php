@@ -47,12 +47,12 @@ else {
 <div><h3>Explore our curated portfolios:</h3></div><br>
 <div class="container">
     <div class="square">
-      <h4>Boomer</h4>
-      <p>WMT</p>
-      <p>KO</p>
-      <p>JNJ</p>
-      <p>T</p>
-      <p>UNH</p>
+      <h4>Boomer</h4><br>
+      <p>WMT</p><br>
+      <p>KO</p><br>
+      <p>JNJ</p><br>
+      <p>T</p><br>
+      <p>UNH</p><br>
     </div>
     <div class="square">
       <h4>Moderate</h4>
