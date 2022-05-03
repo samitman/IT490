@@ -1,0 +1,1 @@
+gnome-terminal --tab --title="deposit" --command="bash -c 'python3 db_deposit.py; $SHELL'"
