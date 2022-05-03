@@ -47,60 +47,25 @@ else {
 <div><h3>Explore our curated portfolios:</h3></div><br>
 <div class="container">
     <div class="square">
-      <h4>Boomer</h4><br>
-      <p>WMT</p><br>
-      <p>KO</p><br>
-      <p>JNJ</p><br>
-      <p>T</p><br>
-      <p>UNH</p><br>
+      <h4>Boomer ETF: WMT, KO, JNJ, T, UNH</h4>
     </div>
     <div class="square">
-      <h4>Moderate</h4>
-      <p>AAPL</p>
-      <p>AMZN</p>
-      <p>JNJ</p>
-      <p>SPY</p>
-      <p>BRK-A</p>
+      <h4>Moderate ETF: AAPL, AMZN, JNJ, SPY, BRA-A</h4>
     </div>
     <div class="square">
-      <h4>Aggressive</h4>
-      <p>GOOGL</p>
-      <p>TSLA</p>
-      <p>NVDA</p>
-      <p>FB</p>
-      <p>BABA</p>
+      <h4>Aggressive ETF: GOOGL, TSLA, NVDA, FB, BABA</h4>
     </div>
     <div class="square">
-      <h4>Growth</h4>
-      <p>PLTR</p>
-      <p>AMD</p>
-      <p>TSLA</p>
-      <p>UPST</p>
-      <p>CRM</p>
+      <h4>Growth ETF: PLTR, AMD, TSLA, UPST, CRM</h4>
     </div>
     <div class="square">
-      <h4>Tech</h4>
-      <p>AMD</p>
-      <p>TSLA</p>
-      <p>MSFT</p>
-      <p>GOOGL</p>
-      <p>AAPL</p>
+      <h4>Tech ETF: AMD, TSLA, MSFT, GOOGL, AAPL</h4>
     </div>
     <div class="square">
-      <h4>Crypto</h4>
-      <p>BTC</p>
-      <p>ETH</p>
-      <p>BNB</p>
-      <p>XRP</p>
-      <p>ADA</p>
+      <h4>Crypto ETF: BTC, ETH, BNB, XRP, ADA</h4>
     </div>
     <div class="square">
-      <h4>Meme</h4>
-      <p>GME</p>
-      <p>AMC</p>
-      <p>DOGE</p>
-      <p>DWAC</p>
-      <p>CLOV</p>
+      <h4>Meme ETF: GME, AMC, DOGE, DWAC, CLOV</h4>
     </div>
 </div><br><br>
 
