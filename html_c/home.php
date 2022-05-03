@@ -46,7 +46,10 @@ else {
 
 <div><h3>Explore our curated portfolios:</h3></div>
 <div class="container">
-    <div onclick="window.location.href = 'invest.php';" style="background-image: url('/images/boomer.jpg');" class="square">
+    <div 
+    onclick="window.location.href = 'invest.php';" 
+    style="background-image: url('/images/boomer.jpg'); background-position: 50%; background-size: cover;" 
+    class="square">
       <div><b>Boomer</b></div>
       <div>WMT</div>
       <div>KO</div>
