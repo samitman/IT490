@@ -28,7 +28,7 @@
     else {
         echo "<br>";
         echo "You must be logged in to access this page.";
-        die(header("Location: index.php"));
+        //die(header("Location: index.php"));
         ob_end_flush();
         exit;
     }

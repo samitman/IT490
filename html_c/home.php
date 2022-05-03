@@ -46,33 +46,61 @@ else {
 
 <div><h3>Explore our curated portfolios:</h3></div><br>
 <div class="container">
-
-    <div>
-      Meme
+    <div onclick="window.location.href = 'invest.php';" class="square">
+      <div><b>Boomer</b></div>
+      <div>WMT</div>
+      <div>KO</div>
+      <div>JNJ</div>
+      <div>T</div>
+      <div>UNH</div>
     </div>
-
-    <div>
-      Boomer
+    <div onclick="window.location.href = 'invest.php';" class="square">
+    <div><b>Moderate</b></div>
+      <div>AAPL</div>
+      <div>AMZN</div>
+      <div>JNJ</div>
+      <div>SPY</div>
+      <div>BRK-A</div>
     </div>
-
-    <div>
-      Tech
+    <div onclick="window.location.href = 'invest.php';" class="square">
+    <div><b>Aggressive</b></div>
+      <div>GOOGL</div>
+      <div>TSLA</div>
+      <div>NVDA</div>
+      <div>FB</div>
+      <div>BABA</div>
     </div>
-    
-    <div>
-      Crypto
+    <div onclick="window.location.href = 'invest.php';" class="square">
+    <div><b>Growth</b></div>
+      <div>PLTR</div>
+      <div>AMD</div>
+      <div>TSLA</div>
+      <div>UPST</div>
+      <div>CRM</div>
     </div>
-    
-    <div>
-      Moderate
+    <div onclick="window.location.href = 'invest.php';" class="square">
+    <div><b>Tech</b></div>
+      <div>AMD</div>
+      <div>TSLA</div>
+      <div>MSFt</div>
+      <div>GOOGL</div>
+      <div>AAPL</div>
     </div>
-    
-    <div>
-      Aggressive
+    <div onclick="window.location.href = 'invest.php';" class="square">
+    <div><b>Crypto</b></div>
+      <div>BTC</div>
+      <div>ETH</div>
+      <div>BNB</div>
+      <div>XRP</div>
+      <div>ADA</div>
     </div>
-
-    <div>
-      Growth
+    <div onclick="window.location.href = 'invest.php';" class="square">
+    <div><b>Meme</b></div>
+      <div>GME</div>
+      <div>AMC</div>
+      <div>DOGE</div>
+      <div>DWAC</div>
+      <div>CLOV</div>
     </div>
 </div><br><br>
 

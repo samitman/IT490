@@ -15,10 +15,20 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    transition: all .2s ease-in-out;
   }
 
-  .container>*:hover {
+  .container > .square {
+    transition: all .2s ease-in-out;
+    /* center content */
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .square:hover {
     transform: scale(1.1);
+    border-width: medium;
+    cursor: pointer;
   }
   
