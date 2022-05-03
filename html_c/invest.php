@@ -146,22 +146,26 @@
 			$portfolio = $_POST["portfolio"];
             $sellAmount = $_POST["sellAmount"];
 
-            //RMQ investing process
-            $result = exec("python3 sell.py $username $portfolio $sellAmount");
-            //print($result);
-            $result = explode(",",$result);
-            
-            $numShares = floatval($result[1]);
-            $etfPrice = floatval($result[2]);
-            $balance = floatval($result[3]);
-            
-            $priceString = $portfolio . "Price"; //etfMemePrice
+            //make sure they cannot sell more than they own
+            if($sellAmount <= ($_SESSION[$portfolio] * $_SESSION[$portfolio."Price"])) {
 
-            $_SESSION["balance"] = $balance;
-            $_SESSION[$portfolio] = $numShares; //session[etfMeme] = numShares
-            $_SESSION[$priceString] = $etfPrice; //session[etfMemePrice] = etfPrice
-            die(header("Location: home.php"));
-            exit;
+                //RMQ investing process
+                $result = exec("python3 sell.py $username $portfolio $sellAmount");
+                //print($result);
+                $result = explode(",",$result);
+                
+                $numShares = floatval($result[1]);
+                $etfPrice = floatval($result[2]);
+                $balance = floatval($result[3]);
+                
+                $priceString = $portfolio . "Price"; //etfMemePrice
+
+                $_SESSION["balance"] = $balance;
+                $_SESSION[$portfolio] = $numShares; //session[etfMeme] = numShares
+                $_SESSION[$priceString] = $etfPrice; //session[etfMemePrice] = etfPrice
+                die(header("Location: home.php"));
+                exit;
+            }
 
          } else {
             print("Insufficient Balance.");
