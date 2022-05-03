@@ -44,7 +44,7 @@ else {
   ?>
 </div>
 
-<div><h3>Explore our curated portfolios:</h3></div><br>
+<div><h3>Explore our curated portfolios:</h3></div>
 <div class="container">
     <div onclick="window.location.href = 'invest.php';" class="square">
       <div><b>Boomer</b></div>
