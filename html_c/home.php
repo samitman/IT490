@@ -41,7 +41,7 @@ else {
         $holdings = $_SESSION[$portfolio] * $_SESSION[$portfolio."Price"];
         $roundedHoldings = number_format($holdings,2);
         echo "Total ".substr($portfolio,3). " Portfolio Holdings: $" . $roundedHoldings;
-        $totalInvestments += $roundedHoldings;
+        $totalInvestments += $holdings;
         echo "<br>";
     }
   }
@@ -49,7 +49,7 @@ else {
   if($totalInvestments > 0){
     echo "<br>";
     echo "<br>";
-    echo "Total Investments: $" . $totalInvestments;
+    echo "Total Investments: $" . number_format($totalInvestments,2);
   }
   ?>
 </div>
