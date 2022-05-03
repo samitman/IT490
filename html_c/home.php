@@ -47,25 +47,60 @@ else {
 <div><h3>Explore our curated portfolios:</h3></div><br>
 <div class="container">
     <div class="square">
-      <h4>Boomer ETF: WMT, KO, JNJ, T, UNH</h4>
+      <h4>Boomer</h4>
+      <div>WMT</div>
+      <div>KO</div>
+      <div>JNJ</div>
+      <div>T</div>
+      <div>UNH</div>
     </div>
     <div class="square">
-      <h4>Moderate ETF: AAPL, AMZN, JNJ, SPY, BRA-A</h4>
+      <h4>Moderate</h4>
+      <div>AAPL</div>
+      <div>AMZN</div>
+      <div>JNJ</div>
+      <div>SPY</div>
+      <div>BRK-A</div>
     </div>
     <div class="square">
-      <h4>Aggressive ETF: GOOGL, TSLA, NVDA, FB, BABA</h4>
+      <h4>Aggressive</h4>
+      <div>GOOGL</div>
+      <div>TSLA</div>
+      <div>NVDA</div>
+      <div>FB</div>
+      <div>BABA</div>
     </div>
     <div class="square">
-      <h4>Growth ETF: PLTR, AMD, TSLA, UPST, CRM</h4>
+      <h4>Growth</h4>
+      <div>PLTR</div>
+      <div>AMD</div>
+      <div>TSLA</div>
+      <div>UPST</div>
+      <div>CRM</div>
     </div>
     <div class="square">
-      <h4>Tech ETF: AMD, TSLA, MSFT, GOOGL, AAPL</h4>
+      <h4>Tech</h4>
+      <div>AMD</div>
+      <div>TSLA</div>
+      <div>MSFt</div>
+      <div>GOOGL</div>
+      <div>AAPL</div>
     </div>
     <div class="square">
-      <h4>Crypto ETF: BTC, ETH, BNB, XRP, ADA</h4>
+      <h4>Crypto</h4>
+      <div>BTC</div>
+      <div>ETH</div>
+      <div>BNB</div>
+      <div>XRP</div>
+      <div>ADA</div>
     </div>
     <div class="square">
-      <h4>Meme ETF: GME, AMC, DOGE, DWAC, CLOV</h4>
+      <h4>Meme</h4>
+      <div>GME</div>
+      <div>AMC</div>
+      <div>DOGE</div>
+      <div>DWAC</div>
+      <div>CLOV</div>
     </div>
 </div><br><br>
 
