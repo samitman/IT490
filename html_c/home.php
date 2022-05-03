@@ -35,11 +35,21 @@ else {
   <?php
   //displays investment holdings in each portfolio if they exist
     $portfolioList = ["etfMeme","etfBoomer","etfTech", "etfCrypto", "etfModerate", "etfAggressive", "etfGrowth"];
+    $totalInvestments = 0;
     foreach ($portfolioList as $portfolio) {
       if(isset($_SESSION[$portfolio]) && ($_SESSION[$portfolio] > 0) && isset($_SESSION[$portfolio."Price"])) {
-        echo "Total ".substr($portfolio,3). " Portfolio Holdings: $" . ($_SESSION[$portfolio] * $_SESSION[$portfolio."Price"]);
+        $holdings = $_SESSION[$portfolio] * $_SESSION[$portfolio."Price"];
+        $roundedHoldings = number_format($holdings,2);
+        echo "Total ".substr($portfolio,3). " Portfolio Holdings: $" . $roundedHoldings;
+        $totalInvestments += $roundedHoldings;
         echo "<br>";
     }
+  }
+
+  if($totalInvestments > 0){
+    echo "<br>";
+    echo "<br>";
+    echo "Total Investments: $" . $totalInvestments;
   }
   ?>
 </div>
