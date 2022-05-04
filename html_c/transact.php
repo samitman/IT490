@@ -70,7 +70,7 @@ else {
 
 			//RMQ deposit process
 			//username should be stored in session, see top of page
-			$result = exec("python3 deposit.py $username $depositAmount");
+			$result = exec("python3 ./rmq/deposit.py $username $depositAmount");
 
 			if ($result == 1){
 				//display updated balance
@@ -100,7 +100,7 @@ else {
 
 			//RMQ withdraw process
 			//username should be stored in session, see top of page
-			$result = exec("python3 deposit.py $username $withdrawAmount");
+			$result = exec("python3 ./rmq/deposit.py $username $withdrawAmount");
 
 			if ($result == 1){
 				//display updated balance

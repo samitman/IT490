@@ -109,7 +109,7 @@
             if ($investAmount <= $balance) //or sellAmount <= holdings
             {
                 //RMQ investing process
-                $result = exec("python3 invest.py $username $portfolio $investAmount");
+                $result = exec("python3 ./rmq/invest.py $username $portfolio $investAmount");
                 $result = explode(",",$result);
                 //print($result);
                 //result = (username, num shares, etf price, avail balance)
@@ -150,7 +150,7 @@
             if($sellAmount <= ($_SESSION[$portfolio] * $_SESSION[$portfolio."Price"])) {
 
                 //RMQ investing process
-                $result = exec("python3 sell.py $username $portfolio $sellAmount");
+                $result = exec("python3 ./rmq/sell.py $username $portfolio $sellAmount");
                 //print($result);
                 $result = explode(",",$result);
                 
