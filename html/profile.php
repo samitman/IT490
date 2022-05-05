@@ -33,8 +33,7 @@ else {
 
 <div>
     <h3>Financial Information</h3>
-    <div>Available Balance: $
-        <?php 
+    <div>Available Balance: $<?php 
             if($balance > 0) {
                 echo $balance;
             } else {
