@@ -33,7 +33,15 @@ else {
 
 <div>
     <h3>Financial Information</h3>
-    <div>Available Balance: $<?php echo $balance;?></div><br>
+    <div>Available Balance: $
+        <?php 
+            if($balance > 0) {
+                echo $balance;
+            } else {
+                echo 0;
+            }
+        ?>
+    </div><br>
   <?php
   //displays investment holdings in each portfolio if they exist
     $portfolioList = ["etfMeme","etfBoomer","etfTech", "etfCrypto", "etfModerate", "etfAggressive", "etfGrowth"];
@@ -49,7 +57,6 @@ else {
   }
 
   if($totalInvestments > 0){
-    echo "<br>";
     echo "<br>";
     echo "Total Investments: $" . number_format($totalInvestments,2);
   }
