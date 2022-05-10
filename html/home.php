@@ -4,17 +4,17 @@
 <?php
 if (isset($_SESSION["user"])) {
 	$fname = $_SESSION["fname"];
-  $balance = $_SESSION["balance"];
+  	$balance = $_SESSION["balance"];
 	echo "<br>";
 	echo "Welcome, ".$fname."!";
-  echo "<br>";
-  echo "Your available balance is: $" .$balance;
-  echo "<br>";  
+  	echo "<br>";
+  	echo "Your available balance is: $" .$balance;
+  	echo "<br>";
 }
 else {
     echo "<br>";
     echo "Welcome, please log in!";
-	//die(header("Location: index.php"));
+    die(header("Location: index.php"));
 }
 ?>
 </div>

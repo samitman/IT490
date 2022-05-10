@@ -12,8 +12,8 @@
 	<!--<input style="width: 100%" type="text" id="firstName" name="firstName" placeholder="First Name" /><br><br><br>
         <input style="width: 100%" type="text" id="lastName" name="lastName" placeholder="Last Name" /><br><br><br>
         <input style="width: 100%" type="email" id="email" name="email" placeholder="Email address" /><br><br><br>-->
-        <input style="width: 100%" type="text" id="user" name="username"  maxlength="60" placeholder="Username"/><br><br><br>
-        <input style="width: 100%" type="password" id="p1" name="password" placeholder="Password" /><br><br><br>
+        <input style="width: 100%" type="text" id="user" required name="username"  maxlength="60" placeholder="Username"/><br><br><br>
+        <input style="width: 100%" type="password" id="p1" required name="password" placeholder="Password" /><br><br><br>
        <!-- <input style="width: 100%" type="password" id="p2" name="confirm" placeholder="Confirm password" /><br><br><br>-->
 	<div style="display: flex;">
         	<input style="float: right;" class="submitButton" type="submit" id="login" name="login" value="Login"/><br><br>
