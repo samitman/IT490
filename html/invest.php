@@ -164,7 +164,6 @@
                 $_SESSION[$portfolio] = $numShares; //session[etfMeme] = numShares
                 $_SESSION[$priceString] = $etfPrice; //session[etfMemePrice] = etfPrice
                 die(header("Location: home.php"));
-                exit;
             }
 
          } else {
