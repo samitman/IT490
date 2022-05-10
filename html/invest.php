@@ -123,7 +123,7 @@
                 $priceString = $portfolio . "Price"; //etfMemePrice
 
                 $_SESSION["balance"] = $newBalance;
-                $_SESSION[$portfolio] = $numShares; //session[etfMeme] = numShares
+                $_SESSION[$portfolio] += $numShares; //session[etfMeme] = numShares
                 $_SESSION[$priceString] = $etfPrice; //session[etfMemePrice] = etfPrice
                 die(header("Location: home.php"));
                 exit;
@@ -161,7 +161,7 @@
                 $priceString = $portfolio . "Price"; //etfMemePrice
 
                 $_SESSION["balance"] = $balance;
-                $_SESSION[$portfolio] = $numShares; //session[etfMeme] = numShares
+                $_SESSION[$portfolio] -= $numShares; //session[etfMeme] = numShares
                 $_SESSION[$priceString] = $etfPrice; //session[etfMemePrice] = etfPrice
                 die(header("Location: home.php"));
             }
